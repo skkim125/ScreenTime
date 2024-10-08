@@ -15,6 +15,14 @@
 		04A4F7E12CB52D770094BB42 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 04A4F7E02CB52D770094BB42 /* .gitignore */; };
 		EF9C0FD92CB53E5A00303BD1 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FD82CB53E5A00303BD1 /* UIView+.swift */; };
 		EF9C0FDC2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FDB2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift */; };
+		EF9C0FDF2CB570B500303BD1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FDE2CB570B500303BD1 /* Alamofire */; };
+		EF9C0FE22CB5714C00303BD1 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FE12CB5714C00303BD1 /* Realm */; };
+		EF9C0FE52CB5716100303BD1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FE42CB5716100303BD1 /* SnapKit */; };
+		EF9C0FE82CB5717D00303BD1 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FE72CB5717D00303BD1 /* RxCocoa */; };
+		EF9C0FEA2CB5717D00303BD1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FE92CB5717D00303BD1 /* RxSwift */; };
+		EF9C0FED2CB5718D00303BD1 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FEC2CB5718D00303BD1 /* IQKeyboardManagerSwift */; };
+		EF9C0FF02CB5719C00303BD1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FEF2CB5719C00303BD1 /* Kingfisher */; };
+		EF9C0FF32CB571A800303BD1 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FF22CB571A800303BD1 /* Toast */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +43,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF9C0FF32CB571A800303BD1 /* Toast in Frameworks */,
+				EF9C0FE52CB5716100303BD1 /* SnapKit in Frameworks */,
+				EF9C0FE22CB5714C00303BD1 /* Realm in Frameworks */,
+				EF9C0FF02CB5719C00303BD1 /* Kingfisher in Frameworks */,
+				EF9C0FEA2CB5717D00303BD1 /* RxSwift in Frameworks */,
+				EF9C0FE82CB5717D00303BD1 /* RxCocoa in Frameworks */,
+				EF9C0FDF2CB570B500303BD1 /* Alamofire in Frameworks */,
+				EF9C0FED2CB5718D00303BD1 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +121,16 @@
 			dependencies = (
 			);
 			name = ScreenTimes;
+			packageProductDependencies = (
+				EF9C0FDE2CB570B500303BD1 /* Alamofire */,
+				EF9C0FE12CB5714C00303BD1 /* Realm */,
+				EF9C0FE42CB5716100303BD1 /* SnapKit */,
+				EF9C0FE72CB5717D00303BD1 /* RxCocoa */,
+				EF9C0FE92CB5717D00303BD1 /* RxSwift */,
+				EF9C0FEC2CB5718D00303BD1 /* IQKeyboardManagerSwift */,
+				EF9C0FEF2CB5719C00303BD1 /* Kingfisher */,
+				EF9C0FF22CB571A800303BD1 /* Toast */,
+			);
 			productName = ScreenTimes;
 			productReference = 04A4F7C92CB52CE20094BB42 /* ScreenTimes.app */;
 			productType = "com.apple.product-type.application";
@@ -133,6 +159,15 @@
 				Base,
 			);
 			mainGroup = 04A4F7C02CB52CE20094BB42;
+			packageReferences = (
+				EF9C0FDD2CB570B500303BD1 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				EF9C0FE02CB5714C00303BD1 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				EF9C0FE32CB5716100303BD1 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EF9C0FE62CB5717D00303BD1 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				EF9C0FEB2CB5718D00303BD1 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				EF9C0FEE2CB5719C00303BD1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				EF9C0FF12CB571A800303BD1 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+			);
 			productRefGroup = 04A4F7CA2CB52CE20094BB42 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -385,6 +420,108 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EF9C0FDD2CB570B500303BD1 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+		EF9C0FE02CB5714C00303BD1 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 20.0.0;
+			};
+		};
+		EF9C0FE32CB5716100303BD1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		EF9C0FE62CB5717D00303BD1 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.8.0;
+			};
+		};
+		EF9C0FEB2CB5718D00303BD1 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.2.0;
+			};
+		};
+		EF9C0FEE2CB5719C00303BD1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.3;
+			};
+		};
+		EF9C0FF12CB571A800303BD1 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EF9C0FDE2CB570B500303BD1 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF9C0FDD2CB570B500303BD1 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		EF9C0FE12CB5714C00303BD1 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF9C0FE02CB5714C00303BD1 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		EF9C0FE42CB5716100303BD1 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF9C0FE32CB5716100303BD1 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		EF9C0FE72CB5717D00303BD1 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF9C0FE62CB5717D00303BD1 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		EF9C0FE92CB5717D00303BD1 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF9C0FE62CB5717D00303BD1 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		EF9C0FEC2CB5718D00303BD1 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF9C0FEB2CB5718D00303BD1 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		EF9C0FEF2CB5719C00303BD1 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF9C0FEE2CB5719C00303BD1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		EF9C0FF22CB571A800303BD1 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF9C0FF12CB571A800303BD1 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 04A4F7C12CB52CE20094BB42 /* Project object */;
 }
