@@ -23,6 +23,7 @@
 		EF9C0FED2CB5718D00303BD1 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FEC2CB5718D00303BD1 /* IQKeyboardManagerSwift */; };
 		EF9C0FF02CB5719C00303BD1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FEF2CB5719C00303BD1 /* Kingfisher */; };
 		EF9C0FF32CB571A800303BD1 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FF22CB571A800303BD1 /* Toast */; };
+		EF9C0FF72CB5738500303BD1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FF62CB5738500303BD1 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		04A4F7E02CB52D770094BB42 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		EF9C0FD82CB53E5A00303BD1 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		EF9C0FDB2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
+		EF9C0FF62CB5738500303BD1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,10 +79,10 @@
 		04A4F7CB2CB52CE20094BB42 /* ScreenTimes */ = {
 			isa = PBXGroup;
 			children = (
+				EF9C0FF52CB5733A00303BD1 /* Base */,
+				EF9C0FF42CB5732600303BD1 /* App */,
 				EF9C0FDA2CB53E6A00303BD1 /* Protocol */,
 				EF9C0FD72CB53DFD00303BD1 /* Extension */,
-				04A4F7CC2CB52CE20094BB42 /* AppDelegate.swift */,
-				04A4F7CE2CB52CE20094BB42 /* SceneDelegate.swift */,
 				04A4F7D02CB52CE20094BB42 /* ViewController.swift */,
 				04A4F7D52CB52CE30094BB42 /* Assets.xcassets */,
 				04A4F7D72CB52CE30094BB42 /* LaunchScreen.storyboard */,
@@ -103,6 +105,23 @@
 				EF9C0FDB2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		EF9C0FF42CB5732600303BD1 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				04A4F7CC2CB52CE20094BB42 /* AppDelegate.swift */,
+				04A4F7CE2CB52CE20094BB42 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		EF9C0FF52CB5733A00303BD1 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				EF9C0FF62CB5738500303BD1 /* BaseViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +219,7 @@
 				04A4F7D12CB52CE20094BB42 /* ViewController.swift in Sources */,
 				04A4F7CD2CB52CE20094BB42 /* AppDelegate.swift in Sources */,
 				04A4F7CF2CB52CE20094BB42 /* SceneDelegate.swift in Sources */,
+				EF9C0FF72CB5738500303BD1 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
