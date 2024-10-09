@@ -15,6 +15,7 @@
 		04A4F7E12CB52D770094BB42 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 04A4F7E02CB52D770094BB42 /* .gitignore */; };
 		EF53365D2CB623AA0024B186 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53365C2CB623AA0024B186 /* APIKey.swift */; };
 		EF53365F2CB6387F0024B186 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53365E2CB6387F0024B186 /* NetworkManager.swift */; };
+		EF5336612CB640670024B186 /* TestNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5336602CB640670024B186 /* TestNetwork.swift */; };
 		EF9C0FD92CB53E5A00303BD1 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FD82CB53E5A00303BD1 /* UIView+.swift */; };
 		EF9C0FDC2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FDB2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift */; };
 		EF9C0FDF2CB570B500303BD1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FDE2CB570B500303BD1 /* Alamofire */; };
@@ -27,7 +28,7 @@
 		EF9C0FF32CB571A800303BD1 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FF22CB571A800303BD1 /* Toast */; };
 		EF9C0FF72CB5738500303BD1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FF62CB5738500303BD1 /* BaseViewController.swift */; };
 		EF9C0FFD2CB5743900303BD1 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FFC2CB5743900303BD1 /* Realm.swift */; };
-		EF9C0FFF2CB5744100303BD1 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FFE2CB5744100303BD1 /* Response.swift */; };
+		EF9C0FFF2CB5744100303BD1 /* TrendingMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FFE2CB5744100303BD1 /* TrendingMovie.swift */; };
 		EF9C10042CB5746700303BD1 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C10032CB5746700303BD1 /* View.swift */; };
 		EF9C10062CB5746D00303BD1 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C10052CB5746D00303BD1 /* InitialViewController.swift */; };
 		EF9C10082CB5747300303BD1 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C10072CB5747300303BD1 /* ViewModel.swift */; };
@@ -47,11 +48,12 @@
 		04A4F7E02CB52D770094BB42 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		EF53365C2CB623AA0024B186 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		EF53365E2CB6387F0024B186 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		EF5336602CB640670024B186 /* TestNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNetwork.swift; sourceTree = "<group>"; };
 		EF9C0FD82CB53E5A00303BD1 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		EF9C0FDB2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
 		EF9C0FF62CB5738500303BD1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EF9C0FFC2CB5743900303BD1 /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
-		EF9C0FFE2CB5744100303BD1 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		EF9C0FFE2CB5744100303BD1 /* TrendingMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMovie.swift; sourceTree = "<group>"; };
 		EF9C10032CB5746700303BD1 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		EF9C10052CB5746D00303BD1 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		EF9C10072CB5747300303BD1 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -167,7 +169,7 @@
 		EF9C0FFA2CB5741700303BD1 /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				EF9C0FFE2CB5744100303BD1 /* Response.swift */,
+				EF9C0FFE2CB5744100303BD1 /* TrendingMovie.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -214,6 +216,7 @@
 				EF9C100C2CB60ED800303BD1 /* Router.swift */,
 				EF9C100E2CB61C5300303BD1 /* Header.swift */,
 				EF53365C2CB623AA0024B186 /* APIKey.swift */,
+				EF5336602CB640670024B186 /* TestNetwork.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -308,8 +311,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF5336612CB640670024B186 /* TestNetwork.swift in Sources */,
 				EF9C10062CB5746D00303BD1 /* InitialViewController.swift in Sources */,
-				EF9C0FFF2CB5744100303BD1 /* Response.swift in Sources */,
+				EF9C0FFF2CB5744100303BD1 /* TrendingMovie.swift in Sources */,
 				EF9C100B2CB574BD00303BD1 /* TargetType.swift in Sources */,
 				EF9C0FDC2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift in Sources */,
 				EF53365F2CB6387F0024B186 /* NetworkManager.swift in Sources */,

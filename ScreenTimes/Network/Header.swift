@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 enum Header: String {
     case accept = "accept"
     case authorization = "Authorization"
