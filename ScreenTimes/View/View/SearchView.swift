@@ -10,17 +10,19 @@ import SnapKit
 
 final class SearchView: BaseView {
     let searchController = UISearchController(searchResultsController: nil)
-    
+    var layoutType: CVType = .table
     lazy var collectionView = {
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: defaultCollectionViewLayout(.table))
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: defaultCollectionViewLayout(layoutType))
         cv.register(DefaultCollectionViewCell.self, forCellWithReuseIdentifier: DefaultCollectionViewCell.identifier)
+        cv.showsVerticalScrollIndicator = false
+        cv.backgroundColor = .black
         
         return cv
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
     }
     
     @available(*, unavailable)
@@ -30,5 +32,11 @@ final class SearchView: BaseView {
     
     override func configureHierarchy() {
         addSubview(collectionView)
+    }
+    
+    override func configureLayout() {
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalTo(safeAreaLayoutGuide)
+        }
     }
 }
