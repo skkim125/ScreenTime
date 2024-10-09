@@ -18,6 +18,9 @@
 		04A4F7E72CB592190094BB42 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F7E62CB592190094BB42 /* SearchViewModel.swift */; };
 		04A4F7E92CB639160094BB42 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F7E82CB639160094BB42 /* BaseView.swift */; };
 		04A4F7EB2CB63F9F0094BB42 /* DefaultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F7EA2CB63F9F0094BB42 /* DefaultCollectionViewCell.swift */; };
+		8BF9F0862CB658D50088C37F /* TrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF9F0852CB658D50088C37F /* TrendView.swift */; };
+		8BF9F0882CB658DD0088C37F /* TrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF9F0872CB658DD0088C37F /* TrendViewController.swift */; };
+		8BF9F08B2CB659110088C37F /* TrendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF9F08A2CB659110088C37F /* TrendCollectionViewCell.swift */; };
 		EF53365D2CB623AA0024B186 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53365C2CB623AA0024B186 /* APIKey.swift */; };
 		EF53365F2CB6387F0024B186 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53365E2CB6387F0024B186 /* NetworkManager.swift */; };
 		EF5336612CB640670024B186 /* TestNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5336602CB640670024B186 /* TestNetwork.swift */; };
@@ -56,6 +59,9 @@
 		04A4F7E62CB592190094BB42 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		04A4F7E82CB639160094BB42 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		04A4F7EA2CB63F9F0094BB42 /* DefaultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCollectionViewCell.swift; sourceTree = "<group>"; };
+		8BF9F0852CB658D50088C37F /* TrendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrendView.swift; path = ../../../../../SeSAC/CollaborateTMDB/TMDBCollaborate/TrendView.swift; sourceTree = "<group>"; };
+		8BF9F0872CB658DD0088C37F /* TrendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrendViewController.swift; path = ../../../../../SeSAC/CollaborateTMDB/TMDBCollaborate/TrendViewController.swift; sourceTree = "<group>"; };
+		8BF9F08A2CB659110088C37F /* TrendCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF53365C2CB623AA0024B186 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		EF53365E2CB6387F0024B186 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		EF5336602CB640670024B186 /* TestNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNetwork.swift; sourceTree = "<group>"; };
@@ -208,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				EF9C10052CB5746D00303BD1 /* InitialViewController.swift */,
+				8BF9F0872CB658DD0088C37F /* TrendViewController.swift */,
 				04A4F7E42CB5920C0094BB42 /* SearchViewController.swift */,
 			);
 			path = VC;
@@ -219,6 +226,8 @@
 				EF9C10032CB5746700303BD1 /* View.swift */,
 				04A4F7E22CB592030094BB42 /* SearchView.swift */,
 				04A4F7EA2CB63F9F0094BB42 /* DefaultCollectionViewCell.swift */,
+				8BF9F0852CB658D50088C37F /* TrendView.swift */,
+				8BF9F08A2CB659110088C37F /* TrendCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -329,8 +338,10 @@
 				EF5336612CB640670024B186 /* TestNetwork.swift in Sources */,
 				EF9C10062CB5746D00303BD1 /* InitialViewController.swift in Sources */,
 				EF9C0FFF2CB5744100303BD1 /* TrendingMovie.swift in Sources */,
+				8BF9F0862CB658D50088C37F /* TrendView.swift in Sources */,
 				EF9C100B2CB574BD00303BD1 /* TargetType.swift in Sources */,
 				EF9C0FDC2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift in Sources */,
+				8BF9F08B2CB659110088C37F /* TrendCollectionViewCell.swift in Sources */,
 				EF53365F2CB6387F0024B186 /* NetworkManager.swift in Sources */,
 				EF53365D2CB623AA0024B186 /* APIKey.swift in Sources */,
 				EF9C10082CB5747300303BD1 /* ViewModel.swift in Sources */,
@@ -341,6 +352,7 @@
 				04A4F7E52CB5920C0094BB42 /* SearchViewController.swift in Sources */,
 				04A4F7EB2CB63F9F0094BB42 /* DefaultCollectionViewCell.swift in Sources */,
 				04A4F7E32CB592030094BB42 /* SearchView.swift in Sources */,
+				8BF9F0882CB658DD0088C37F /* TrendViewController.swift in Sources */,
 				EF9C10042CB5746700303BD1 /* View.swift in Sources */,
 				04A4F7CD2CB52CE20094BB42 /* AppDelegate.swift in Sources */,
 				EF9C100F2CB61C5300303BD1 /* Header.swift in Sources */,
