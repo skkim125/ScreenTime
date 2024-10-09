@@ -27,16 +27,17 @@
 		EF53365D2CB623AA0024B186 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53365C2CB623AA0024B186 /* APIKey.swift */; };
 		EF53365F2CB6387F0024B186 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53365E2CB6387F0024B186 /* NetworkManager.swift */; };
 		EF5336612CB640670024B186 /* TestNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5336602CB640670024B186 /* TestNetwork.swift */; };
+		EF5336632CB6C0DA0024B186 /* TrendingTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5336622CB6C0DA0024B186 /* TrendingTV.swift */; };
+		EF5336662CB6C2900024B186 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = EF5336652CB6C2900024B186 /* Toast */; };
+		EF5336692CB6C29D0024B186 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EF5336682CB6C29D0024B186 /* Alamofire */; };
+		EF53366C2CB6C2A40024B186 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EF53366B2CB6C2A40024B186 /* Kingfisher */; };
+		EF53366F2CB6C2AB0024B186 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EF53366E2CB6C2AB0024B186 /* IQKeyboardManagerSwift */; };
+		EF5336722CB6C2B40024B186 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EF5336712CB6C2B40024B186 /* SnapKit */; };
+		EF5336752CB6C2DF0024B186 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EF5336742CB6C2DF0024B186 /* RxCocoa */; };
+		EF5336772CB6C2DF0024B186 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EF5336762CB6C2DF0024B186 /* RxSwift */; };
+		EF5336792CB6C3930024B186 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5336782CB6C3930024B186 /* Genre.swift */; };
 		EF9C0FD92CB53E5A00303BD1 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FD82CB53E5A00303BD1 /* UIView+.swift */; };
 		EF9C0FDC2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FDB2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift */; };
-		EF9C0FDF2CB570B500303BD1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FDE2CB570B500303BD1 /* Alamofire */; };
-		EF9C0FE22CB5714C00303BD1 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FE12CB5714C00303BD1 /* Realm */; };
-		EF9C0FE52CB5716100303BD1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FE42CB5716100303BD1 /* SnapKit */; };
-		EF9C0FE82CB5717D00303BD1 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FE72CB5717D00303BD1 /* RxCocoa */; };
-		EF9C0FEA2CB5717D00303BD1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FE92CB5717D00303BD1 /* RxSwift */; };
-		EF9C0FED2CB5718D00303BD1 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FEC2CB5718D00303BD1 /* IQKeyboardManagerSwift */; };
-		EF9C0FF02CB5719C00303BD1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FEF2CB5719C00303BD1 /* Kingfisher */; };
-		EF9C0FF32CB571A800303BD1 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = EF9C0FF22CB571A800303BD1 /* Toast */; };
 		EF9C0FF72CB5738500303BD1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FF62CB5738500303BD1 /* BaseViewController.swift */; };
 		EF9C0FFD2CB5743900303BD1 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FFC2CB5743900303BD1 /* Realm.swift */; };
 		EF9C0FFF2CB5744100303BD1 /* TrendingMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FFE2CB5744100303BD1 /* TrendingMovie.swift */; };
@@ -71,6 +72,8 @@
 		EF53365C2CB623AA0024B186 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		EF53365E2CB6387F0024B186 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		EF5336602CB640670024B186 /* TestNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNetwork.swift; sourceTree = "<group>"; };
+		EF5336622CB6C0DA0024B186 /* TrendingTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTV.swift; sourceTree = "<group>"; };
+		EF5336782CB6C3930024B186 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		EF9C0FD82CB53E5A00303BD1 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		EF9C0FDB2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
 		EF9C0FF62CB5738500303BD1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -89,14 +92,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF9C0FF32CB571A800303BD1 /* Toast in Frameworks */,
-				EF9C0FE52CB5716100303BD1 /* SnapKit in Frameworks */,
-				EF9C0FE22CB5714C00303BD1 /* Realm in Frameworks */,
-				EF9C0FF02CB5719C00303BD1 /* Kingfisher in Frameworks */,
-				EF9C0FEA2CB5717D00303BD1 /* RxSwift in Frameworks */,
-				EF9C0FE82CB5717D00303BD1 /* RxCocoa in Frameworks */,
-				EF9C0FDF2CB570B500303BD1 /* Alamofire in Frameworks */,
-				EF9C0FED2CB5718D00303BD1 /* IQKeyboardManagerSwift in Frameworks */,
+				EF5336752CB6C2DF0024B186 /* RxCocoa in Frameworks */,
+				EF53366C2CB6C2A40024B186 /* Kingfisher in Frameworks */,
+				EF53366F2CB6C2AB0024B186 /* IQKeyboardManagerSwift in Frameworks */,
+				EF5336662CB6C2900024B186 /* Toast in Frameworks */,
+				EF5336692CB6C29D0024B186 /* Alamofire in Frameworks */,
+				EF5336722CB6C2B40024B186 /* SnapKit in Frameworks */,
+				EF5336772CB6C2DF0024B186 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				EF9C0FFE2CB5744100303BD1 /* TrendingMovie.swift */,
+				EF5336622CB6C0DA0024B186 /* TrendingTV.swift */,
+				EF5336782CB6C3930024B186 /* Genre.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -280,14 +284,13 @@
 			);
 			name = ScreenTimes;
 			packageProductDependencies = (
-				EF9C0FDE2CB570B500303BD1 /* Alamofire */,
-				EF9C0FE12CB5714C00303BD1 /* Realm */,
-				EF9C0FE42CB5716100303BD1 /* SnapKit */,
-				EF9C0FE72CB5717D00303BD1 /* RxCocoa */,
-				EF9C0FE92CB5717D00303BD1 /* RxSwift */,
-				EF9C0FEC2CB5718D00303BD1 /* IQKeyboardManagerSwift */,
-				EF9C0FEF2CB5719C00303BD1 /* Kingfisher */,
-				EF9C0FF22CB571A800303BD1 /* Toast */,
+				EF5336652CB6C2900024B186 /* Toast */,
+				EF5336682CB6C29D0024B186 /* Alamofire */,
+				EF53366B2CB6C2A40024B186 /* Kingfisher */,
+				EF53366E2CB6C2AB0024B186 /* IQKeyboardManagerSwift */,
+				EF5336712CB6C2B40024B186 /* SnapKit */,
+				EF5336742CB6C2DF0024B186 /* RxCocoa */,
+				EF5336762CB6C2DF0024B186 /* RxSwift */,
 			);
 			productName = ScreenTimes;
 			productReference = 04A4F7C92CB52CE20094BB42 /* ScreenTimes.app */;
@@ -318,13 +321,12 @@
 			);
 			mainGroup = 04A4F7C02CB52CE20094BB42;
 			packageReferences = (
-				EF9C0FDD2CB570B500303BD1 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				EF9C0FE02CB5714C00303BD1 /* XCRemoteSwiftPackageReference "realm-swift" */,
-				EF9C0FE32CB5716100303BD1 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				EF9C0FE62CB5717D00303BD1 /* XCRemoteSwiftPackageReference "RxSwift" */,
-				EF9C0FEB2CB5718D00303BD1 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				EF9C0FEE2CB5719C00303BD1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				EF9C0FF12CB571A800303BD1 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				EF5336642CB6C2900024B186 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				EF5336672CB6C29D0024B186 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				EF53366A2CB6C2A40024B186 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				EF53366D2CB6C2AB0024B186 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				EF5336702CB6C2B40024B186 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EF5336732CB6C2DF0024B186 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 04A4F7CA2CB52CE20094BB42 /* Products */;
 			projectDirPath = "";
@@ -353,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF5336632CB6C0DA0024B186 /* TrendingTV.swift in Sources */,
 				EF5336612CB640670024B186 /* TestNetwork.swift in Sources */,
 				EF9C10062CB5746D00303BD1 /* InitialViewController.swift in Sources */,
 				EF9C0FFF2CB5744100303BD1 /* TrendingMovie.swift in Sources */,
@@ -360,6 +363,7 @@
 				EF9C0FDC2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift in Sources */,
 				EF53365F2CB6387F0024B186 /* NetworkManager.swift in Sources */,
 				EF53365D2CB623AA0024B186 /* APIKey.swift in Sources */,
+				EF5336792CB6C3930024B186 /* Genre.swift in Sources */,
 				EF9C10082CB5747300303BD1 /* ViewModel.swift in Sources */,
 				04A4F8422CB6EBE00094BB42 /* DownloadView.swift in Sources */,
 				EF9C0FD92CB53E5A00303BD1 /* UIView+.swift in Sources */,
@@ -661,48 +665,83 @@
 				minimumVersion = 5.1.1;
 			};
 		};
+		EF5336672CB6C29D0024B186 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+		EF53366A2CB6C2A40024B186 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.3;
+			};
+		};
+		EF53366D2CB6C2AB0024B186 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.2.0;
+			};
+		};
+		EF5336702CB6C2B40024B186 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		EF5336732CB6C2DF0024B186 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.8.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EF9C0FDE2CB570B500303BD1 /* Alamofire */ = {
+		EF5336652CB6C2900024B186 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EF9C0FDD2CB570B500303BD1 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = EF5336642CB6C2900024B186 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+		EF5336682CB6C29D0024B186 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF5336672CB6C29D0024B186 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		EF9C0FE12CB5714C00303BD1 /* Realm */ = {
+		EF53366B2CB6C2A40024B186 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EF9C0FE02CB5714C00303BD1 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
-		EF9C0FE42CB5716100303BD1 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EF9C0FE32CB5716100303BD1 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		EF9C0FE72CB5717D00303BD1 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EF9C0FE62CB5717D00303BD1 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		EF9C0FE92CB5717D00303BD1 /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EF9C0FE62CB5717D00303BD1 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
-		EF9C0FEC2CB5718D00303BD1 /* IQKeyboardManagerSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EF9C0FEB2CB5718D00303BD1 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
-			productName = IQKeyboardManagerSwift;
-		};
-		EF9C0FEF2CB5719C00303BD1 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EF9C0FEE2CB5719C00303BD1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = EF53366A2CB6C2A40024B186 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
-		EF9C0FF22CB571A800303BD1 /* Toast */ = {
+		EF53366E2CB6C2AB0024B186 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EF9C0FF12CB571A800303BD1 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
-			productName = Toast;
+			package = EF53366D2CB6C2AB0024B186 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		EF5336712CB6C2B40024B186 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF5336702CB6C2B40024B186 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		EF5336742CB6C2DF0024B186 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF5336732CB6C2DF0024B186 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		EF5336762CB6C2DF0024B186 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF5336732CB6C2DF0024B186 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
