@@ -10,12 +10,12 @@ import UIKit
 class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
-        configureHierarchy()
-        configureLayout()
-        configureView()
+        view.backgroundColor = .white
+        
+        bind()
+        configureNavigationBar()
     }
-    func configureHierarchy() { }
-    func configureLayout() { }
-    func configureView() { }
+    
+    func bind() { }
+    func configureNavigationBar() {}
 }
