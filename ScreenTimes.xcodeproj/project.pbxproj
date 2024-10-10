@@ -48,6 +48,7 @@
 		EF9C100D2CB60ED800303BD1 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C100C2CB60ED800303BD1 /* Router.swift */; };
 		EF9C100F2CB61C5300303BD1 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C100E2CB61C5300303BD1 /* Header.swift */; };
 		EFD78CAB2CB8019D00CE7A57 /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD78CAA2CB8019D00CE7A57 /* APIURL.swift */; };
+		EFD78CAD2CB820BE00CE7A57 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD78CAC2CB820BE00CE7A57 /* Bundle+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		EF9C100E2CB61C5300303BD1 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		EFD78CA92CB800BD00CE7A57 /* Apikey.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Apikey.xcconfig; sourceTree = "<group>"; };
 		EFD78CAA2CB8019D00CE7A57 /* APIURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
+		EFD78CAC2CB820BE00CE7A57 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				EF9C0FD82CB53E5A00303BD1 /* UIView+.swift */,
+				EFD78CAC2CB820BE00CE7A57 /* Bundle+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				EF9C10062CB5746D00303BD1 /* InitialViewController.swift in Sources */,
 				EF9C0FFF2CB5744100303BD1 /* TrendingMovie.swift in Sources */,
 				EF9C100B2CB574BD00303BD1 /* TargetType.swift in Sources */,
+				EFD78CAD2CB820BE00CE7A57 /* Bundle+.swift in Sources */,
 				EF9C0FDC2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift in Sources */,
 				EF53365F2CB6387F0024B186 /* NetworkManager.swift in Sources */,
 				EF5336792CB6C3930024B186 /* Genre.swift in Sources */,

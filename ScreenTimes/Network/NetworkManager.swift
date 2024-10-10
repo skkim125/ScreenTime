@@ -17,7 +17,6 @@ struct NetworkManager {
         return Single.create { single in
             do {
                 let request = try router.asURLRequest()
-                
                 AF.request(request).responseDecodable(of: T.self) { response in
                     switch response.result {
                     case .success(let value):
