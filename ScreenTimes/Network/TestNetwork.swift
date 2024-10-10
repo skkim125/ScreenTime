@@ -19,6 +19,8 @@ class TestNetworkVC: UIViewController {
         fetchTrendingTV()
         fetchGenreMovie()
         fetchGenreTV()
+        fetchSearchMovie(query: "Harry")
+        fetchSearchTV(query: "sherlock")
     }
     
     private func fetchTrendingMovie() {
@@ -67,6 +69,30 @@ class TestNetworkVC: UIViewController {
                 }
             }, onFailure: { error in
                     print("4️⃣ TV Genre Error --- 📺", error)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func fetchSearchMovie(query: String, page: Int = 1) {
+        NetworkManager.request(Router.searchMovie(query: query, page: page))
+            .subscribe(onSuccess: { (response: SearchMovie) in
+                for searchMovie in response.results {
+                    print("5️⃣ searchMovie --- 🎬", searchMovie.original_title ?? "제목 없음")
+                }
+            }, onFailure: { error in
+                    print("5️⃣ searchMovie --- 🎬", error)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func fetchSearchTV(query: String, page: Int = 1) {
+        NetworkManager.request(Router.searchTV(query: query, page: page))
+            .subscribe(onSuccess: { (response: SearchTV) in
+                for searchTV in response.results {
+                    print("6️⃣ searchTV --- 📺", searchTV.original_name ?? "제목 없음")
+                }
+            }, onFailure: { error in
+                    print("6️⃣ searchTV --- 📺", error)
             })
             .disposed(by: disposeBag)
     }

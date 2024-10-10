@@ -13,12 +13,14 @@ enum Router {
     case trendingTV
     case genreMovie
     case genreTV
+    case searchMovie(query: String, page: Int)
+    case searchTV(query: String, page: Int)
 }
 
 extension Router: TargetType {
     var method: Alamofire.HTTPMethod {
         switch self {
-        case .trendingMovie, .trendingTV, .genreMovie, .genreTV:
+        case .trendingMovie, .trendingTV, .genreMovie, .genreTV, .searchMovie, .searchTV:
             return .get
         }
     }
@@ -32,6 +34,13 @@ extension Router: TargetType {
         case .trendingMovie, .trendingTV, .genreMovie, .genreTV:
             return [
                 URLQueryItem(name: "language", value: "ko_KR")
+            ]
+        case .searchMovie(let query, let page),
+                .searchTV(let query, let page):
+            return [
+                URLQueryItem(name: "language", value: "ko_KR"),
+                URLQueryItem(name: "query", value: query),
+                URLQueryItem(name: "page", value: String(page))
             ]
         }
     }
@@ -54,12 +63,16 @@ extension Router: TargetType {
             return APIURL.genreMovie.urlString
         case .genreTV:
             return APIURL.genreTV.urlString
+        case .searchMovie:
+            return APIURL.searchMovie.urlString
+        case .searchTV:
+            return APIURL.searchTV.urlString
         }
     }
     
     var header: [String: String] {
         switch self {
-        case .trendingMovie, .trendingTV, .genreMovie, .genreTV:
+        case .trendingMovie, .trendingTV, .genreMovie, .genreTV, .searchMovie, .searchTV:
             return [
                 Header.accept.rawValue: Header.acceptValue.rawValue,
                 Header.authorization.rawValue: APIKey.tmdbAccessToken
