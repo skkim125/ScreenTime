@@ -20,9 +20,9 @@ final class SearchView: BaseView {
         return cv
     }()
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, type: CVType) {
         super.init(frame: frame)
-        
+        layoutType = type
     }
     
     @available(*, unavailable)

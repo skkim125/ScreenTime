@@ -34,25 +34,25 @@ final class DefaultCollectionViewCell: UICollectionViewCell {
         switch type {
         case .threeCell:
             posterImageView.snp.makeConstraints { make in
-                make.edges.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+                make.edges.equalTo(contentView.safeAreaLayoutGuide)
             }
         case .table:
             posterImageView.snp.makeConstraints { make in
                 make.leading.equalTo(contentView.snp.leading).offset(10)
                 make.verticalEdges.equalTo(contentView.snp.verticalEdges).inset(10)
-                make.width.equalTo(150)
+                make.width.equalTo(140)
                 make.height.equalTo(120)
             }
             
             titleLabel.snp.makeConstraints { make in
-                make.leading.equalTo(posterImageView.snp.trailing).offset(5)
+                make.leading.equalTo(posterImageView.snp.trailing).offset(10)
                 make.height.equalTo(25)
                 make.centerY.equalTo(posterImageView.snp.centerY)
             }
             
             playButton.snp.makeConstraints { make in
                 make.trailing.equalTo(contentView.snp.trailing).inset(10)
-                make.size.equalTo(80)
+                make.size.equalTo(60)
                 make.leading.equalTo(titleLabel.snp.trailing).offset(10)
                 make.centerY.equalTo(titleLabel.snp.centerY)
             }
