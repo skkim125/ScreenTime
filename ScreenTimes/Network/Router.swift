@@ -9,10 +9,6 @@ import Foundation
 import Alamofire
 
 enum Router {
-    static var apikey: String {
-        guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String else { return "" }
-        return apiKey
-    }
     case trendingMovie
     case trendingTV
     case genreMovie
@@ -75,11 +71,15 @@ extension Router: TargetType {
     }
     
     var header: [String: String] {
+        guard let apikey = Bundle.main.apikey else {
+            print("❌❌❌  API 키를 로드하지 못 했습니다  ❌❌❌")
+            return [:]
+        }
         switch self {
         case .trendingMovie, .trendingTV, .genreMovie, .genreTV, .searchMovie, .searchTV:
             return [
                 Header.accept.rawValue: Header.acceptValue.rawValue,
-                Header.authorization.rawValue: Router.apikey
+                Header.authorization.rawValue: apikey
             ]
         }
     }
