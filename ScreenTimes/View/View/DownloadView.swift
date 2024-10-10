@@ -1,14 +1,14 @@
 //
-//  SearchView.swift
+//  DownloadView.swift
 //  ScreenTimes
 //
-//  Created by 김상규 on 10/9/24.
+//  Created by 김상규 on 10/10/24.
 //
 
 import UIKit
 import SnapKit
 
-final class SearchView: BaseView {
+final class DownloadView: BaseView {
     let searchController = UISearchController(searchResultsController: nil)
     var layoutType: CVType = .table
     lazy var collectionView = {
@@ -20,9 +20,9 @@ final class SearchView: BaseView {
         return cv
     }()
     
-    init(frame: CGRect, type: CVType) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
-        layoutType = type
+        
     }
     
     @available(*, unavailable)

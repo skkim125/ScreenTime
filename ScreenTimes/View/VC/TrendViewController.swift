@@ -37,7 +37,6 @@ final class TrendViewController: UIViewController {
 //                cell.configureCell(text: "\(element)")
         }
         .disposed(by: disposeBag)
-        
     }
     
     private func configureNavigationBar() {
