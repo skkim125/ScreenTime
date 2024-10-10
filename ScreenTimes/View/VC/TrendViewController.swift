@@ -38,8 +38,6 @@ final class TrendViewController: UIViewController {
         }
         .disposed(by: disposeBag)
         
-        Network().aa()
-        
     }
     
     private func configureNavigationBar() {
