@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 final class SearchViewController: BaseViewController {
-    private let searchView = SearchView()
+    private let searchView = SearchView(frame: .zero, type: .table)
     private let disposeBag = DisposeBag()
     
     override func loadView() {

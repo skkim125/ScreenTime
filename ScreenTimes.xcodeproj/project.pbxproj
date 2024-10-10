@@ -47,6 +47,7 @@
 		EF9C100B2CB574BD00303BD1 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C100A2CB574BD00303BD1 /* TargetType.swift */; };
 		EF9C100D2CB60ED800303BD1 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C100C2CB60ED800303BD1 /* Router.swift */; };
 		EF9C100F2CB61C5300303BD1 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C100E2CB61C5300303BD1 /* Header.swift */; };
+		EFD78CAB2CB8019D00CE7A57 /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD78CAA2CB8019D00CE7A57 /* APIURL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,8 @@
 		EF9C100A2CB574BD00303BD1 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		EF9C100C2CB60ED800303BD1 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		EF9C100E2CB61C5300303BD1 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		EFD78CA92CB800BD00CE7A57 /* Apikey.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Apikey.xcconfig; sourceTree = "<group>"; };
+		EFD78CAA2CB8019D00CE7A57 /* APIURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,7 @@
 		04A4F7C02CB52CE20094BB42 = {
 			isa = PBXGroup;
 			children = (
+				EFD78CA92CB800BD00CE7A57 /* Apikey.xcconfig */,
 				04A4F7E02CB52D770094BB42 /* .gitignore */,
 				04A4F7CB2CB52CE20094BB42 /* ScreenTimes */,
 				04A4F7CA2CB52CE20094BB42 /* Products */,
@@ -264,6 +268,7 @@
 				EF9C100C2CB60ED800303BD1 /* Router.swift */,
 				EF9C100E2CB61C5300303BD1 /* Header.swift */,
 				EF5336602CB640670024B186 /* TestNetwork.swift */,
+				EFD78CAA2CB8019D00CE7A57 /* APIURL.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 				EF9C0FFD2CB5743900303BD1 /* Realm.swift in Sources */,
 				04A4F7E52CB5920C0094BB42 /* SearchViewController.swift in Sources */,
 				04A4F7EB2CB63F9F0094BB42 /* DefaultCollectionViewCell.swift in Sources */,
+				EFD78CAB2CB8019D00CE7A57 /* APIURL.swift in Sources */,
 				04A4F7E32CB592030094BB42 /* SearchView.swift in Sources */,
 				EF53367D2CB6CE390024B186 /* SearchTV.swift in Sources */,
 				EF9C10042CB5746700303BD1 /* View.swift in Sources */,
@@ -523,6 +529,7 @@
 		};
 		04A4F7DE2CB52CE30094BB42 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFD78CA92CB800BD00CE7A57 /* Apikey.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
