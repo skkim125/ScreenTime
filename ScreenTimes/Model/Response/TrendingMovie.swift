@@ -12,6 +12,7 @@ struct TrendingMovie: Decodable {
 }
 
 struct MovieResult: Decodable {
+    let backdrop_path: String?
     let id: Int
     let overview: String
     let poster_path: String?
