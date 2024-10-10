@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+
 
 final class TrendCollectionViewCell: UICollectionViewCell {
     
@@ -44,6 +46,8 @@ final class TrendCollectionViewCell: UICollectionViewCell {
     
     func configureCell(text: String) {
         textlabel.text = text
+        
+        
     }
     
 }
