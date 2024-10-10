@@ -12,6 +12,7 @@ struct TrendingTV: Decodable {
 }
 
 struct TVResult: Decodable {
+    let backdrop_path: String?
     let id: Int
     let name: String
     let overview: String

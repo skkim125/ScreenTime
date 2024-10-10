@@ -15,6 +15,7 @@ struct SearchTV: Decodable {
 }
 
 struct searchTVResults: Decodable {
+    let backdrop_path: String?
     let id: Int
     let name: String?
     let overview: String?

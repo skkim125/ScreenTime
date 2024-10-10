@@ -88,9 +88,9 @@
 		EF9C100A2CB574BD00303BD1 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		EF9C100C2CB60ED800303BD1 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		EF9C100E2CB61C5300303BD1 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
-		EFD78CA92CB800BD00CE7A57 /* Apikey.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Apikey.xcconfig; sourceTree = "<group>"; };
 		EFD78CAA2CB8019D00CE7A57 /* APIURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
 		EFD78CAC2CB820BE00CE7A57 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
+		EFD78CAE2CB8258200CE7A57 /* Apikey.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Apikey.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +113,7 @@
 		04A4F7C02CB52CE20094BB42 = {
 			isa = PBXGroup;
 			children = (
-				EFD78CA92CB800BD00CE7A57 /* Apikey.xcconfig */,
+				EFD78CAE2CB8258200CE7A57 /* Apikey.xcconfig */,
 				04A4F7E02CB52D770094BB42 /* .gitignore */,
 				04A4F7CB2CB52CE20094BB42 /* ScreenTimes */,
 				04A4F7CA2CB52CE20094BB42 /* Products */,
@@ -533,7 +533,7 @@
 		};
 		04A4F7DE2CB52CE30094BB42 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFD78CA92CB800BD00CE7A57 /* Apikey.xcconfig */;
+			baseConfigurationReference = EFD78CAE2CB8258200CE7A57 /* Apikey.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
