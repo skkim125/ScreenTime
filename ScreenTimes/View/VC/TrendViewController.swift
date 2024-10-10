@@ -9,12 +9,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class TrendViewController: UIViewController {
+final class TrendViewController: BaseViewController {
     
     private let trendView = TrendView()
     private let list = BehaviorRelay(value: Array(1...10))
     private let disposeBag = DisposeBag()
-    
+    private let trendVM = TrendVM()
     
     override func loadView() {
         view = trendView
@@ -23,14 +23,10 @@ final class TrendViewController: UIViewController {
     
     override func viewDidLoad() {
         view.backgroundColor = .black
-        configureNavigationBar()
         
-        list  
-            .bind(to: trendView.maincontentsCollectionView.rx.items(cellIdentifier: "TrendCollectionViewCell", cellType: TrendCollectionViewCell.self)) { (row, element, cell) in
-            
-//                cell.configureCell(text: "\(element)")
-        }
-        .disposed(by: disposeBag)
+       
+        
+        
         list
             .bind(to: trendView.tvcontentsCollectionView.rx.items(cellIdentifier: "TrendCollectionViewCell", cellType: TrendCollectionViewCell.self)) { (row, element, cell) in
             
@@ -39,7 +35,20 @@ final class TrendViewController: UIViewController {
         .disposed(by: disposeBag)
     }
     
-    private func configureNavigationBar() {
+    override func bind() {
+        let input = TrendVM.Input(trendTrigger: Observable.just(()))
+        
+        let output = trendVM.transform(input: input)
+        
+        output.trendMovieList
+            .bind(to: trendView.moviecontentsCollectionView.rx.items(cellIdentifier: "TrendCollectionViewCell", cellType: TrendCollectionViewCell.self)) { (row, element, cell) in
+            
+                cell.configureCell(imageURL: element.poster_path ?? "")
+        }
+        .disposed(by: disposeBag)
+    }
+    
+    override func configureNavigationBar() {
         
         let searchButton1 = UIBarButtonItem(image: UIImage(systemName: "sparkles.tv"), style: .plain, target: self, action: nil)
         let searchButton2 = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: nil)

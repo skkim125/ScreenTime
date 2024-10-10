@@ -44,10 +44,11 @@ final class TrendCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func configureCell(text: String) {
-        textlabel.text = text
+    func configureCell(imageURL: String) {
         
-        
+        if let url = URL(string: imageURL) {
+            imageView.kf.setImage(with: url)
+        }
     }
     
 }

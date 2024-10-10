@@ -75,7 +75,7 @@ final class TrendView: UIView {
         return label
     }()
    
-    let maincontentsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: maincontentsViewLayout())
+    let moviecontentsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: maincontentsViewLayout())
     
     let tvcontentsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: maincontentsViewLayout())
     
@@ -101,7 +101,7 @@ final class TrendView: UIView {
         backgroundColor = .white
         configureHierarchy()
         configureLayout()
-        maincontentsCollectionView.register(TrendCollectionViewCell.self, forCellWithReuseIdentifier: "TrendCollectionViewCell")
+        moviecontentsCollectionView.register(TrendCollectionViewCell.self, forCellWithReuseIdentifier: "TrendCollectionViewCell")
         tvcontentsCollectionView.register(TrendCollectionViewCell.self, forCellWithReuseIdentifier: "TrendCollectionViewCell")
     }
     
@@ -117,12 +117,12 @@ final class TrendView: UIView {
         contentView.addSubview(plusBtn)
         contentView.addSubview(genreLabel)
         contentView.addSubview(categoryLabel1)
-        contentView.addSubview(maincontentsCollectionView)
+        contentView.addSubview(moviecontentsCollectionView)
         contentView.addSubview(categoryLabel2)
         contentView.addSubview(tvcontentsCollectionView)
-        maincontentsCollectionView.showsHorizontalScrollIndicator = false
+        moviecontentsCollectionView.showsHorizontalScrollIndicator = false
         tvcontentsCollectionView.showsHorizontalScrollIndicator = false
-        maincontentsCollectionView.backgroundColor = .clear
+        moviecontentsCollectionView.backgroundColor = .clear
         tvcontentsCollectionView.backgroundColor = .clear
     }
     
@@ -161,13 +161,13 @@ final class TrendView: UIView {
             make.top.equalTo(recView.snp.bottom).offset(30)
             make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
         }
-        maincontentsCollectionView.snp.makeConstraints { make in
+        moviecontentsCollectionView.snp.makeConstraints { make in
             make.top.equalTo(categoryLabel1.snp.bottom).offset(10)
             make.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(10)
             make.height.equalTo(150)
         }
         categoryLabel2.snp.makeConstraints { make in
-            make.top.equalTo(maincontentsCollectionView.snp.bottom).offset(20)
+            make.top.equalTo(moviecontentsCollectionView.snp.bottom).offset(20)
             make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
         }
         tvcontentsCollectionView.snp.makeConstraints { make in

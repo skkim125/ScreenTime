@@ -27,18 +27,21 @@ final class TrendVM {
 //        print("dfdfdsfsdfdsf")
         let trendMovieList = PublishSubject<[MovieResult]>()
 //        
-//        input.trendTrigger
-//            .flatMap {
-//                Network.request(model: TrendingMovie.self)
-//            }
-//            .subscribe(with: self, onNext: { owner, result in
-//                let limitedResults = Array(result.results.prefix(10))
-//                trendMovieList.onNext(limitedResults)
-//            }, onError: { owner, error in
-//                print(error)
-//            })
-//            .disposed(by: disposeBag)
-//        
+        input.trendTrigger
+            .flatMap {
+                NetworkManager.requestTest(router: .trendingMovie, model: TrendingMovie.self)
+            }
+            .subscribe(with: self, onNext: { owner, result in
+                
+                guard let result = result else { return print("결과값 없음.")}
+                
+                let limitedResults = Array(result.results.prefix(10))
+                trendMovieList.onNext(limitedResults)
+                
+            }, onError: { owner, error in
+                print(error)
+            })
+            .disposed(by: disposeBag)
         
         return Output(trendMovieList: trendMovieList)
     }
