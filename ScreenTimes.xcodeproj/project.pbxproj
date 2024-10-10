@@ -24,11 +24,9 @@
 		8BF9F09F2CB78AA60088C37F /* TrendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF9F09D2CB78AA60088C37F /* TrendCollectionViewCell.swift */; };
 		8BF9F0A12CB78AEF0088C37F /* TrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF9F0A02CB78AEF0088C37F /* TrendView.swift */; };
 		8BF9F0A32CB78AFD0088C37F /* TrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF9F0A22CB78AFD0088C37F /* TrendViewController.swift */; };
-		EF53365D2CB623AA0024B186 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53365C2CB623AA0024B186 /* APIKey.swift */; };
 		EF53365F2CB6387F0024B186 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53365E2CB6387F0024B186 /* NetworkManager.swift */; };
 		EF5336612CB640670024B186 /* TestNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5336602CB640670024B186 /* TestNetwork.swift */; };
 		EF5336632CB6C0DA0024B186 /* TrendingTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5336622CB6C0DA0024B186 /* TrendingTV.swift */; };
-		EF5336662CB6C2900024B186 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = EF5336652CB6C2900024B186 /* Toast */; };
 		EF5336692CB6C29D0024B186 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EF5336682CB6C29D0024B186 /* Alamofire */; };
 		EF53366C2CB6C2A40024B186 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EF53366B2CB6C2A40024B186 /* Kingfisher */; };
 		EF53366F2CB6C2AB0024B186 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EF53366E2CB6C2AB0024B186 /* IQKeyboardManagerSwift */; };
@@ -49,6 +47,7 @@
 		EF9C100B2CB574BD00303BD1 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C100A2CB574BD00303BD1 /* TargetType.swift */; };
 		EF9C100D2CB60ED800303BD1 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C100C2CB60ED800303BD1 /* Router.swift */; };
 		EF9C100F2CB61C5300303BD1 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C100E2CB61C5300303BD1 /* Header.swift */; };
+		EFD78CAB2CB8019D00CE7A57 /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD78CAA2CB8019D00CE7A57 /* APIURL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,7 +70,6 @@
 		8BF9F09D2CB78AA60088C37F /* TrendCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendCollectionViewCell.swift; sourceTree = "<group>"; };
 		8BF9F0A02CB78AEF0088C37F /* TrendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendView.swift; sourceTree = "<group>"; };
 		8BF9F0A22CB78AFD0088C37F /* TrendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendViewController.swift; sourceTree = "<group>"; };
-		EF53365C2CB623AA0024B186 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		EF53365E2CB6387F0024B186 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		EF5336602CB640670024B186 /* TestNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNetwork.swift; sourceTree = "<group>"; };
 		EF5336622CB6C0DA0024B186 /* TrendingTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTV.swift; sourceTree = "<group>"; };
@@ -89,6 +87,8 @@
 		EF9C100A2CB574BD00303BD1 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		EF9C100C2CB60ED800303BD1 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		EF9C100E2CB61C5300303BD1 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		EFD78CA92CB800BD00CE7A57 /* Apikey.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Apikey.xcconfig; sourceTree = "<group>"; };
+		EFD78CAA2CB8019D00CE7A57 /* APIURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +99,6 @@
 				EF5336752CB6C2DF0024B186 /* RxCocoa in Frameworks */,
 				EF53366C2CB6C2A40024B186 /* Kingfisher in Frameworks */,
 				EF53366F2CB6C2AB0024B186 /* IQKeyboardManagerSwift in Frameworks */,
-				EF5336662CB6C2900024B186 /* Toast in Frameworks */,
 				EF5336692CB6C29D0024B186 /* Alamofire in Frameworks */,
 				EF5336722CB6C2B40024B186 /* SnapKit in Frameworks */,
 				EF5336772CB6C2DF0024B186 /* RxSwift in Frameworks */,
@@ -112,6 +111,7 @@
 		04A4F7C02CB52CE20094BB42 = {
 			isa = PBXGroup;
 			children = (
+				EFD78CA92CB800BD00CE7A57 /* Apikey.xcconfig */,
 				04A4F7E02CB52D770094BB42 /* .gitignore */,
 				04A4F7CB2CB52CE20094BB42 /* ScreenTimes */,
 				04A4F7CA2CB52CE20094BB42 /* Products */,
@@ -267,8 +267,8 @@
 				EF9C100A2CB574BD00303BD1 /* TargetType.swift */,
 				EF9C100C2CB60ED800303BD1 /* Router.swift */,
 				EF9C100E2CB61C5300303BD1 /* Header.swift */,
-				EF53365C2CB623AA0024B186 /* APIKey.swift */,
 				EF5336602CB640670024B186 /* TestNetwork.swift */,
+				EFD78CAA2CB8019D00CE7A57 /* APIURL.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -290,7 +290,6 @@
 			);
 			name = ScreenTimes;
 			packageProductDependencies = (
-				EF5336652CB6C2900024B186 /* Toast */,
 				EF5336682CB6C29D0024B186 /* Alamofire */,
 				EF53366B2CB6C2A40024B186 /* Kingfisher */,
 				EF53366E2CB6C2AB0024B186 /* IQKeyboardManagerSwift */,
@@ -327,7 +326,6 @@
 			);
 			mainGroup = 04A4F7C02CB52CE20094BB42;
 			packageReferences = (
-				EF5336642CB6C2900024B186 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				EF5336672CB6C29D0024B186 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				EF53366A2CB6C2A40024B186 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				EF53366D2CB6C2AB0024B186 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
@@ -369,7 +367,6 @@
 				EF9C100B2CB574BD00303BD1 /* TargetType.swift in Sources */,
 				EF9C0FDC2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift in Sources */,
 				EF53365F2CB6387F0024B186 /* NetworkManager.swift in Sources */,
-				EF53365D2CB623AA0024B186 /* APIKey.swift in Sources */,
 				EF5336792CB6C3930024B186 /* Genre.swift in Sources */,
 				EF9C10082CB5747300303BD1 /* ViewModel.swift in Sources */,
 				04A4F8422CB6EBE00094BB42 /* DownloadView.swift in Sources */,
@@ -382,6 +379,7 @@
 				EF9C0FFD2CB5743900303BD1 /* Realm.swift in Sources */,
 				04A4F7E52CB5920C0094BB42 /* SearchViewController.swift in Sources */,
 				04A4F7EB2CB63F9F0094BB42 /* DefaultCollectionViewCell.swift in Sources */,
+				EFD78CAB2CB8019D00CE7A57 /* APIURL.swift in Sources */,
 				04A4F7E32CB592030094BB42 /* SearchView.swift in Sources */,
 				EF53367D2CB6CE390024B186 /* SearchTV.swift in Sources */,
 				EF9C10042CB5746700303BD1 /* View.swift in Sources */,
@@ -531,6 +529,7 @@
 		};
 		04A4F7DE2CB52CE30094BB42 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFD78CA92CB800BD00CE7A57 /* Apikey.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -617,62 +616,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EF9C0FDD2CB570B500303BD1 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.9.1;
-			};
-		};
-		EF9C0FE02CB5714C00303BD1 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 20.0.0;
-			};
-		};
-		EF9C0FE32CB5716100303BD1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.7.1;
-			};
-		};
-		EF9C0FE62CB5717D00303BD1 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.8.0;
-			};
-		};
-		EF9C0FEB2CB5718D00303BD1 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.2.0;
-			};
-		};
-		EF9C0FEE2CB5719C00303BD1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.3;
-			};
-		};
-		EF9C0FF12CB571A800303BD1 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.1.1;
-			};
-		};
 		EF5336672CB6C29D0024B186 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -716,11 +659,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EF5336652CB6C2900024B186 /* Toast */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EF5336642CB6C2900024B186 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
-			productName = Toast;
-		};
 		EF5336682CB6C29D0024B186 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EF5336672CB6C29D0024B186 /* XCRemoteSwiftPackageReference "Alamofire" */;
