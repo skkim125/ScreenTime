@@ -34,7 +34,7 @@ final class SearchViewController: BaseViewController {
         let setTrend = PublishSubject<Void>()
         let setSearch = PublishSubject<String>()
         
-        NetworkManager.request(router: .trendingMovie, model: TrendingMovie.self)
+        NetworkManager.request(router: .trendingMovie, model: Movie.self)
             .subscribe { trend in
                 guard let trend = trend else { return }
                 trendArray = trend.results
