@@ -9,16 +9,7 @@ import Foundation
 
 struct SearchMovie: Decodable {
     var page: Int
-    var results: [searchMovieResults]
+    var results: [MovieResult]
     let total_pages: Int
     let total_results: Int
-}
-
-struct searchMovieResults: Decodable {
-    let backdrop_path: String?
-    let id: Int
-    let original_title: String?
-    let overview: String?
-    let poster_path: String?
-    let title: String
 }
