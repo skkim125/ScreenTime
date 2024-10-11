@@ -8,12 +8,16 @@
 import Foundation
 
 struct TrendingMovie: Decodable {
-    let results: [MovieResult]
+    var page: Int
+    var results: [MovieResult]
+    let total_pages: Int
+    let total_results: Int
 }
 
 struct MovieResult: Decodable {
     let backdrop_path: String?
     let id: Int
+    let original_title: String?
     let overview: String
     let poster_path: String?
     let title: String
