@@ -19,6 +19,7 @@ struct MovieResult: Decodable {
     let id: Int
     let overview: String
     let poster_path: String?
+    let media_type: String
     let title: String
     let genre_ids: [Int]
     let release_date: String
