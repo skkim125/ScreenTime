@@ -8,6 +8,7 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
@@ -17,5 +18,13 @@ class BaseViewController: UIViewController {
     }
     
     func bind() { }
-    func configureNavigationBar() {}
+    func configureNavigationBar() {
+        
+//        let navApp = UINavigationBarAppearance()
+//        navApp.backgroundColor = .lightGray.withAlphaComponent(0.2)
+//        navApp.backgroundEffect = nil
+//        
+//        navigationController?.navigationBar.standardAppearance = navApp
+        
+    }
 }
