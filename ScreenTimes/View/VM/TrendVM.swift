@@ -34,11 +34,10 @@ final class TrendVM {
         
         input.trendTrigger
             .flatMap {
-                NetworkManager.requestTest(router: .trendingMovie, model: TrendingMovie.self)
+                NetworkManager.request(router: .trendingMovie, model: TrendingMovie.self)
             }
             .subscribe(with: self, onNext: { owner, result in
                 
-                print("여기?")
                 
                 guard let result = result else { return print("결과값 없음.")}
                 
@@ -55,7 +54,7 @@ final class TrendVM {
         
         input.trendTrigger
             .flatMap {
-                NetworkManager.requestTest(router: .trendingTV, model: TrendingTV.self)
+                NetworkManager.request(router: .trendingTV, model: TrendingTV.self)
             }
             .subscribe(with: self, onNext: { owner, result in
                 

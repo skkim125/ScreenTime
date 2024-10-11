@@ -13,27 +13,8 @@ struct NetworkManager {
     
     private init() { }
     
-    static func request<T: Decodable>(_ router: Router) -> Single<T> {
-        return Single.create { single in
-            do {
-                let request = try router.asURLRequest()
-                AF.request(request).responseDecodable(of: T.self) { response in
-                    switch response.result {
-                    case .success(let value):
-                        single(.success(value))
-                    case .failure(let error):
-                        single(.failure(error))
-                    }
-                }
-            } catch {
-                single(.failure(error))
-            }
-            return Disposables.create()
-        }
-    }
-    
    
-    static func requestTest<T: Decodable>(router: Router, model: T.Type) -> Single<T?> {
+    static func request<T: Decodable>(router: Router, model: T.Type) -> Single<T?> {
         
         return Single.create { single in
             do {

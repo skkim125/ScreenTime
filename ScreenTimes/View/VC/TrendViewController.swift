@@ -25,6 +25,7 @@ final class TrendViewController: BaseViewController {
         bind()
         configureNavigationBar()
     }
+    
     override func bind() {
         
         print(#function)
