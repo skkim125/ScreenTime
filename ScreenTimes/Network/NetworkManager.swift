@@ -13,7 +13,6 @@ struct NetworkManager {
     
     private init() { }
     
-   
     static func request<T: Decodable>(router: Router, model: T.Type) -> Single<T?> {
         
         return Single.create { single in

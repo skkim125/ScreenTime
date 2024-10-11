@@ -32,9 +32,8 @@ final class DownloadViewController: BaseViewController {
         let dummy = PublishSubject<[MovieResult]>()
         
         dummy
-            .bind(to: downloadView.collectionView.rx.items(cellIdentifier: DefaultCollectionViewCell.identifier, cellType: DefaultCollectionViewCell.self)) { [weak self]
+            .bind(to: downloadView.collectionView.rx.items(cellIdentifier: DefaultCollectionViewCell.identifier, cellType: DefaultCollectionViewCell.self)) {
                 (item, element, cell) in
-                guard let self = self else { return }
                 
                 cell.configureCell(.table, movie: element)
             }
