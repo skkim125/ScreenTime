@@ -176,6 +176,7 @@ final class TrendView: BaseView {
             make.height.equalTo(150)
             make.bottom.equalTo(contentView.snp.bottom).inset(20)
         }
+        scrollView.showsVerticalScrollIndicator = false
     }
     
     func configureImage(imageURL: String) {
