@@ -17,7 +17,8 @@ class TestNetworkVC: UIViewController {
         
         similarMovie()
         similarTV()
-        
+        castMovie()
+        castTV()
      }
     
     private func similarMovie() {
@@ -47,5 +48,38 @@ class TestNetworkVC: UIViewController {
             })
             .disposed(by: disposeBag)
     }
+    
+    private func castMovie() {
+        NetworkManager.request(router: Router.castMovie(id: 1022789), model: Cast.self)
+            .subscribe(onSuccess: { response in
+                guard let response else { return }
+                for cast in response.cast {
+                    print("🍿 --- movie cast name", cast.name)
+                }
+                for crew in response.crew {
+                    print("🍿", crew.name)
+                }
+            }, onFailure: { error in
+                print("similarTV error", error)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func castTV() {
+        NetworkManager.request(router: Router.castTV(id: 84773), model: Cast.self)
+            .subscribe(onSuccess: { response in
+                guard let response else { return }
+                for cast in response.cast {
+                    print("📺 --- tv cast name", cast.name)
+                }
+                for crew in response.crew {
+                    print("📺", crew.name)
+                }
+            }, onFailure: { error in
+                print("similarTV error", error)
+            })
+            .disposed(by: disposeBag)
+    }
+    
 }
 
