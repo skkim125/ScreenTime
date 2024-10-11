@@ -7,8 +7,11 @@
 
 import Foundation
 
-struct TrendingMovie: Decodable {
-    let results: [MovieResult]
+struct Movie: Decodable {
+    var page: Int
+    var results: [MovieResult]
+    let total_pages: Int
+    let total_results: Int
 }
 
 struct MovieResult: Decodable {
@@ -16,6 +19,7 @@ struct MovieResult: Decodable {
     let id: Int
     let overview: String
     let poster_path: String?
+    let media_type: String
     let title: String
     let genre_ids: [Int]
     let release_date: String

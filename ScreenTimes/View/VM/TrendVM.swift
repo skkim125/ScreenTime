@@ -63,10 +63,8 @@ final class TrendVM {
                 } else {
                     let randomTV = tvResults[Int.random(in: 1...10)]
                     randomContent.onNext(randomTV.poster_path ?? "")
-                    genreID = randomTV.genre_ids.first  ?? 0
+                    genreID = randomTV.genre_ids.first ?? 0
                 }
-                
-                
                 
                 return NetworkManager.request(router: .genreMovie, model: Genre.self).asObservable()
             }
