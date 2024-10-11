@@ -150,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				8BF9F09D2CB78AA60088C37F /* TrendCollectionViewCell.swift */,
+				04A4F7EA2CB63F9F0094BB42 /* DefaultCollectionViewCell.swift */,
 			);
 			name = Cell;
 			path = ScreenTimes/View/Cell;
@@ -243,9 +244,9 @@
 			isa = PBXGroup;
 			children = (
 				EF9C10052CB5746D00303BD1 /* InitialViewController.swift */,
+				8BF9F0A22CB78AFD0088C37F /* TrendViewController.swift */,
 				04A4F7E42CB5920C0094BB42 /* SearchViewController.swift */,
 				04A4F8432CB6EBEC0094BB42 /* DownloadViewController.swift */,
-				8BF9F0A22CB78AFD0088C37F /* TrendViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -256,7 +257,6 @@
 				8BF9F09E2CB78AA60088C37F /* Cell */,
 				EF9C10032CB5746700303BD1 /* View.swift */,
 				04A4F7E22CB592030094BB42 /* SearchView.swift */,
-				04A4F7EA2CB63F9F0094BB42 /* DefaultCollectionViewCell.swift */,
 				04A4F8412CB6EBE00094BB42 /* DownloadView.swift */,
 				8BF9F0A02CB78AEF0088C37F /* TrendView.swift */,
 			);
