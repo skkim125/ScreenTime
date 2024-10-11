@@ -17,8 +17,6 @@ final class DetailView: BaseView {
         
         return view
     }()
-    private let scrollView = UIScrollView()
-    private let contentView = UIView()
     
     private let titleLabel = {
         let label = UILabel()
@@ -96,24 +94,28 @@ final class DetailView: BaseView {
         return label
     }()
     
-    private let temp = {
-        let view = UIView()
-        view.backgroundColor = .green
-        return view
+    
+    var layoutType: CVType = .threeCell
+    lazy var collectionView = {
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: defaultCollectionViewLayout(layoutType))
+        cv.register(DefaultCollectionViewCell.self, forCellWithReuseIdentifier: DefaultCollectionViewCell.identifier)
+        cv.register(DetailCollectionViewCell.self, forCellWithReuseIdentifier: DetailCollectionViewCell.identifier)
+        cv.showsVerticalScrollIndicator = false
+        cv.backgroundColor = .black
+        
+        return cv
     }()
     
     override func configureHierarchy() {
         addSubview(posterView)
-        addSubview(scrollView)
-        scrollView.addSubview(contentView)
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(rateLabel)
-        contentView.addSubview(playBtn)
-        contentView.addSubview(saveBtn)
-        contentView.addSubview(descriptionLabel)
-        contentView.addSubview(creditLabel)
-        contentView.addSubview(similarContentLabel)
-        contentView.addSubview(temp)
+        addSubview(titleLabel)
+        addSubview(rateLabel)
+        addSubview(playBtn)
+        addSubview(saveBtn)
+        addSubview(descriptionLabel)
+        addSubview(creditLabel)
+        addSubview(similarContentLabel)
+        addSubview(collectionView)
     }
     
     override func configureLayout() {
@@ -122,47 +124,39 @@ final class DetailView: BaseView {
             make.top.horizontalEdges.equalTo(safeAreaLayoutGuide)
             make.height.equalTo(250)
         }
-        scrollView.snp.makeConstraints { make in
-            make.top.equalTo(posterView.snp.bottom)
-            make.horizontalEdges.bottom.equalTo(safeAreaLayoutGuide)
-        }
-        contentView.snp.makeConstraints { make in
-            make.width.equalTo(scrollView.snp.width)
-            make.verticalEdges.equalTo(scrollView)
-        }
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(contentView.safeAreaLayoutGuide).inset(15)
-            make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+            make.top.equalTo(posterView.snp.bottom).offset(15)
+            make.leading.equalTo(safeAreaLayoutGuide).inset(10)
         }
         rateLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
-            make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+            make.leading.equalTo(safeAreaLayoutGuide).inset(10)
         }
         playBtn.snp.makeConstraints { make in
             make.top.equalTo(rateLabel.snp.bottom).offset(5)
-            make.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+            make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(10)
         }
         saveBtn.snp.makeConstraints { make in
             make.top.equalTo(playBtn.snp.bottom).offset(5)
-            make.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+            make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(10)
         }
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(saveBtn.snp.bottom).offset(10)
-            make.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+            make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(10)
         }
         creditLabel.snp.makeConstraints { make in
             make.top.equalTo(descriptionLabel.snp.bottom).offset(10)
-            make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+            make.leading.equalTo(safeAreaLayoutGuide).inset(10)
         }
         similarContentLabel.snp.makeConstraints { make in
             make.top.equalTo(creditLabel.snp.bottom).offset(10)
-            make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+            make.leading.equalTo(safeAreaLayoutGuide).inset(10)
         }
-        temp.snp.makeConstraints { make in
+        collectionView.snp.makeConstraints { make in
             make.top.equalTo(similarContentLabel.snp.bottom).offset(10)
-            make.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+            make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(10)
             make.height.equalTo(800)
-            make.bottom.equalTo(contentView.snp.bottom).inset(20)
+            make.bottom.equalTo(safeAreaLayoutGuide).inset(20)
         }
     }
     

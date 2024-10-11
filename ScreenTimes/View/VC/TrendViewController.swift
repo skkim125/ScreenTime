@@ -64,6 +64,7 @@ final class TrendViewController: BaseViewController {
         trendView.moviecontentsCollectionView.rx.modelSelected(MovieResult.self)
             .bind(with: self) { owner, result in
                 let vc = DetailViewController()
+                vc.movie = result
                 
                 owner.present(vc, animated: true)
             }

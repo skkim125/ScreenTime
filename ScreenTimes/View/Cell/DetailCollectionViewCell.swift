@@ -94,8 +94,7 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    private func configureLayout() {
+    private func configureHierarchy() {
         contentView.addSubview(titleLabel)
         contentView.addSubview(rateLabel)
         contentView.addSubview(playBtn)
@@ -105,5 +104,57 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(similarContentLabel)
     }
     
+    private func configureLayout() {
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(contentView.safeAreaLayoutGuide).inset(15)
+            make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+        }
+        rateLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(5)
+            make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+        }
+        playBtn.snp.makeConstraints { make in
+            make.top.equalTo(rateLabel.snp.bottom).offset(5)
+            make.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+        }
+        saveBtn.snp.makeConstraints { make in
+            make.top.equalTo(playBtn.snp.bottom).offset(5)
+            make.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+        }
+        descriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(saveBtn.snp.bottom).offset(10)
+            make.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+        }
+        creditLabel.snp.makeConstraints { make in
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(10)
+            make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+        }
+        similarContentLabel.snp.makeConstraints { make in
+            make.top.equalTo(creditLabel.snp.bottom).offset(10)
+            make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+        }
+    }
+    
+    func configureCell(_ item: MovieDetail) {
+        print(item.movie.title)
+        titleLabel.text = item.movie.title
+        rateLabel.text = String(format: "%.2f", item.movie.vote_average)
+        descriptionLabel.text = item.movie.overview
+        var castString = ""
+        var crewString = ""
+        
+        for cast in item.cast {
+            castString += "\(cast) "
+        }
+        
+        for crew in item.crew {
+            crewString += "\(crew) "
+        }
+        creditLabel.text = """
+출연: \(castString)
+크리에이터: \(crewString)
+"""
+        similarContentLabel.text = "비슷한 영화"
+    }
     
 }
