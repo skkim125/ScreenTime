@@ -26,7 +26,6 @@ final class SearchViewController: BaseViewController {
     override func configureNavigationBar() {
         searchView.searchController.hidesNavigationBarDuringPresentation = false
         navigationItem.searchController = searchView.searchController
-        
     }
     
     override func bind() {

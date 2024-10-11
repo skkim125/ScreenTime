@@ -22,6 +22,9 @@
 		04A4F8442CB6EBEC0094BB42 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F8432CB6EBEC0094BB42 /* DownloadViewController.swift */; };
 		8B8441B52CB7B634001A460F /* TrendVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8441B42CB7B634001A460F /* TrendVM.swift */; };
 		8B8441E72CB8BDD5001A460F /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8441E62CB8BDD5001A460F /* TabbarViewController.swift */; };
+		8B8441F02CB90487001A460F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8441EF2CB90487001A460F /* DetailViewController.swift */; };
+		8B8441F22CB904F7001A460F /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8441F12CB904F7001A460F /* DetailView.swift */; };
+		8B8441F42CB9189C001A460F /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8441F32CB9189C001A460F /* DetailCollectionViewCell.swift */; };
 		8BF9F09F2CB78AA60088C37F /* TrendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF9F09D2CB78AA60088C37F /* TrendCollectionViewCell.swift */; };
 		8BF9F0A12CB78AEF0088C37F /* TrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF9F0A02CB78AEF0088C37F /* TrendView.swift */; };
 		8BF9F0A32CB78AFD0088C37F /* TrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF9F0A22CB78AFD0088C37F /* TrendViewController.swift */; };
@@ -69,6 +72,9 @@
 		04A4F8432CB6EBEC0094BB42 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		8B8441B42CB7B634001A460F /* TrendVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendVM.swift; sourceTree = "<group>"; };
 		8B8441E62CB8BDD5001A460F /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
+		8B8441EF2CB90487001A460F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8B8441F12CB904F7001A460F /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		8B8441F32CB9189C001A460F /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		8BF9F09D2CB78AA60088C37F /* TrendCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendCollectionViewCell.swift; sourceTree = "<group>"; };
 		8BF9F0A02CB78AEF0088C37F /* TrendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendView.swift; sourceTree = "<group>"; };
 		8BF9F0A22CB78AFD0088C37F /* TrendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +157,7 @@
 			children = (
 				8BF9F09D2CB78AA60088C37F /* TrendCollectionViewCell.swift */,
 				04A4F7EA2CB63F9F0094BB42 /* DefaultCollectionViewCell.swift */,
+				8B8441F32CB9189C001A460F /* DetailCollectionViewCell.swift */,
 			);
 			name = Cell;
 			path = ScreenTimes/View/Cell;
@@ -242,11 +249,12 @@
 		EF9C10012CB5745C00303BD1 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				8B8441E62CB8BDD5001A460F /* TabbarViewController.swift */,
 				EF9C10052CB5746D00303BD1 /* InitialViewController.swift */,
 				8BF9F0A22CB78AFD0088C37F /* TrendViewController.swift */,
 				04A4F7E42CB5920C0094BB42 /* SearchViewController.swift */,
 				04A4F8432CB6EBEC0094BB42 /* DownloadViewController.swift */,
-				8B8441E62CB8BDD5001A460F /* TabbarViewController.swift */,
+				8B8441EF2CB90487001A460F /* DetailViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -259,6 +267,7 @@
 				04A4F7E22CB592030094BB42 /* SearchView.swift */,
 				04A4F8412CB6EBE00094BB42 /* DownloadView.swift */,
 				8BF9F0A02CB78AEF0088C37F /* TrendView.swift */,
+				8B8441F12CB904F7001A460F /* DetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -362,8 +371,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				EF5336632CB6C0DA0024B186 /* TV.swift in Sources */,
 				EF5336612CB640670024B186 /* TestNetwork.swift in Sources */,
+
+				EF5336632CB6C0DA0024B186 /* TrendingTV.swift in Sources */,
+				8B8441F22CB904F7001A460F /* DetailView.swift in Sources */,
+				
+				EF53367B2CB6C8A60024B186 /* SearchMovie.swift in Sources */,
+				8B8441F42CB9189C001A460F /* DetailCollectionViewCell.swift in Sources */,
+				8B8441F02CB90487001A460F /* DetailViewController.swift in Sources */,
+
 				EF9C10062CB5746D00303BD1 /* InitialViewController.swift in Sources */,
 				EF9C0FFF2CB5744100303BD1 /* Movie.swift in Sources */,
 				EFD78CD62CB9159B00CE7A57 /* Cast.swift in Sources */,

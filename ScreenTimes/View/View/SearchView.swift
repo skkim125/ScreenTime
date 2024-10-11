@@ -9,8 +9,10 @@ import UIKit
 import SnapKit
 
 final class SearchView: BaseView {
+    
     let searchController = UISearchController(searchResultsController: nil)
     var layoutType: CVType = .table
+
     let infoLabel = {
         let label = UILabel()
         label.textAlignment = .left
@@ -27,6 +29,7 @@ final class SearchView: BaseView {
         
         return label
     }()
+
     lazy var collectionView = {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: defaultCollectionViewLayout(layoutType))
         cv.register(DefaultCollectionViewCell.self, forCellWithReuseIdentifier: DefaultCollectionViewCell.identifier)

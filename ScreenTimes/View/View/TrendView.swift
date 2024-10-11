@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class TrendView: UIView {
+final class TrendView: BaseView {
     
     private let scrollView = UIScrollView()
     private let contentView = UIView()
@@ -100,9 +100,7 @@ final class TrendView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .black
-        configureHierarchy()
-        configureLayout()
+       
         moviecontentsCollectionView.register(TrendCollectionViewCell.self, forCellWithReuseIdentifier: "TrendCollectionViewCell")
         tvcontentsCollectionView.register(TrendCollectionViewCell.self, forCellWithReuseIdentifier: "TrendCollectionViewCell")
     }
@@ -111,7 +109,7 @@ final class TrendView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configureHierarchy() {
+    override func configureHierarchy() {
         addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(recView)
@@ -128,7 +126,7 @@ final class TrendView: UIView {
         tvcontentsCollectionView.backgroundColor = .clear
     }
     
-    private func configureLayout() {
+    override func configureLayout() {
         
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(safeAreaLayoutGuide)

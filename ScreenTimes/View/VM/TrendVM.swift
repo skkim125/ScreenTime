@@ -52,6 +52,7 @@ final class TrendVM {
                 
                 genreID = random.genre_ids.first ?? 0
                 
+                
             }, onError: { owner, error in
                 print(error)
             })
@@ -82,18 +83,15 @@ final class TrendVM {
                 NetworkManager.request(router: .genreMovie, model: Genre.self)
             }
             .subscribe(with: self) { owner, result in
-                
-                
                 guard let result = result?.genres else{ return }
                 
                 for i in 0..<result.count {
                     if genreID == result[i].id {
-                        genre.onNext(result.first?.name ?? "")
+                        print("장르 id",genreID, result[i].id, result[i].name)
+                        genre.onNext(result[i].name)
                         break
                     }
                 }
-                
-                
             }
             .disposed(by: disposeBag)
 
