@@ -35,17 +35,16 @@ final class SearchViewController: BaseViewController {
         let setTrend = PublishSubject<Void>()
         let setSearch = PublishSubject<String>()
         
-
-        NetworkManager.request(router: .trendingMovie, model: Movie.self)
+        NetworkManager.request(router: .trendingMovie, model: TrendingMovie.self)
             .subscribe { trend in
                 guard let trend = trend else { return }
                 trendArray = trend.results
                 dummy.onNext(trend.results)
+                setTrend.onNext(())
             } onFailure: { error in
                 print(error)
             }
             .disposed(by: disposeBag)
-
         
         dummy
             .bind(to: searchView.collectionView.rx.items(cellIdentifier: DefaultCollectionViewCell.identifier, cellType: DefaultCollectionViewCell.self)) { [weak self]
@@ -60,7 +59,11 @@ final class SearchViewController: BaseViewController {
             .distinctUntilChanged()
             .bind(with: self) { owner, text in
                 if text.trimmingCharacters(in: .whitespaces).isEmpty {
-                    self.searchView.collectionView.rx.collectionViewLayout.onNext(owner.searchView.defaultCollectionViewLayout(.table))
+                    owner.searchView.infoLabel.rx.text.onNext("추천 시리즈 & 영화")
+                    owner.searchView.infoLabel.rx.isHidden.onNext(false)
+                    owner.searchView.emptyLabel.rx.isHidden.onNext(true)
+                    owner.searchView.collectionView.rx.isHidden.onNext(false)
+                    owner.searchView.collectionView.rx.collectionViewLayout.onNext(owner.searchView.defaultCollectionViewLayout(.table))
                     setTrend.onNext(())
                 } else {
                     setSearch.onNext(text)
@@ -73,14 +76,26 @@ final class SearchViewController: BaseViewController {
                 NetworkManager.request(router: .searchMovie(query: value, page: 1), model: Movie.self)
                     .subscribe { search  in
                         guard let search = search else { return }
-                        dummy.onNext(search.results)
-                        owner.searchView.rx.layoutType.onNext(.threeCell)
-                        owner.searchView.collectionView.rx.collectionViewLayout.onNext(owner.searchView.defaultCollectionViewLayout(.threeCell))
+                        if search.results.isEmpty && search.total_results == 0 {
+                            dummy.onNext([])
+                            owner.searchView.infoLabel.rx.text.onNext("")
+                            owner.searchView.infoLabel.rx.isHidden.onNext(true)
+                            owner.searchView.emptyLabel.rx.isHidden.onNext(false)
+                            owner.searchView.collectionView.rx.isHidden.onNext(true)
+                        } else {
+                            dummy.onNext(search.results)
+                            owner.searchView.infoLabel.rx.text.onNext("영화 & 시리즈")
+                            owner.searchView.infoLabel.rx.isHidden.onNext(false)
+                            owner.searchView.emptyLabel.rx.isHidden.onNext(true)
+                            owner.searchView.collectionView.rx.isHidden.onNext(false)
+                            owner.searchView.rx.layoutType.onNext(.threeCell)
+                            owner.searchView.collectionView.rx.collectionViewLayout.onNext(owner.searchView.defaultCollectionViewLayout(.threeCell))
+                        }
                     } onFailure: { error in
                         print(error)
                     }
                     .disposed(by: owner.disposeBag)
-                    
+                
             }
             .disposed(by: disposeBag)
         
