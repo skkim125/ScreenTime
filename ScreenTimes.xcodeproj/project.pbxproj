@@ -27,7 +27,7 @@
 		8BF9F0A32CB78AFD0088C37F /* TrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF9F0A22CB78AFD0088C37F /* TrendViewController.swift */; };
 		EF53365F2CB6387F0024B186 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53365E2CB6387F0024B186 /* NetworkManager.swift */; };
 		EF5336612CB640670024B186 /* TestNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5336602CB640670024B186 /* TestNetwork.swift */; };
-		EF5336632CB6C0DA0024B186 /* TrendingTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5336622CB6C0DA0024B186 /* TrendingTV.swift */; };
+		EF5336632CB6C0DA0024B186 /* TV.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5336622CB6C0DA0024B186 /* TV.swift */; };
 		EF5336692CB6C29D0024B186 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EF5336682CB6C29D0024B186 /* Alamofire */; };
 		EF53366C2CB6C2A40024B186 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EF53366B2CB6C2A40024B186 /* Kingfisher */; };
 		EF53366F2CB6C2AB0024B186 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EF53366E2CB6C2AB0024B186 /* IQKeyboardManagerSwift */; };
@@ -35,13 +35,11 @@
 		EF5336752CB6C2DF0024B186 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EF5336742CB6C2DF0024B186 /* RxCocoa */; };
 		EF5336772CB6C2DF0024B186 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EF5336762CB6C2DF0024B186 /* RxSwift */; };
 		EF5336792CB6C3930024B186 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5336782CB6C3930024B186 /* Genre.swift */; };
-		EF53367B2CB6C8A60024B186 /* SearchMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53367A2CB6C8A60024B186 /* SearchMovie.swift */; };
-		EF53367D2CB6CE390024B186 /* SearchTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF53367C2CB6CE390024B186 /* SearchTV.swift */; };
 		EF9C0FD92CB53E5A00303BD1 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FD82CB53E5A00303BD1 /* UIView+.swift */; };
 		EF9C0FDC2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FDB2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift */; };
 		EF9C0FF72CB5738500303BD1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FF62CB5738500303BD1 /* BaseViewController.swift */; };
 		EF9C0FFD2CB5743900303BD1 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FFC2CB5743900303BD1 /* Realm.swift */; };
-		EF9C0FFF2CB5744100303BD1 /* TrendingMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FFE2CB5744100303BD1 /* TrendingMovie.swift */; };
+		EF9C0FFF2CB5744100303BD1 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FFE2CB5744100303BD1 /* Movie.swift */; };
 		EF9C10042CB5746700303BD1 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C10032CB5746700303BD1 /* View.swift */; };
 		EF9C10062CB5746D00303BD1 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C10052CB5746D00303BD1 /* InitialViewController.swift */; };
 		EF9C10082CB5747300303BD1 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C10072CB5747300303BD1 /* ViewModel.swift */; };
@@ -69,22 +67,19 @@
 		04A4F8412CB6EBE00094BB42 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		04A4F8432CB6EBEC0094BB42 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		8B8441B42CB7B634001A460F /* TrendVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendVM.swift; sourceTree = "<group>"; };
-		8B8441B62CB8A7E3001A460F /* Apikey.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Apikey.xcconfig; sourceTree = "<group>"; };
 		8B8441E62CB8BDD5001A460F /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		8BF9F09D2CB78AA60088C37F /* TrendCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendCollectionViewCell.swift; sourceTree = "<group>"; };
 		8BF9F0A02CB78AEF0088C37F /* TrendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendView.swift; sourceTree = "<group>"; };
 		8BF9F0A22CB78AFD0088C37F /* TrendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendViewController.swift; sourceTree = "<group>"; };
 		EF53365E2CB6387F0024B186 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		EF5336602CB640670024B186 /* TestNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNetwork.swift; sourceTree = "<group>"; };
-		EF5336622CB6C0DA0024B186 /* TrendingTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTV.swift; sourceTree = "<group>"; };
+		EF5336622CB6C0DA0024B186 /* TV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TV.swift; sourceTree = "<group>"; };
 		EF5336782CB6C3930024B186 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
-		EF53367A2CB6C8A60024B186 /* SearchMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovie.swift; sourceTree = "<group>"; };
-		EF53367C2CB6CE390024B186 /* SearchTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTV.swift; sourceTree = "<group>"; };
 		EF9C0FD82CB53E5A00303BD1 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		EF9C0FDB2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
 		EF9C0FF62CB5738500303BD1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EF9C0FFC2CB5743900303BD1 /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
-		EF9C0FFE2CB5744100303BD1 /* TrendingMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMovie.swift; sourceTree = "<group>"; };
+		EF9C0FFE2CB5744100303BD1 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		EF9C10032CB5746700303BD1 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		EF9C10052CB5746D00303BD1 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		EF9C10072CB5747300303BD1 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -93,6 +88,7 @@
 		EF9C100E2CB61C5300303BD1 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		EFD78CAA2CB8019D00CE7A57 /* APIURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
 		EFD78CAC2CB820BE00CE7A57 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
+		EFD78CD22CB901A300CE7A57 /* Apikey.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Apikey.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +111,7 @@
 		04A4F7C02CB52CE20094BB42 = {
 			isa = PBXGroup;
 			children = (
-				8B8441B62CB8A7E3001A460F /* Apikey.xcconfig */,
+				EFD78CD22CB901A300CE7A57 /* Apikey.xcconfig */,
 				04A4F7E02CB52D770094BB42 /* .gitignore */,
 				04A4F7CB2CB52CE20094BB42 /* ScreenTimes */,
 				04A4F7CA2CB52CE20094BB42 /* Products */,
@@ -213,11 +209,9 @@
 		EF9C0FFA2CB5741700303BD1 /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				EF9C0FFE2CB5744100303BD1 /* TrendingMovie.swift */,
-				EF5336622CB6C0DA0024B186 /* TrendingTV.swift */,
+				EF9C0FFE2CB5744100303BD1 /* Movie.swift */,
+				EF5336622CB6C0DA0024B186 /* TV.swift */,
 				EF5336782CB6C3930024B186 /* Genre.swift */,
-				EF53367A2CB6C8A60024B186 /* SearchMovie.swift */,
-				EF53367C2CB6CE390024B186 /* SearchTV.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -365,11 +359,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF5336632CB6C0DA0024B186 /* TrendingTV.swift in Sources */,
+				EF5336632CB6C0DA0024B186 /* TV.swift in Sources */,
 				EF5336612CB640670024B186 /* TestNetwork.swift in Sources */,
-				EF53367B2CB6C8A60024B186 /* SearchMovie.swift in Sources */,
 				EF9C10062CB5746D00303BD1 /* InitialViewController.swift in Sources */,
-				EF9C0FFF2CB5744100303BD1 /* TrendingMovie.swift in Sources */,
+				EF9C0FFF2CB5744100303BD1 /* Movie.swift in Sources */,
 				EF9C100B2CB574BD00303BD1 /* TargetType.swift in Sources */,
 				EFD78CAD2CB820BE00CE7A57 /* Bundle+.swift in Sources */,
 				EF9C0FDC2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift in Sources */,
@@ -388,7 +381,6 @@
 				04A4F7EB2CB63F9F0094BB42 /* DefaultCollectionViewCell.swift in Sources */,
 				EFD78CAB2CB8019D00CE7A57 /* APIURL.swift in Sources */,
 				04A4F7E32CB592030094BB42 /* SearchView.swift in Sources */,
-				EF53367D2CB6CE390024B186 /* SearchTV.swift in Sources */,
 				8B8441E72CB8BDD5001A460F /* TabbarViewController.swift in Sources */,
 				EF9C10042CB5746700303BD1 /* View.swift in Sources */,
 				04A4F7CD2CB52CE20094BB42 /* AppDelegate.swift in Sources */,
@@ -537,7 +529,7 @@
 		};
 		04A4F7DE2CB52CE30094BB42 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8B8441B62CB8A7E3001A460F /* Apikey.xcconfig */;
+			baseConfigurationReference = EFD78CD22CB901A300CE7A57 /* Apikey.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

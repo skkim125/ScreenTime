@@ -36,7 +36,7 @@ final class TrendVM {
         
         input.trendTrigger
             .flatMap {
-                NetworkManager.request(router: .trendingMovie, model: TrendingMovie.self)
+                NetworkManager.request(router: .trendingMovie, model: Movie.self)
             }
             .subscribe(with: self, onNext: { owner, result in
                 
@@ -59,7 +59,7 @@ final class TrendVM {
         
         input.trendTrigger
             .flatMap {
-                NetworkManager.request(router: .trendingTV, model: TrendingTV.self)
+                NetworkManager.request(router: .trendingTV, model: TV.self)
             }
             .subscribe(with: self, onNext: { owner, result in
                 
