@@ -11,11 +11,11 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
-        configureHierarchy()
-        configureLayout()
-        configureView()
+        
+        bind()
+        configureNavigationBar()
     }
-    func configureHierarchy() { }
-    func configureLayout() { }
-    func configureView() { }
+    
+    func bind() { }
+    func configureNavigationBar() {}
 }
