@@ -15,12 +15,17 @@ enum Router {
     case genreTV
     case searchMovie(query: String, page: Int)
     case searchTV(query: String, page: Int)
+    case similarMovie(id: Int)
+    case similarTV(id: Int)
+    case castMovie(id: Int)
+    case castTV(id: Int)
 }
 
 extension Router: TargetType {
+    
     var method: Alamofire.HTTPMethod {
         switch self {
-        case .trendingMovie, .trendingTV, .genreMovie, .genreTV, .searchMovie, .searchTV:
+        case .trendingMovie, .trendingTV, .genreMovie, .genreTV, .searchMovie, .searchTV, .similarMovie, .similarTV, .castMovie, .castTV:
             return .get
         }
     }
@@ -31,14 +36,14 @@ extension Router: TargetType {
     
     var queryItems: [URLQueryItem]? {
         switch self {
-        case .trendingMovie, .trendingTV, .genreMovie, .genreTV:
+        case .trendingMovie, .trendingTV, .genreMovie, .genreTV, .similarMovie, .similarTV, .castMovie, .castTV:
             return [
-                URLQueryItem(name: "language", value: "ko_KR")
+                URLQueryItem(name: "language", value: "ko-KR")
             ]
         case .searchMovie(let query, let page),
                 .searchTV(let query, let page):
             return [
-                URLQueryItem(name: "language", value: "ko_KR"),
+                URLQueryItem(name: "language", value: "ko-KR"),
                 URLQueryItem(name: "query", value: query),
                 URLQueryItem(name: "page", value: String(page))
             ]
@@ -67,6 +72,14 @@ extension Router: TargetType {
             return APIURL.searchMovie.urlString
         case .searchTV:
             return APIURL.searchTV.urlString
+        case .similarMovie(let id):
+            return APIURL.similarMovie(id: id).urlString
+        case .similarTV(let id):
+            return APIURL.similarTV(id: id).urlString
+        case .castMovie(let id):
+            return APIURL.castMovie(id: id).urlString
+        case .castTV(let id):
+            return APIURL.castTV(id: id).urlString
         }
     }
     
@@ -75,10 +88,9 @@ extension Router: TargetType {
             print("❌❌❌  API 키를 로드하지 못 했습니다  ❌❌❌")
             return [:]
         }
-        
-//        let apikey = "43629676c8f803fc529bc1e32f0679a3"
+
         switch self {
-        case .trendingMovie, .trendingTV, .genreMovie, .genreTV, .searchMovie, .searchTV:
+        case .trendingMovie, .trendingTV, .genreMovie, .genreTV, .searchMovie, .searchTV, .similarMovie, .similarTV, .castMovie, .castTV:
             return [
                 Header.accept.rawValue: Header.acceptValue.rawValue,
                 Header.authorization.rawValue: apikey

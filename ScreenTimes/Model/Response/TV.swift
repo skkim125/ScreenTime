@@ -7,8 +7,11 @@
 
 import Foundation
 
-struct TrendingTV: Decodable {
-    let results: [TVResult]
+struct TV: Decodable {
+    var page: Int
+    var results: [TVResult]
+    let total_pages: Int
+    let total_results: Int
 }
 
 struct TVResult: Decodable {
