@@ -28,7 +28,6 @@ final class TrendViewController: BaseViewController {
     
     override func bind() {
         
-        print(#function)
         let input = TrendVM.Input(trendTrigger: Observable.just(()))
         
         let output = trendVM.transform(input: input)
@@ -58,6 +57,33 @@ final class TrendViewController: BaseViewController {
         output.genre
             .bind(with: self) { owner, result in
                 owner.trendView.genreLabel.text = result
+            }
+            .disposed(by: disposeBag)
+        
+        
+        trendView.moviecontentsCollectionView.rx.modelSelected(MovieResult.self)
+            .bind(with: self) { owner, result in
+                let vc = DetailViewController()
+                
+                owner.present(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        /*
+         디테일뷰에 넘겨야할 요소
+         - 이미지 패스
+         - 제목 > name, title
+         - rate
+         - id
+         
+         */
+        
+        trendView.tvcontentsCollectionView.rx.modelSelected(TVResult.self)
+            .bind(with: self) { owner, result in
+                
+                let vc = DetailViewController()
+                
+                owner.present(vc, animated: true)
             }
             .disposed(by: disposeBag)
         

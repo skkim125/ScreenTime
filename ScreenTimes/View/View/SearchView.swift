@@ -9,8 +9,10 @@ import UIKit
 import SnapKit
 
 final class SearchView: BaseView {
+    
     let searchController = UISearchController(searchResultsController: nil)
     var layoutType: CVType = .table
+    
     lazy var collectionView = {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: defaultCollectionViewLayout(layoutType))
         cv.register(DefaultCollectionViewCell.self, forCellWithReuseIdentifier: DefaultCollectionViewCell.identifier)

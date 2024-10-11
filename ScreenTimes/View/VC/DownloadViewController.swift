@@ -25,10 +25,10 @@ final class DownloadViewController: BaseViewController {
     
     override func configureNavigationBar() {
         navigationItem.title = "다운로드 리스트"
-        
     }
     
     override func bind() {
+        
         let dummy = PublishSubject<[MovieResult]>()
         
         dummy

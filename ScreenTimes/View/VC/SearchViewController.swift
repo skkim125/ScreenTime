@@ -26,7 +26,6 @@ final class SearchViewController: BaseViewController {
     override func configureNavigationBar() {
         searchView.searchController.hidesNavigationBarDuringPresentation = false
         navigationItem.searchController = searchView.searchController
-        
     }
     
     override func bind() {
@@ -45,7 +44,6 @@ final class SearchViewController: BaseViewController {
                 print(error)
             }
             .disposed(by: disposeBag)
-
         
         dummy
             .bind(to: searchView.collectionView.rx.items(cellIdentifier: DefaultCollectionViewCell.identifier, cellType: DefaultCollectionViewCell.self)) { [weak self]

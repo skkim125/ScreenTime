@@ -21,3 +21,4 @@ struct MovieResult: Decodable {
     let release_date: String
     let vote_average: Double
 }
+
