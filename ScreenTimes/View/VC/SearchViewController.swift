@@ -35,6 +35,7 @@ final class SearchViewController: BaseViewController {
         let setTrend = PublishSubject<Void>()
         let setSearch = PublishSubject<String>()
         
+
         NetworkManager.request(router: .trendingMovie, model: TrendingMovie.self)
             .subscribe { trend in
                 guard let trend = trend else { return }
@@ -44,6 +45,7 @@ final class SearchViewController: BaseViewController {
                 print(error)
             }
             .disposed(by: disposeBag)
+
         
         dummy
             .bind(to: searchView.collectionView.rx.items(cellIdentifier: DefaultCollectionViewCell.identifier, cellType: DefaultCollectionViewCell.self)) { [weak self]

@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 
+
 //class TestNetworkVC: UIViewController {
 //    
 //    private let disposeBag = DisposeBag()
@@ -15,15 +16,23 @@ import RxSwift
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
 //        
+
 //        fetchTrendingMovie()
 //        fetchTrendingTV()
 //        fetchGenreMovie()
 //        fetchGenreTV()
 //        fetchSearchMovie(query: "Harry")
 //        fetchSearchTV(query: "sherlock")
+
+//     }
+    
+//    private func fetchTrendingMovie() {
+    
+
 //    }
 //    
 //    private func fetchTrendingMovie() {
+
 //        NetworkManager.request(Router.trendingMovie)
 //            .subscribe(onSuccess: { (response: TrendingMovie) in
 //                for movie in response.results {
@@ -76,9 +85,15 @@ import RxSwift
 //    private func fetchSearchMovie(query: String, page: Int = 1) {
 //        NetworkManager.request(Router.searchMovie(query: query, page: page))
 //            .subscribe(onSuccess: { (response: SearchMovie) in
+
+//                for searchMovie in response.results {
+//                    print("5️⃣ searchMovie --- 🎬", searchMovie.original_title ?? "제목 없음")
+//                }
+
 ////                for searchMovie in response.results {
 ////                    print("5️⃣ searchMovie --- 🎬", searchMovie.original_title ?? "제목 없음")
 ////                }
+
 //            }, onFailure: { error in
 //                    print("5️⃣ searchMovie --- 🎬", error)
 //            })
@@ -96,4 +111,6 @@ import RxSwift
 //            })
 //            .disposed(by: disposeBag)
 //    }
+
 //}
+

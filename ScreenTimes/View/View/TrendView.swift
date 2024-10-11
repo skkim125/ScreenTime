@@ -60,10 +60,11 @@ final class TrendView: UIView {
         
         return btn
     }()
-    private let genreLabel = {
+    let genreLabel = {
         let label = UILabel()
         label.text = "예비 장르 레이블"
         label.textColor = .white
+        label.font = .boldSystemFont(ofSize: 20)
         label.textAlignment = .center
         return label
     }()

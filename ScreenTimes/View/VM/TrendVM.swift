@@ -20,6 +20,7 @@ final class TrendVM {
         let randomContent: PublishSubject<String>
         let trendMovieList: PublishSubject<[MovieResult]>
         let trendTVList: PublishSubject<[TVResult]>
+        let genre: PublishSubject<String>
     }
     
     private let disposeBag = DisposeBag()
@@ -30,7 +31,8 @@ final class TrendVM {
         let trendTVList = PublishSubject<[TVResult]>()
         
         let randomContent = PublishSubject<String>()
-        
+        let genre = PublishSubject<String>()
+        var genreID = 0
         
         input.trendTrigger
             .flatMap {
@@ -44,8 +46,11 @@ final class TrendVM {
                 let limitedResults = Array(result.results.prefix(10))
                 trendMovieList.onNext(limitedResults)
                 
-                let random = result.results[Int.random(in: 1...10)].poster_path
-                randomContent.onNext(random ?? "")
+                let random = result.results[Int.random(in: 1...10)]
+                
+                randomContent.onNext(random.poster_path ?? "")
+                
+                genreID = random.genre_ids.first ?? 0
                 
             }, onError: { owner, error in
                 print(error)
@@ -72,7 +77,29 @@ final class TrendVM {
             .disposed(by: disposeBag)
         
         
-        return Output(randomContent: randomContent, trendMovieList: trendMovieList, trendTVList: trendTVList)
+        input.trendTrigger
+            .flatMap {
+                NetworkManager.request(router: .genreMovie, model: Genre.self)
+            }
+            .subscribe(with: self) { owner, result in
+                
+                
+                guard let result = result?.genres else{ return }
+                
+                for i in 0..<result.count {
+                    if genreID == result[i].id {
+                        genre.onNext(result.first?.name ?? "")
+                        break
+                    }
+                }
+                
+                
+            }
+            .disposed(by: disposeBag)
+
+        
+        
+        return Output(randomContent: randomContent, trendMovieList: trendMovieList, trendTVList: trendTVList, genre: genre)
     }
     
     
