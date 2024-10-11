@@ -73,7 +73,7 @@ final class SearchViewController: BaseViewController {
         
         setSearch
             .bind(with: self) { owner, value in
-                NetworkManager.request(router: .searchMovie(query: value, page: 1), model: SearchMovie.self)
+                NetworkManager.request(router: .searchMovie(query: value, page: 1), model: Movie.self)
                     .subscribe { search  in
                         guard let search = search else { return }
                         if search.results.isEmpty && search.total_results == 0 {

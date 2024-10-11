@@ -15,6 +15,10 @@ enum APIURL {
     case genreTV
     case searchMovie
     case searchTV
+    case similarMovie(id: Int)
+    case similarTV(id: Int)
+    case castMovie(id: Int)
+    case castTV(id: Int)
     
     var urlString: String {
         switch self {
@@ -32,6 +36,14 @@ enum APIURL {
             return "search/movie"
         case .searchTV:
             return "search/tv"
+        case .similarMovie(let id):
+            return "movie/\(id)/similar"
+        case .similarTV(let id):
+            return "tv/\(id)/similar"
+        case .castMovie(let id):
+            return "movie/\(id)/credits"
+        case .castTV(let id):
+            return "tv/\(id)/credits"
         }
     }
 }
