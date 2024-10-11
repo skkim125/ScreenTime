@@ -21,6 +21,7 @@
 		04A4F8422CB6EBE00094BB42 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F8412CB6EBE00094BB42 /* DownloadView.swift */; };
 		04A4F8442CB6EBEC0094BB42 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F8432CB6EBEC0094BB42 /* DownloadViewController.swift */; };
 		8B8441B52CB7B634001A460F /* TrendVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8441B42CB7B634001A460F /* TrendVM.swift */; };
+		8B8441E72CB8BDD5001A460F /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8441E62CB8BDD5001A460F /* TabbarViewController.swift */; };
 		8BF9F09F2CB78AA60088C37F /* TrendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF9F09D2CB78AA60088C37F /* TrendCollectionViewCell.swift */; };
 		8BF9F0A12CB78AEF0088C37F /* TrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF9F0A02CB78AEF0088C37F /* TrendView.swift */; };
 		8BF9F0A32CB78AFD0088C37F /* TrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF9F0A22CB78AFD0088C37F /* TrendViewController.swift */; };
@@ -68,6 +69,8 @@
 		04A4F8412CB6EBE00094BB42 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		04A4F8432CB6EBEC0094BB42 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		8B8441B42CB7B634001A460F /* TrendVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendVM.swift; sourceTree = "<group>"; };
+		8B8441B62CB8A7E3001A460F /* Apikey.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Apikey.xcconfig; sourceTree = "<group>"; };
+		8B8441E62CB8BDD5001A460F /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		8BF9F09D2CB78AA60088C37F /* TrendCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendCollectionViewCell.swift; sourceTree = "<group>"; };
 		8BF9F0A02CB78AEF0088C37F /* TrendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendView.swift; sourceTree = "<group>"; };
 		8BF9F0A22CB78AFD0088C37F /* TrendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendViewController.swift; sourceTree = "<group>"; };
@@ -90,7 +93,6 @@
 		EF9C100E2CB61C5300303BD1 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		EFD78CAA2CB8019D00CE7A57 /* APIURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
 		EFD78CAC2CB820BE00CE7A57 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
-		EFD78CAE2CB8258200CE7A57 /* Apikey.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Apikey.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +115,7 @@
 		04A4F7C02CB52CE20094BB42 = {
 			isa = PBXGroup;
 			children = (
-				EFD78CAE2CB8258200CE7A57 /* Apikey.xcconfig */,
+				8B8441B62CB8A7E3001A460F /* Apikey.xcconfig */,
 				04A4F7E02CB52D770094BB42 /* .gitignore */,
 				04A4F7CB2CB52CE20094BB42 /* ScreenTimes */,
 				04A4F7CA2CB52CE20094BB42 /* Products */,
@@ -246,6 +248,7 @@
 				04A4F7E42CB5920C0094BB42 /* SearchViewController.swift */,
 				04A4F8432CB6EBEC0094BB42 /* DownloadViewController.swift */,
 				8BF9F0A22CB78AFD0088C37F /* TrendViewController.swift */,
+				8B8441E62CB8BDD5001A460F /* TabbarViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				EFD78CAB2CB8019D00CE7A57 /* APIURL.swift in Sources */,
 				04A4F7E32CB592030094BB42 /* SearchView.swift in Sources */,
 				EF53367D2CB6CE390024B186 /* SearchTV.swift in Sources */,
+				8B8441E72CB8BDD5001A460F /* TabbarViewController.swift in Sources */,
 				EF9C10042CB5746700303BD1 /* View.swift in Sources */,
 				04A4F7CD2CB52CE20094BB42 /* AppDelegate.swift in Sources */,
 				EF9C100F2CB61C5300303BD1 /* Header.swift in Sources */,
@@ -533,7 +537,7 @@
 		};
 		04A4F7DE2CB52CE30094BB42 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFD78CAE2CB8258200CE7A57 /* Apikey.xcconfig */;
+			baseConfigurationReference = 8B8441B62CB8A7E3001A460F /* Apikey.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

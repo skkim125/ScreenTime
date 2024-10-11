@@ -16,6 +16,7 @@ final class TrendCollectionViewCell: UICollectionViewCell {
         let view = UIImageView()
         view.backgroundColor = .yellow
         view.layer.cornerRadius = 10
+        view.clipsToBounds = true
         return view
     }()
     
@@ -46,7 +47,7 @@ final class TrendCollectionViewCell: UICollectionViewCell {
     
     func configureCell(imageURL: String) {
         
-        if let url = URL(string: imageURL) {
+        if let url = URL(string: "https://image.tmdb.org/t/p/w500/" + imageURL) {
             imageView.kf.setImage(with: url)
         }
     }

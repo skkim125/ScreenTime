@@ -15,9 +15,10 @@ final class TrendView: UIView {
     private let deviceWidth = UIScreen.main.bounds.width
     
     private let recView = {
-        let view = UIView()
+        let view = UIImageView()
         view.backgroundColor = .systemBrown
         view.layer.cornerRadius = 10
+        view.clipsToBounds = true
         return view
     }()
     private let playBtn = {
@@ -98,7 +99,7 @@ final class TrendView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = .black
         configureHierarchy()
         configureLayout()
         moviecontentsCollectionView.register(TrendCollectionViewCell.self, forCellWithReuseIdentifier: "TrendCollectionViewCell")
@@ -178,4 +179,10 @@ final class TrendView: UIView {
         }
     }
     
+    func configureImage(imageURL: String) {
+        
+        if let url = URL(string: "https://image.tmdb.org/t/p/w500/" + imageURL) {
+            recView.kf.setImage(with: url)
+        }
+    }
 }
