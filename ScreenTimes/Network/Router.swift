@@ -75,6 +75,8 @@ extension Router: TargetType {
             print("❌❌❌  API 키를 로드하지 못 했습니다  ❌❌❌")
             return [:]
         }
+        
+//        let apikey = "43629676c8f803fc529bc1e32f0679a3"
         switch self {
         case .trendingMovie, .trendingTV, .genreMovie, .genreTV, .searchMovie, .searchTV:
             return [

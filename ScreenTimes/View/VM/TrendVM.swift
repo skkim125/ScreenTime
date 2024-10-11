@@ -17,30 +17,62 @@ final class TrendVM {
         let trendTrigger: Observable<Void>
     }
     struct Output {
+        let randomContent: PublishSubject<String>
         let trendMovieList: PublishSubject<[MovieResult]>
+        let trendTVList: PublishSubject<[TVResult]>
     }
     
     private let disposeBag = DisposeBag()
     
     func transform(input: Input) -> Output {
         
-//        print("dfdfdsfsdfdsf")
         let trendMovieList = PublishSubject<[MovieResult]>()
-//        
-//        input.trendTrigger
-//            .flatMap {
-//                Network.request(model: TrendingMovie.self)
-//            }
-//            .subscribe(with: self, onNext: { owner, result in
-//                let limitedResults = Array(result.results.prefix(10))
-//                trendMovieList.onNext(limitedResults)
-//            }, onError: { owner, error in
-//                print(error)
-//            })
-//            .disposed(by: disposeBag)
-//        
+        let trendTVList = PublishSubject<[TVResult]>()
         
-        return Output(trendMovieList: trendMovieList)
+        let randomContent = PublishSubject<String>()
+        
+        
+        input.trendTrigger
+            .flatMap {
+                NetworkManager.request(router: .trendingMovie, model: TrendingMovie.self)
+            }
+            .subscribe(with: self, onNext: { owner, result in
+                
+                
+                guard let result = result else { return print("결과값 없음.")}
+                
+                let limitedResults = Array(result.results.prefix(10))
+                trendMovieList.onNext(limitedResults)
+                
+                let random = result.results[Int.random(in: 1...10)].poster_path
+                randomContent.onNext(random ?? "")
+                
+            }, onError: { owner, error in
+                print(error)
+            })
+            .disposed(by: disposeBag)
+        
+        input.trendTrigger
+            .flatMap {
+                NetworkManager.request(router: .trendingTV, model: TrendingTV.self)
+            }
+            .subscribe(with: self, onNext: { owner, result in
+                
+                guard let result = result else { return print("결과값 없음.")}
+                
+                let limitedResults = Array(result.results.prefix(10))
+                trendTVList.onNext(limitedResults)
+                
+                let random = result.results[Int.random(in: 1...10)].poster_path
+                randomContent.onNext(random ?? "")
+                
+            }, onError: { owner, error in
+                print(error)
+            })
+            .disposed(by: disposeBag)
+        
+        
+        return Output(randomContent: randomContent, trendMovieList: trendMovieList, trendTVList: trendTVList)
     }
     
     
