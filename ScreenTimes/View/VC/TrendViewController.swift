@@ -54,6 +54,13 @@ final class TrendViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        
+        output.genre
+            .bind(with: self) { owner, result in
+                owner.trendView.genreLabel.text = result
+            }
+            .disposed(by: disposeBag)
+        
     }
     
     override func configureNavigationBar() {

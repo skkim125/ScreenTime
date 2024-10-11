@@ -32,13 +32,13 @@ final class SearchViewController: BaseViewController {
     override func bind() {
         let dummy = PublishSubject<[MovieResult]>()
         
-        NetworkManager.request(.trendingMovie)
-            .subscribe { (trend: TrendingMovie) in
-                dummy.onNext(trend.results)
-            } onFailure: { error in
-                print(error)
-            }
-            .disposed(by: disposeBag)
+//        NetworkManager.request(.trendingMovie)
+//            .subscribe { (trend: TrendingMovie) in
+//                dummy.onNext(trend.results)
+//            } onFailure: { error in
+//                print(error)
+//            }
+//            .disposed(by: disposeBag)
         
         dummy
             .bind(to: searchView.collectionView.rx.items(cellIdentifier: DefaultCollectionViewCell.identifier, cellType: DefaultCollectionViewCell.self)) { [weak self]
