@@ -11,6 +11,7 @@
 		042692642CB926C100CBF4B4 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 042692632CB926C100CBF4B4 /* Differentiator */; };
 		042692662CB926C100CBF4B4 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 042692652CB926C100CBF4B4 /* RxDataSources */; };
 		042692682CBA444E00CBF4B4 /* DetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042692672CBA444E00CBF4B4 /* DetailVM.swift */; };
+		0426926E2CBA969800CBF4B4 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0426926D2CBA969800CBF4B4 /* Detail.swift */; };
 		04A4F7CD2CB52CE20094BB42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F7CC2CB52CE20094BB42 /* AppDelegate.swift */; };
 		04A4F7CF2CB52CE20094BB42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F7CE2CB52CE20094BB42 /* SceneDelegate.swift */; };
 		04A4F7D12CB52CE20094BB42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F7D02CB52CE20094BB42 /* ViewController.swift */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		042692602CB925A400CBF4B4 /* DetailDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDataType.swift; sourceTree = "<group>"; };
 		042692672CBA444E00CBF4B4 /* DetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVM.swift; sourceTree = "<group>"; };
+		0426926D2CBA969800CBF4B4 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		04A4F7C92CB52CE20094BB42 /* ScreenTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A4F7CC2CB52CE20094BB42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A4F7CE2CB52CE20094BB42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,14 @@
 				042692602CB925A400CBF4B4 /* DetailDataType.swift */,
 			);
 			path = SectionModel;
+			sourceTree = "<group>";
+		};
+		0426926C2CBA968A00CBF4B4 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				0426926D2CBA969800CBF4B4 /* Detail.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		04A4F7C02CB52CE20094BB42 = {
@@ -222,6 +232,7 @@
 		EF9C0FF82CB573FF00303BD1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0426926C2CBA968A00CBF4B4 /* DTO */,
 				0426925F2CB9257800CBF4B4 /* SectionModel */,
 				EF9C0FF92CB5741200303BD1 /* Realm */,
 				EF9C0FFA2CB5741700303BD1 /* Response */,
@@ -411,6 +422,7 @@
 				EFD78CAD2CB820BE00CE7A57 /* Bundle+.swift in Sources */,
 				EF9C0FDC2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift in Sources */,
 				EF53365F2CB6387F0024B186 /* NetworkManager.swift in Sources */,
+				0426926E2CBA969800CBF4B4 /* Detail.swift in Sources */,
 				EFD78CDB2CB93C2700CE7A57 /* RealmRepository.swift in Sources */,
 				EF5336792CB6C3930024B186 /* Genre.swift in Sources */,
 				EF9C10082CB5747300303BD1 /* ViewModel.swift in Sources */,
