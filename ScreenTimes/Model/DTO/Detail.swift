@@ -7,7 +7,14 @@
 
 import Foundation
 
-struct Detail {
+struct Details: Decodable {
+    var page: Int
+    var results: [Detail]
+    let total_pages: Int
+    let total_results: Int
+}
+
+struct Detail: Decodable {
     let backdrop_path: String?
     let id: Int
     let name: String

@@ -64,8 +64,10 @@ final class TrendViewController: BaseViewController {
         trendView.moviecontentsCollectionView.rx.modelSelected(MovieResult.self)
             .bind(with: self) { owner, result in
                 
+                let data = Detail(backdrop_path: result.backdrop_path, id: result.id, name: result.title, overview: result.overview, poster_path: result.poster_path, media_type: result.media_type ?? "", genre_ids: result.genre_ids, vote_average: result.vote_average)
+                
                 let vc = DetailViewController()
-                vc.movie = result
+                vc.media = data
                 
                 owner.present(vc, animated: true)
             }

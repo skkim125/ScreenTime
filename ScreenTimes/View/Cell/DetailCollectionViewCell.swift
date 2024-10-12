@@ -139,8 +139,8 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func configureCell(_ item: MovieDetail) {
-        titleLabel.text = item.movie.title
+    func configureCell(_ item: MediaDetail) {
+        titleLabel.text = item.movie.name
         rateLabel.text = String(format: "%.2f", item.movie.vote_average)
         descriptionLabel.text = item.movie.overview
         var castString = ""
@@ -158,6 +158,11 @@ final class DetailCollectionViewCell: UICollectionViewCell {
 크리에이터: \(crewString)
 """
         similarContentLabel.text = "비슷한 영화"
+        
+        saveBtn.addTarget(self, action: #selector(saveButton), for: .touchUpInside)
     }
     
+    @objc func saveButton() {
+        print("버튼 클릭")
+    }
 }

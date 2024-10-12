@@ -47,8 +47,8 @@ final class DetailView: BaseView {
         }
     }
     
-    func setPosterView(_ movie: MovieResult?) {
-        guard let movie = movie, let poster = movie.backdrop_path , let url = URL(string: "https://image.tmdb.org/t/p/original" + poster) else { return }
+    func setPosterView(_ media: Detail?) {
+        guard let media = media, let poster = media.backdrop_path , let url = URL(string: "https://image.tmdb.org/t/p/original" + poster) else { return }
         
         posterView.kf.setImage(with: url)
     }
