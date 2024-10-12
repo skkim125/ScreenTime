@@ -31,8 +31,8 @@ extension UIViewController {
         
         let fileURL = documentDirectory.appendingPathComponent("\(filename).jpg")
         
-        if FileManager.default.fileExists(atPath: fileURL.path()) {
-            return UIImage(contentsOfFile: fileURL.path())
+        if FileManager.default.fileExists(atPath: fileURL.path) {
+            return UIImage(contentsOfFile: fileURL.path)
         } else {
             return UIImage(systemName: "star.fill")
         }
@@ -45,10 +45,10 @@ extension UIViewController {
         
         let fileURL = documentDirectory.appendingPathComponent("\(filename).jpg")
         
-        if FileManager.default.fileExists(atPath: fileURL.path()) {
+        if FileManager.default.fileExists(atPath: fileURL.path) {
             
             do {
-                try FileManager.default.removeItem(atPath: fileURL.path())
+                try FileManager.default.removeItem(atPath: fileURL.path)
             } catch {
                 print("file remove error", error)
             }

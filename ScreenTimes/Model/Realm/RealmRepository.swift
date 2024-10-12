@@ -32,7 +32,7 @@ final class RealmRepository {
     }
     
     func isExistSave(id: Int) -> Bool {
-        if realm.object(ofType: Save.self, forPrimaryKey: id) {
+        if let _ = realm.object(ofType: Save.self, forPrimaryKey: id) {
             return true
         } else {
             return false

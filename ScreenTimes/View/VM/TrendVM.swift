@@ -36,8 +36,8 @@ final class TrendVM {
         input.trendTrigger
             .flatMap {
                 Single.zip(
-                    NetworkManager.request(router: .trendingMovie, model: TrendingMovie.self),
-                    NetworkManager.request(router: .trendingTV, model: TrendingTV.self)
+                    NetworkManager.request(router: .trendingMovie, model: Movie.self),
+                    NetworkManager.request(router: .trendingTV, model: TV.self)
                 )
             }
             .flatMap { movieResult, tvResult -> Observable<Genre?> in
