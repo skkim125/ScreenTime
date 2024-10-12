@@ -39,4 +39,8 @@ final class RealmRepository {
             return false
         }
     }
+    
+    func fetchAllSaves() -> [Save] {
+        return Array(realm.objects(Save.self))
+    }
 }

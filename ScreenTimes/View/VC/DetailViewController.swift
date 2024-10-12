@@ -9,14 +9,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
-import RealmSwift
-
-struct MovieDetail {
-    let movie: MovieResult
-    let cast: [CastResult]
-    let crew: [CrewResult]
-    let similar: [MovieResult]
-}
 
 final class DetailViewController: BaseViewController {
     
@@ -56,7 +48,7 @@ final class DetailViewController: BaseViewController {
                 
                 cell.saveBtn.rx.tap
                     .bind(with: self) { owner, _ in
-                        let saveTitle = Save(title: movie.movie.title)
+                        let saveTitle = Save(title: media.movie.name)
                         owner.saveImageToDocument(image: owner.detailView.posterView.image ?? UIImage(), filename: "\(saveTitle.id)")
                         owner.realmRepo.addSave(saveTitle)
                         print("saveButton Clicked")

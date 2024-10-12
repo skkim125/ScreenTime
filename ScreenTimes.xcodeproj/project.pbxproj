@@ -58,7 +58,6 @@
 		EFD78CD92CB93AE000CE7A57 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EFD78CD82CB93AE000CE7A57 /* RealmSwift */; };
 		EFD78CDB2CB93C2700CE7A57 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD78CDA2CB93C2700CE7A57 /* RealmRepository.swift */; };
 		EFD78CE02CB9438200CE7A57 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD78CDF2CB9438200CE7A57 /* UIViewController+.swift */; };
-		EFD78CE22CBAA20400CE7A57 /* DownloadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD78CE12CBAA20400CE7A57 /* DownloadViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,7 +106,6 @@
 		EFD78CD52CB9159B00CE7A57 /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
 		EFD78CDA2CB93C2700CE7A57 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		EFD78CDF2CB9438200CE7A57 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
-		EFD78CE12CBAA20400CE7A57 /* DownloadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,7 +274,6 @@
 				04A4F7E62CB592190094BB42 /* SearchViewModel.swift */,
 				042692672CBA444E00CBF4B4 /* DetailVM.swift */,
 				8B8441B42CB7B634001A460F /* TrendVM.swift */,
-				EFD78CE12CBAA20400CE7A57 /* DownloadViewModel.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -412,7 +409,6 @@
 			files = (
 				EF5336632CB6C0DA0024B186 /* TV.swift in Sources */,
 				EF5336612CB640670024B186 /* TestNetwork.swift in Sources */,
-				EFD78CE22CBAA20400CE7A57 /* DownloadViewModel.swift in Sources */,
 				EF5336632CB6C0DA0024B186 /* TV.swift in Sources */,
 				8B8441F22CB904F7001A460F /* DetailView.swift in Sources */,
 				8B8441F42CB9189C001A460F /* DetailCollectionViewCell.swift in Sources */,
