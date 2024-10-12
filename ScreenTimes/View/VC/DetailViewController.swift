@@ -10,21 +10,13 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-
-struct MovieDetail {
-    let movie: MovieResult
-    let cast: [CastResult]
-    let crew: [CrewResult]
-    let similar: [MovieResult]
-}
-
 final class DetailViewController: BaseViewController {
     
     private let detailView = DetailView()
     private var disposeBag = DisposeBag()
     private let detailVM = DetailVM()
     
-    var movie: MovieResult?
+    var media: Detail?
     
     override func loadView() {
         view = detailView
@@ -33,32 +25,32 @@ final class DetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
-        detailView.setPosterView(movie)
-        bind(movie: movie)
+        detailView.setPosterView(media)
+        bind(media: media)
     }
     
-    private func bind(movie: MovieResult?) {
-        let inputMovie = PublishSubject<MovieResult?>()
+    private func bind(media: Detail?) {
+        let inputMovie = PublishSubject<Detail?>()
         let input = DetailVM.Input(selectedMovie: inputMovie)
         let output = detailVM.transform(input)
         
-        inputMovie.onNext(movie)
+        inputMovie.onNext(media)
         
         let dataSource = RxCollectionViewSectionedReloadDataSource<DetailDataType> { _, collectionView, indexPath, item in
             
             switch item {
-            case .movieDetail(item: let movie):
+            case .movieDetail(item: let media):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCollectionViewCell.identifier, for: indexPath) as? DetailCollectionViewCell else { return UICollectionViewCell() }
                 
-                cell.configureCell(movie)
+                cell.configureCell(media)
                 cell.backgroundColor = .black
                 
                 return cell
                 
-            case .similar(item: let movie):
+            case .similar(item: let media):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DefaultCollectionViewCell.identifier, for: indexPath) as? DefaultCollectionViewCell else { return UICollectionViewCell() }
                 
-                cell.configureCell(.threeCell, movie: movie)
+                cell.configureCell(.threeCell, media: media)
                 
                 return cell
             }

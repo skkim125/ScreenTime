@@ -36,6 +36,6 @@ extension DetailDataType: SectionModelType {
 }
 
 enum DetailItem {
-    case movieDetail(item: MovieDetail)
-    case similar(item: MovieResult)
+    case movieDetail(item: MediaDetail)
+    case similar(item: Detail)
 }
