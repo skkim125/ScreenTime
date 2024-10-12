@@ -12,7 +12,7 @@ final class DetailCollectionViewCell: UICollectionViewCell {
  
     private let titleLabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 16)
+        label.font = .boldSystemFont(ofSize: 18)
         label.text = "예비 제목"
         label.textColor = .white
         return label
@@ -68,6 +68,7 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         label.text = "001010101010101011010101010100110"
         label.font = .systemFont(ofSize: 16)
         label.textColor = .white
+        label.numberOfLines = 0
         return label
     }()
     private let creditLabel = {
@@ -85,8 +86,10 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         label.textColor = .white
         return label
     }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configureHierarchy()
         configureLayout()
     }
     
@@ -94,8 +97,7 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    private func configureLayout() {
+    private func configureHierarchy() {
         contentView.addSubview(titleLabel)
         contentView.addSubview(rateLabel)
         contentView.addSubview(playBtn)
@@ -105,5 +107,57 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(similarContentLabel)
     }
     
+    private func configureLayout() {
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(contentView.safeAreaLayoutGuide).offset(15)
+            make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+        }
+        rateLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(5)
+            make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+        }
+        playBtn.snp.makeConstraints { make in
+            make.top.equalTo(rateLabel.snp.bottom).offset(5)
+            make.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+        }
+        saveBtn.snp.makeConstraints { make in
+            make.top.equalTo(playBtn.snp.bottom).offset(5)
+            make.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+        }
+        descriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(saveBtn.snp.bottom).offset(10)
+            make.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+        }
+        creditLabel.snp.makeConstraints { make in
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(10)
+            make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+        }
+        similarContentLabel.snp.makeConstraints { make in
+            make.top.equalTo(creditLabel.snp.bottom).offset(10)
+            make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+            make.bottom.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+        }
+    }
+    
+    func configureCell(_ item: MovieDetail) {
+        titleLabel.text = item.movie.title
+        rateLabel.text = String(format: "%.2f", item.movie.vote_average)
+        descriptionLabel.text = item.movie.overview
+        var castString = ""
+        var crewString = ""
+        
+        for cast in item.cast {
+            castString += "\(cast.name) "
+        }
+        
+        for crew in item.crew {
+            crewString += "\(crew.name) "
+        }
+        creditLabel.text = """
+출연: \(castString)
+크리에이터: \(crewString)
+"""
+        similarContentLabel.text = "비슷한 영화"
+    }
     
 }

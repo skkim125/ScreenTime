@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042692612CB925A400CBF4B4 /* DetailDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042692602CB925A400CBF4B4 /* DetailDataType.swift */; };
+		042692642CB926C100CBF4B4 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 042692632CB926C100CBF4B4 /* Differentiator */; };
+		042692662CB926C100CBF4B4 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 042692652CB926C100CBF4B4 /* RxDataSources */; };
+		042692682CBA444E00CBF4B4 /* DetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042692672CBA444E00CBF4B4 /* DetailVM.swift */; };
 		04A4F7CD2CB52CE20094BB42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F7CC2CB52CE20094BB42 /* AppDelegate.swift */; };
 		04A4F7CF2CB52CE20094BB42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F7CE2CB52CE20094BB42 /* SceneDelegate.swift */; };
 		04A4F7D12CB52CE20094BB42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F7D02CB52CE20094BB42 /* ViewController.swift */; };
@@ -57,6 +61,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042692602CB925A400CBF4B4 /* DetailDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDataType.swift; sourceTree = "<group>"; };
+		042692672CBA444E00CBF4B4 /* DetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVM.swift; sourceTree = "<group>"; };
 		04A4F7C92CB52CE20094BB42 /* ScreenTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A4F7CC2CB52CE20094BB42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A4F7CE2CB52CE20094BB42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,11 +113,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042692642CB926C100CBF4B4 /* Differentiator in Frameworks */,
 				EF5336752CB6C2DF0024B186 /* RxCocoa in Frameworks */,
 				EF53366C2CB6C2A40024B186 /* Kingfisher in Frameworks */,
 				EFD78CD92CB93AE000CE7A57 /* RealmSwift in Frameworks */,
 				EF53366F2CB6C2AB0024B186 /* IQKeyboardManagerSwift in Frameworks */,
 				EF5336692CB6C29D0024B186 /* Alamofire in Frameworks */,
+				042692662CB926C100CBF4B4 /* RxDataSources in Frameworks */,
 				EF5336722CB6C2B40024B186 /* SnapKit in Frameworks */,
 				EF5336772CB6C2DF0024B186 /* RxSwift in Frameworks */,
 			);
@@ -120,6 +128,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0426925F2CB9257800CBF4B4 /* SectionModel */ = {
+			isa = PBXGroup;
+			children = (
+				042692602CB925A400CBF4B4 /* DetailDataType.swift */,
+			);
+			path = SectionModel;
+			sourceTree = "<group>";
+		};
 		04A4F7C02CB52CE20094BB42 = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +222,7 @@
 		EF9C0FF82CB573FF00303BD1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0426925F2CB9257800CBF4B4 /* SectionModel */,
 				EF9C0FF92CB5741200303BD1 /* Realm */,
 				EF9C0FFA2CB5741700303BD1 /* Response */,
 			);
@@ -247,6 +264,7 @@
 			children = (
 				EF9C10072CB5747300303BD1 /* ViewModel.swift */,
 				04A4F7E62CB592190094BB42 /* SearchViewModel.swift */,
+				042692672CBA444E00CBF4B4 /* DetailVM.swift */,
 				8B8441B42CB7B634001A460F /* TrendVM.swift */,
 			);
 			path = VM;
@@ -313,6 +331,8 @@
 				EF5336712CB6C2B40024B186 /* SnapKit */,
 				EF5336742CB6C2DF0024B186 /* RxCocoa */,
 				EF5336762CB6C2DF0024B186 /* RxSwift */,
+				042692632CB926C100CBF4B4 /* Differentiator */,
+				042692652CB926C100CBF4B4 /* RxDataSources */,
 				EFD78CD82CB93AE000CE7A57 /* RealmSwift */,
 			);
 			productName = ScreenTimes;
@@ -349,6 +369,7 @@
 				EF53366D2CB6C2AB0024B186 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				EF5336702CB6C2B40024B186 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				EF5336732CB6C2DF0024B186 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				042692622CB926C100CBF4B4 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				EFD78CD72CB93AE000CE7A57 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 04A4F7CA2CB52CE20094BB42 /* Products */;
@@ -394,6 +415,7 @@
 				EF5336792CB6C3930024B186 /* Genre.swift in Sources */,
 				EF9C10082CB5747300303BD1 /* ViewModel.swift in Sources */,
 				04A4F8422CB6EBE00094BB42 /* DownloadView.swift in Sources */,
+				042692682CBA444E00CBF4B4 /* DetailVM.swift in Sources */,
 				EF9C0FD92CB53E5A00303BD1 /* UIView+.swift in Sources */,
 				04A4F7E72CB592190094BB42 /* SearchViewModel.swift in Sources */,
 				04A4F8442CB6EBEC0094BB42 /* DownloadViewController.swift in Sources */,
@@ -414,6 +436,7 @@
 				04A4F7E92CB639160094BB42 /* BaseView.swift in Sources */,
 				8BF9F0A12CB78AEF0088C37F /* TrendView.swift in Sources */,
 				8BF9F09F2CB78AA60088C37F /* TrendCollectionViewCell.swift in Sources */,
+				042692612CB925A400CBF4B4 /* DetailDataType.swift in Sources */,
 				EFD78CE02CB9438200CE7A57 /* UIViewController+.swift in Sources */,
 				EF9C100D2CB60ED800303BD1 /* Router.swift in Sources */,
 			);
@@ -643,6 +666,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		042692622CB926C100CBF4B4 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
 		EF5336672CB6C29D0024B186 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -694,6 +725,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		042692632CB926C100CBF4B4 /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 042692622CB926C100CBF4B4 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+		042692652CB926C100CBF4B4 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 042692622CB926C100CBF4B4 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
 		EF5336682CB6C29D0024B186 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EF5336672CB6C29D0024B186 /* XCRemoteSwiftPackageReference "Alamofire" */;
