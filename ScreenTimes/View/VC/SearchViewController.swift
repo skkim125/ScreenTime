@@ -29,16 +29,16 @@ final class SearchViewController: BaseViewController {
     }
     
     override func bind() {
-        let dummy = PublishSubject<[MovieResult]>()
-        var trendArray: [MovieResult] = []
+        let dummy = PublishSubject<[Detail]>()
+        var trendArray: [Detail] = []
         let setTrend = PublishSubject<Void>()
         let setSearch = PublishSubject<String>()
         
         NetworkManager.request(router: .trendingMovie, model: Movie.self)
             .subscribe { trend in
                 guard let trend = trend else { return }
-                trendArray = trend.results
-                dummy.onNext(trend.results)
+                trendArray = trend.results.map({ Detail(backdrop_path: $0.backdrop_path, id: $0.id, name: $0.title, overview: $0.overview, poster_path: $0.poster_path, media_type: $0.media_type ?? "", genre_ids: $0.genre_ids, vote_average: $0.vote_average) })
+                dummy.onNext(trendArray)
                 setTrend.onNext(())
             } onFailure: { error in
                 print(error)
@@ -49,7 +49,7 @@ final class SearchViewController: BaseViewController {
             .bind(to: searchView.collectionView.rx.items(cellIdentifier: DefaultCollectionViewCell.identifier, cellType: DefaultCollectionViewCell.self)) { [weak self]
                 (item, element, cell) in
                 guard let self = self else { return }
-                cell.configureCell(self.searchView.layoutType, movie: element)
+                cell.configureCell(self.searchView.layoutType, media: element)
             }
             .disposed(by: disposeBag)
         
@@ -82,7 +82,8 @@ final class SearchViewController: BaseViewController {
                             owner.searchView.emptyLabel.rx.isHidden.onNext(false)
                             owner.searchView.collectionView.rx.isHidden.onNext(true)
                         } else {
-                            dummy.onNext(search.results)
+                            let data = search.results.map({ Detail(backdrop_path: $0.backdrop_path, id: $0.id, name: $0.title, overview: $0.overview, poster_path: $0.poster_path, media_type: $0.media_type ?? "", genre_ids: $0.genre_ids, vote_average: $0.vote_average) })
+                            dummy.onNext(data)
                             owner.searchView.infoLabel.rx.text.onNext("영화 & 시리즈")
                             owner.searchView.infoLabel.rx.isHidden.onNext(false)
                             owner.searchView.emptyLabel.rx.isHidden.onNext(true)
@@ -105,6 +106,16 @@ final class SearchViewController: BaseViewController {
                 dummy.onNext(value)
                 owner.searchView.rx.layoutType.onNext(.table)
                 owner.searchView.collectionView.rx.collectionViewLayout.onNext(owner.searchView.defaultCollectionViewLayout(.table))
+            }
+            .disposed(by: disposeBag)
+        
+        searchView.collectionView.rx.modelSelected(Detail.self)
+            .bind(with: self) { owner, result in
+                
+                let vc = DetailViewController()
+                vc.media = result
+                
+                owner.present(vc, animated: true)
             }
             .disposed(by: disposeBag)
     }

@@ -29,13 +29,12 @@ final class DownloadViewController: BaseViewController {
     
     override func bind() {
         
-        let dummy = PublishSubject<[MovieResult]>()
+        let dummy = PublishSubject<[Detail]>()
         
         dummy
             .bind(to: downloadView.collectionView.rx.items(cellIdentifier: DefaultCollectionViewCell.identifier, cellType: DefaultCollectionViewCell.self)) {
                 (item, element, cell) in
-                
-                cell.configureCell(.table, movie: element)
+                cell.configureCell(.table, media: element)
             }
             .disposed(by: disposeBag)
     }
