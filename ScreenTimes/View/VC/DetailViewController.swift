@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
-
+import RealmSwift
 
 struct MovieDetail {
     let movie: MovieResult
@@ -23,6 +23,7 @@ final class DetailViewController: BaseViewController {
     private let detailView = DetailView()
     private var disposeBag = DisposeBag()
     private let detailVM = DetailVM()
+    private let realmRepo = RealmRepository()
     
     var movie: MovieResult?
     
@@ -52,6 +53,15 @@ final class DetailViewController: BaseViewController {
                 
                 cell.configureCell(movie)
                 cell.backgroundColor = .black
+                
+                cell.saveBtn.rx.tap
+                    .bind(with: self) { owner, _ in
+                        let saveTitle = Save(title: movie.movie.title)
+                        owner.saveImageToDocument(image: owner.detailView.posterView.image ?? UIImage(), filename: "\(saveTitle.id)")
+                        owner.realmRepo.addSave(saveTitle)
+                        print("saveButton Clicked")
+                    }
+                    .disposed(by: cell.disposeBag)
                 
                 return cell
                 

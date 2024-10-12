@@ -15,6 +15,7 @@ final class RealmRepository {
         do {
             try realm.write {
                 realm.add(item)
+                print(realm.configuration.fileURL)
             }
         } catch {
             print("AddSave Failed")

@@ -12,7 +12,7 @@ class Save: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var title: String
     
-    convenience init(title: String, imageLink: String) {
+    convenience init(title: String) {
         self.init()
         self.title = title
     }
