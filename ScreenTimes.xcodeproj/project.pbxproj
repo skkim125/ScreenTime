@@ -10,6 +10,7 @@
 		042692612CB925A400CBF4B4 /* DetailDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042692602CB925A400CBF4B4 /* DetailDataType.swift */; };
 		042692642CB926C100CBF4B4 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 042692632CB926C100CBF4B4 /* Differentiator */; };
 		042692662CB926C100CBF4B4 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 042692652CB926C100CBF4B4 /* RxDataSources */; };
+		042692682CBA444E00CBF4B4 /* DetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042692672CBA444E00CBF4B4 /* DetailVM.swift */; };
 		04A4F7CD2CB52CE20094BB42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F7CC2CB52CE20094BB42 /* AppDelegate.swift */; };
 		04A4F7CF2CB52CE20094BB42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F7CE2CB52CE20094BB42 /* SceneDelegate.swift */; };
 		04A4F7D12CB52CE20094BB42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F7D02CB52CE20094BB42 /* ViewController.swift */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		042692602CB925A400CBF4B4 /* DetailDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDataType.swift; sourceTree = "<group>"; };
+		042692672CBA444E00CBF4B4 /* DetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVM.swift; sourceTree = "<group>"; };
 		04A4F7C92CB52CE20094BB42 /* ScreenTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A4F7CC2CB52CE20094BB42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A4F7CE2CB52CE20094BB42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			children = (
 				EF9C10072CB5747300303BD1 /* ViewModel.swift */,
 				04A4F7E62CB592190094BB42 /* SearchViewModel.swift */,
+				042692672CBA444E00CBF4B4 /* DetailVM.swift */,
 				8B8441B42CB7B634001A460F /* TrendVM.swift */,
 			);
 			path = VM;
@@ -405,6 +408,7 @@
 				EF5336792CB6C3930024B186 /* Genre.swift in Sources */,
 				EF9C10082CB5747300303BD1 /* ViewModel.swift in Sources */,
 				04A4F8422CB6EBE00094BB42 /* DownloadView.swift in Sources */,
+				042692682CBA444E00CBF4B4 /* DetailVM.swift in Sources */,
 				EF9C0FD92CB53E5A00303BD1 /* UIView+.swift in Sources */,
 				04A4F7E72CB592190094BB42 /* SearchViewModel.swift in Sources */,
 				04A4F8442CB6EBEC0094BB42 /* DownloadViewController.swift in Sources */,

@@ -12,7 +12,7 @@ final class DetailCollectionViewCell: UICollectionViewCell {
  
     private let titleLabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 16)
+        label.font = .boldSystemFont(ofSize: 18)
         label.text = "예비 제목"
         label.textColor = .white
         return label
@@ -68,6 +68,7 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         label.text = "001010101010101011010101010100110"
         label.font = .systemFont(ofSize: 16)
         label.textColor = .white
+        label.numberOfLines = 0
         return label
     }()
     private let creditLabel = {
@@ -85,8 +86,10 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         label.textColor = .white
         return label
     }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configureHierarchy()
         configureLayout()
     }
     
@@ -106,7 +109,7 @@ final class DetailCollectionViewCell: UICollectionViewCell {
     
     private func configureLayout() {
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(contentView.safeAreaLayoutGuide).inset(15)
+            make.top.equalTo(contentView.safeAreaLayoutGuide).offset(15)
             make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
         }
         rateLabel.snp.makeConstraints { make in
@@ -132,11 +135,11 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         similarContentLabel.snp.makeConstraints { make in
             make.top.equalTo(creditLabel.snp.bottom).offset(10)
             make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+            make.bottom.equalTo(contentView.safeAreaLayoutGuide).inset(10)
         }
     }
     
     func configureCell(_ item: MovieDetail) {
-        print(item.movie.title)
         titleLabel.text = item.movie.title
         rateLabel.text = String(format: "%.2f", item.movie.vote_average)
         descriptionLabel.text = item.movie.overview
@@ -144,11 +147,11 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         var crewString = ""
         
         for cast in item.cast {
-            castString += "\(cast) "
+            castString += "\(cast.name) "
         }
         
         for crew in item.crew {
-            crewString += "\(crew) "
+            crewString += "\(crew.name) "
         }
         creditLabel.text = """
 출연: \(castString)

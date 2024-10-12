@@ -70,15 +70,6 @@ final class TrendViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
-        /*
-         디테일뷰에 넘겨야할 요소
-         - 이미지 패스
-         - 제목 > name, title
-         - rate
-         - id
-         
-         */
-        
         trendView.tvcontentsCollectionView.rx.modelSelected(TVResult.self)
             .bind(with: self) { owner, result in
                 
