@@ -12,7 +12,6 @@ import RxCocoa
 
 final class TrendVM {
     
-    
     struct Input {
         let trendTrigger: Observable<Void>
     }
@@ -36,69 +35,53 @@ final class TrendVM {
         
         input.trendTrigger
             .flatMap {
-                NetworkManager.request(router: .trendingMovie, model: Movie.self)
+                Single.zip(
+                    NetworkManager.request(router: .trendingMovie, model: TrendingMovie.self),
+                    NetworkManager.request(router: .trendingTV, model: TrendingTV.self)
+                )
             }
-            .subscribe(with: self, onNext: { owner, result in
+            .flatMap { movieResult, tvResult -> Observable<Genre?> in
                 
-                
-                guard let result = result else { return print("결과값 없음.")}
-                
-                let limitedResults = Array(result.results.prefix(10))
-                trendMovieList.onNext(limitedResults)
-                
-                let random = result.results[Int.random(in: 1...10)]
-                
-                randomContent.onNext(random.poster_path ?? "")
-                
-                genreID = random.genre_ids.first ?? 0
-                
-                
-            }, onError: { owner, error in
-                print(error)
-            })
-            .disposed(by: disposeBag)
-        
-        input.trendTrigger
-            .flatMap {
-                NetworkManager.request(router: .trendingTV, model: TV.self)
-            }
-            .subscribe(with: self, onNext: { owner, result in
-                
-                guard let result = result else { return print("결과값 없음.")}
-                
-                let limitedResults = Array(result.results.prefix(10))
-                trendTVList.onNext(limitedResults)
-                
-                let random = result.results[Int.random(in: 1...10)].poster_path
-                randomContent.onNext(random ?? "")
-                
-            }, onError: { owner, error in
-                print(error)
-            })
-            .disposed(by: disposeBag)
-        
-        
-        input.trendTrigger
-            .flatMap {
-                NetworkManager.request(router: .genreMovie, model: Genre.self)
-            }
-            .subscribe(with: self) { owner, result in
-                guard let result = result?.genres else{ return }
-                
-                for i in 0..<result.count {
-                    if genreID == result[i].id {
-                        print("장르 id",genreID, result[i].id, result[i].name)
-                        genre.onNext(result[i].name)
-                        break
-                    }
+                guard let movieResults = movieResult?.results,
+                      let tvResults = tvResult?.results else {
+                    return Observable.just(nil)
                 }
+                
+                let limitedMovieResults = Array(movieResults.prefix(10))
+                let limitedTVResults = Array(tvResults.prefix(10))
+                
+                trendMovieList.onNext(limitedMovieResults)
+                trendTVList.onNext(limitedTVResults)
+                
+                let isMovieSelected = Bool.random()
+                
+                if isMovieSelected {
+                    let randomMovie = movieResults[Int.random(in: 1...10)]
+                    randomContent.onNext(randomMovie.poster_path ?? "")
+                    genreID = randomMovie.genre_ids.first ?? 0
+                    
+                } else {
+                    let randomTV = tvResults[Int.random(in: 1...10)]
+                    randomContent.onNext(randomTV.poster_path ?? "")
+                    genreID = randomTV.genre_ids.first ?? 0
+                }
+                
+                return NetworkManager.request(router: .genreMovie, model: Genre.self).asObservable()
             }
+            .subscribe(with: self, onNext: { owner, genreResult in
+                guard let genres = genreResult?.genres else { return }
+                
+                
+                if let matchedGenre = genres.first(where: { $0.id == genreID }) {
+                    genre.onNext(matchedGenre.name)
+                    print("장르 id", genreID, matchedGenre.id, matchedGenre.name)
+                }
+                
+            }, onError: { owner, error in
+                print(error)
+            })
             .disposed(by: disposeBag)
-
-        
         
         return Output(randomContent: randomContent, trendMovieList: trendMovieList, trendTVList: trendTVList, genre: genre)
     }
-    
-    
 }

@@ -20,6 +20,7 @@ struct TVResult: Decodable {
     let name: String
     let overview: String
     let poster_path: String?
+    let media_type: String
     let genre_ids: [Int]
     let vote_average: Double
 }
