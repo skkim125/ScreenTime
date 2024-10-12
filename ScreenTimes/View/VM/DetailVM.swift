@@ -30,7 +30,6 @@ final class DetailVM {
     func transform(_ input: Input) -> Output {
         let inputSelectedMovie = PublishSubject<Detail>()
         let movieCast = PublishSubject<Cast>()
-        let movieG = PublishSubject<String>()
         let similarMovies = PublishSubject<[Detail]>()
         let movieDetail = BehaviorSubject<[DetailDataType]>(value: [])
         
@@ -43,19 +42,35 @@ final class DetailVM {
         
         inputSelectedMovie
             .bind(with: self) { owner, movie in
-                NetworkManager.request(router: .castMovie(id: movie.id), model: Cast.self)
+                NetworkManager.request(router: movie.media_type == "movie" ? .castMovie(id: movie.id) : .castTV(id: movie.id), model: Cast.self)
                     .subscribe { value in
                         guard let value = value else { return }
                         
                         var castArray: [CastResult] = []
                         var crewArray: [CrewResult] = []
                         
-                        for i in 0...2 {
-                            castArray.append(value.cast[i])
+                        if value.cast.isEmpty {
+                            castArray = []
+                        } else if value.cast.count < 3 {
+                            for i in 0...value.cast.count-1 {
+                                castArray.append(value.cast[i])
+                            }
+                        } else {
+                            for i in 0...2 {
+                                castArray.append(value.cast[i])
+                            }
                         }
                         
-                        for i in 0...2 {
-                            crewArray.append(value.crew[i])
+                        if value.cast.isEmpty {
+                            crewArray = []
+                        }  else if value.crew.count < 3 {
+                            for i in 0...value.crew.count-1 {
+                                crewArray.append(value.crew[i])
+                            }
+                        } else {
+                            for i in 0...2 {
+                                crewArray.append(value.crew[i])
+                            }
                         }
                         
                         movieCast.onNext(Cast(id: movie.id, cast: castArray, crew: crewArray))
@@ -65,40 +80,40 @@ final class DetailVM {
                     }
                     .disposed(by: owner.disposeBag)
                 
-                NetworkManager.request(router: .genreMovie, model: Genre.self)
-                    .subscribe { value in
-                        guard let value = value else { return }
-                        guard let g = movie.genre_ids.first else { return }
-                        
-                        value.genres.forEach { genre in
-                            if g == genre.id {
-                                movieG.onNext(genre.name)
-                            }
+                switch movie.media_type {
+                case "movie":
+                    NetworkManager.request(router: .similarMovie(id: movie.id), model: Movie.self)
+                        .subscribe { movies in
+                            guard let movies = movies else { return }
+                            let similars = movies.results.map({
+                                return Detail(backdrop_path: $0.backdrop_path, id: $0.id, name: $0.title, overview: $0.overview, poster_path: $0.poster_path, media_type: $0.media_type ?? "", genre_ids: $0.genre_ids, vote_average: $0.vote_average)
+                            })
+                            
+                            similarMovies.onNext(similars)
+                        } onFailure: { error in
+                            print(error)
                         }
-                        
-                    } onFailure: { error in
-                        print(error)
-                    }
-                    .disposed(by: owner.disposeBag)
-                
-                NetworkManager.request(router: .similarMovie(id: movie.id), model: Movie.self)
-                    .subscribe { movies in
-                        guard let movies = movies else { return }
-                        let similars = movies.results.map({
-                            return Detail(backdrop_path: $0.backdrop_path, id: $0.id, name: $0.title, overview: $0.overview, poster_path: $0.poster_path, media_type: $0.media_type ?? "", genre_ids: $0.genre_ids, vote_average: $0.vote_average)
-                        })
-                        
-                        similarMovies.onNext(similars)
-                    } onFailure: { error in
-                        print(error)
-                    }
-                    .disposed(by: owner.disposeBag)
+                        .disposed(by: owner.disposeBag)
+                default:
+                    NetworkManager.request(router: .similarTV(id: movie.id), model: TV.self)
+                        .subscribe { movies in
+                            guard let movies = movies else { return }
+                            let similars = movies.results.map({
+                                return Detail(backdrop_path: $0.backdrop_path, id: $0.id, name: $0.name, overview: $0.overview, poster_path: $0.poster_path, media_type: $0.media_type ?? "", genre_ids: $0.genre_ids, vote_average: $0.vote_average)
+                            })
+                            
+                            similarMovies.onNext(similars)
+                        } onFailure: { error in
+                            print(error)
+                        }
+                        .disposed(by: owner.disposeBag)
+                }
             }
             .disposed(by: disposeBag)
      
-        Observable.zip(inputSelectedMovie, movieCast, movieG, similarMovies)
+        Observable.zip(inputSelectedMovie, movieCast, similarMovies)
             .debug("Zip")
-            .map { (movie, cast, genre, similars) -> [DetailDataType] in
+            .map { (movie, cast, similars) -> [DetailDataType] in
                 print("컴바인레이티스트")
                 let movieDetail = MediaDetail(movie: movie, cast: cast.cast, crew: cast.crew, similar: similars)
                 let convertArray = [DetailItem.movieDetail(item: movieDetail)]

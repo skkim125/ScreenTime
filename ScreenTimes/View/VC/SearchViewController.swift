@@ -108,5 +108,15 @@ final class SearchViewController: BaseViewController {
                 owner.searchView.collectionView.rx.collectionViewLayout.onNext(owner.searchView.defaultCollectionViewLayout(.table))
             }
             .disposed(by: disposeBag)
+        
+        searchView.collectionView.rx.modelSelected(Detail.self)
+            .bind(with: self) { owner, result in
+                
+                let vc = DetailViewController()
+                vc.media = result
+                
+                owner.present(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
     }
 }

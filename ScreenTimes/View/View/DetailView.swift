@@ -24,6 +24,7 @@ final class DetailView: BaseView {
         cv.register(DetailCollectionViewCell.self, forCellWithReuseIdentifier: DetailCollectionViewCell.identifier)
         cv.showsVerticalScrollIndicator = false
         cv.backgroundColor = .black
+        cv.bounces = false
         
         return cv
     }()

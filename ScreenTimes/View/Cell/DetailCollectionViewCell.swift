@@ -71,11 +71,21 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 0
         return label
     }()
-    private let creditLabel = {
+    private let castLabel = {
         let label = UILabel()
         label.text = "Dfdf\ndfdfdfdsf"
+        label.font = .systemFont(ofSize: 13)
         label.textColor = .lightGray
-        label.numberOfLines = 0 // 줄바꿈을 허용
+        label.numberOfLines = 1
+        label.textAlignment = .left
+        return label
+    }()
+    private let crewLabel = {
+        let label = UILabel()
+        label.text = "Dfdf\ndfdfdfdsf"
+        label.font = .systemFont(ofSize: 13)
+        label.textColor = .lightGray
+        label.numberOfLines = 1
         label.textAlignment = .left
         return label
     }()
@@ -103,7 +113,8 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(playBtn)
         contentView.addSubview(saveBtn)
         contentView.addSubview(descriptionLabel)
-        contentView.addSubview(creditLabel)
+        contentView.addSubview(castLabel)
+        contentView.addSubview(crewLabel)
         contentView.addSubview(similarContentLabel)
     }
     
@@ -128,12 +139,16 @@ final class DetailCollectionViewCell: UICollectionViewCell {
             make.top.equalTo(saveBtn.snp.bottom).offset(10)
             make.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(10)
         }
-        creditLabel.snp.makeConstraints { make in
+        castLabel.snp.makeConstraints { make in
             make.top.equalTo(descriptionLabel.snp.bottom).offset(10)
-            make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+            make.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+        }
+        crewLabel.snp.makeConstraints { make in
+            make.top.equalTo(castLabel.snp.bottom).offset(5)
+            make.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(10)
         }
         similarContentLabel.snp.makeConstraints { make in
-            make.top.equalTo(creditLabel.snp.bottom).offset(10)
+            make.top.equalTo(crewLabel.snp.bottom).offset(10)
             make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
             make.bottom.equalTo(contentView.safeAreaLayoutGuide).inset(10)
         }
@@ -150,19 +165,27 @@ final class DetailCollectionViewCell: UICollectionViewCell {
             castString += "\(cast.name) "
         }
         
-        for crew in item.crew {
-            crewString += "\(crew.name) "
+        if !item.crew.isEmpty {
+            for crew in item.crew {
+                crewString += "\(crew.name) "
+            }
         }
-        creditLabel.text = """
-출연: \(castString)
-크리에이터: \(crewString)
-"""
-        similarContentLabel.text = "비슷한 영화"
+        castLabel.text = "출연: \(castString)"
+        crewLabel.isHidden = item.crew.isEmpty ? true : false
+        remakeLayout(crewLabel.isHidden)
         
-        saveBtn.addTarget(self, action: #selector(saveButton), for: .touchUpInside)
+        
+        crewLabel.text = "크리에이터: \(crewString)"
+        similarContentLabel.text = "비슷한 영화"
     }
     
-    @objc func saveButton() {
-        print("버튼 클릭")
+    private func remakeLayout(_ isHidden: Bool) {
+        if isHidden {
+            similarContentLabel.snp.remakeConstraints { make in
+                make.top.equalTo(castLabel.snp.bottom).offset(10)
+                make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+                make.bottom.equalTo(contentView.safeAreaLayoutGuide).inset(10)
+            }
+        }
     }
 }
