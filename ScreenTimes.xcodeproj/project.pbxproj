@@ -58,6 +58,8 @@
 		EFD78CD92CB93AE000CE7A57 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EFD78CD82CB93AE000CE7A57 /* RealmSwift */; };
 		EFD78CDB2CB93C2700CE7A57 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD78CDA2CB93C2700CE7A57 /* RealmRepository.swift */; };
 		EFD78CE02CB9438200CE7A57 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD78CDF2CB9438200CE7A57 /* UIViewController+.swift */; };
+		EFD78CE62CBB7DEE00CE7A57 /* DownloadVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD78CE52CBB7DEE00CE7A57 /* DownloadVM.swift */; };
+		EFD78CE82CBBABD500CE7A57 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD78CE72CBBABD400CE7A57 /* CustomAlertView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +108,8 @@
 		EFD78CD52CB9159B00CE7A57 /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
 		EFD78CDA2CB93C2700CE7A57 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		EFD78CDF2CB9438200CE7A57 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		EFD78CE52CBB7DEE00CE7A57 /* DownloadVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadVM.swift; sourceTree = "<group>"; };
+		EFD78CE72CBBABD400CE7A57 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +278,7 @@
 				04A4F7E62CB592190094BB42 /* SearchViewModel.swift */,
 				042692672CBA444E00CBF4B4 /* DetailVM.swift */,
 				8B8441B42CB7B634001A460F /* TrendVM.swift */,
+				EFD78CE52CBB7DEE00CE7A57 /* DownloadVM.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 				04A4F8412CB6EBE00094BB42 /* DownloadView.swift */,
 				8BF9F0A02CB78AEF0088C37F /* TrendView.swift */,
 				8B8441F12CB904F7001A460F /* DetailView.swift */,
+				EFD78CE72CBBABD400CE7A57 /* CustomAlertView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -424,6 +430,7 @@
 				EF5336792CB6C3930024B186 /* Genre.swift in Sources */,
 				04A4F8422CB6EBE00094BB42 /* DownloadView.swift in Sources */,
 				042692682CBA444E00CBF4B4 /* DetailVM.swift in Sources */,
+				EFD78CE62CBB7DEE00CE7A57 /* DownloadVM.swift in Sources */,
 				EF9C0FD92CB53E5A00303BD1 /* UIView+.swift in Sources */,
 				04A4F7E72CB592190094BB42 /* SearchViewModel.swift in Sources */,
 				04A4F8442CB6EBEC0094BB42 /* DownloadViewController.swift in Sources */,
@@ -442,6 +449,7 @@
 				04A4F7CF2CB52CE20094BB42 /* SceneDelegate.swift in Sources */,
 				EF9C0FF72CB5738500303BD1 /* BaseViewController.swift in Sources */,
 				04A4F7E92CB639160094BB42 /* BaseView.swift in Sources */,
+				EFD78CE82CBBABD500CE7A57 /* CustomAlertView.swift in Sources */,
 				8BF9F0A12CB78AEF0088C37F /* TrendView.swift in Sources */,
 				8BF9F09F2CB78AA60088C37F /* TrendCollectionViewCell.swift in Sources */,
 				042692612CB925A400CBF4B4 /* DetailDataType.swift in Sources */,

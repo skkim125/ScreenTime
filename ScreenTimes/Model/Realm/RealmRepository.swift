@@ -5,7 +5,7 @@
 //  Created by 양승혜 on 10/11/24.
 //
 
-import Foundation
+import UIKit
 import RealmSwift
 
 final class RealmRepository {
@@ -32,15 +32,26 @@ final class RealmRepository {
         }
     }
     
-    func isExistSave(id: Int) -> Bool {
-        if let _ = realm.object(ofType: Save.self, forPrimaryKey: id) {
-            return true
-        } else {
-            return false
-        }
+    func isExistSave(mediaId: Int) -> Bool {
+        return realm.objects(Save.self).filter("mediaId == %@", mediaId).first != nil
     }
     
     func fetchAllSaves() -> [Save] {
         return Array(realm.objects(Save.self))
+    }
+    
+    func loadImageToDocument(filename: String) -> UIImage? {
+        
+        guard let documentDirectory = FileManager.default.urls(
+            for: .documentDirectory,
+            in: .userDomainMask).first else { return nil }
+        
+        let fileURL = documentDirectory.appendingPathComponent("\(filename).jpg")
+        
+        if FileManager.default.fileExists(atPath: fileURL.path) {
+            return UIImage(contentsOfFile: fileURL.path)
+        } else {
+            return UIImage(systemName: "star.fill")
+        }
     }
 }

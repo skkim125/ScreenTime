@@ -12,6 +12,7 @@ import RxCocoa
 final class DownloadViewController: BaseViewController {
     private let downloadView = DownloadView()
     private let disposeBag = DisposeBag()
+    private let downloadVM = DownloadVM()
     
     override func loadView() {
         view = downloadView
@@ -29,12 +30,14 @@ final class DownloadViewController: BaseViewController {
     
     override func bind() {
         
-        let dummy = PublishSubject<[Detail]>()
+        let input = DownloadVM.Input(downloadTrigger: Observable.just(()))
         
-        dummy
+        let output = downloadVM.transform(input: input)
+        
+        output.savedMedia
             .bind(to: downloadView.collectionView.rx.items(cellIdentifier: DefaultCollectionViewCell.identifier, cellType: DefaultCollectionViewCell.self)) {
                 (item, element, cell) in
-                cell.configureCell(.table, media: element)
+                cell.configureDownload(.table, title: element.title, image: "\(element.id)")
             }
             .disposed(by: disposeBag)
     }
