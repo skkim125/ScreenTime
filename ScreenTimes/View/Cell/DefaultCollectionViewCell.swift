@@ -62,6 +62,7 @@ final class DefaultCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    
     func configureCell(_ type: CVType, movie: MovieResult) {
         configureHierarchy(type)
         configureLayout(type)

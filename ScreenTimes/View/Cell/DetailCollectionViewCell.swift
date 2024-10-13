@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import RxSwift
 
 final class DetailCollectionViewCell: UICollectionViewCell {
  
@@ -43,7 +44,7 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         btn.layer.cornerRadius = 5
         return btn
     }()
-    private let saveBtn = {
+    let saveBtn = {
         let btn = UIButton()
         var config = UIButton.Configuration.plain()
         var titleContainer = AttributeContainer()
@@ -86,6 +87,11 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         label.textColor = .white
         return label
     }()
+    var disposeBag = DisposeBag()
+    
+    override func prepareForReuse() {
+        disposeBag = DisposeBag()
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

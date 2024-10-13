@@ -82,6 +82,10 @@ final class TrendVM {
             })
             .disposed(by: disposeBag)
         
-        return Output(randomContent: randomContent, trendMovieList: trendMovieList, trendTVList: trendTVList, genre: genre)
+        return Output(randomContent: randomContent, 
+                      trendMovieList: trendMovieList,
+                      trendTVList: trendTVList,
+                      genre: genre
+        )
     }
 }

@@ -8,10 +8,29 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
+import RealmSwift
+
+struct SavedContents {
+    
+    typealias Model = SectionModel<Section, Item>
+    
+    enum Section: Equatable {
+        case contentType
+    }
+    enum Item: Equatable {
+        case content(title: String?, id:ObjectId)
+    }
+}
 
 final class DownloadViewController: BaseViewController {
+    
     private let downloadView = DownloadView()
     private let disposeBag = DisposeBag()
+    private let downloadVM = DownloadVM()
+    
+    
+    private var items = BehaviorSubject<[SavedContents.Model]>(value: [])
     
     override func loadView() {
         view = downloadView
@@ -29,13 +48,50 @@ final class DownloadViewController: BaseViewController {
     
     override func bind() {
         
-        let dummy = PublishSubject<[MovieResult]>()
+        let deleteComponents = PublishSubject<IndexPath>()
         
-        dummy
-            .bind(to: downloadView.collectionView.rx.items(cellIdentifier: DefaultCollectionViewCell.identifier, cellType: DefaultCollectionViewCell.self)) {
-                (item, element, cell) in
+        let input = DownloadVM.Input(trigger: Observable.just(()), deleteSavedContent: deleteComponents )
+        
+        let output = downloadVM.transform(input: input)
+        
+        output.savedList
+            .map({ savedContents in
                 
-                cell.configureCell(.table, movie: element)
+                let content = [
+                    SavedContents.Model(
+                        model: .contentType,
+                        items: savedContents.map {SavedContents.Model.Item.content(title: $0.title, id: $0.id)
+                        }
+                    )
+                ]
+                return content
+            })
+            .bind(to: items)
+            .disposed(by: disposeBag)
+        
+        let dataSource = RxTableViewSectionedReloadDataSource<SavedContents.Model> { dataSource, tableView, indexPath, item in
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DownloadTableViewCell.identifier, for: indexPath) as? DownloadTableViewCell else { return UITableViewCell() }
+            
+            switch item {
+            case let .content(title, id):
+               
+                cell.configureCell(title: title, id: "\(id)")
+                
+            }
+            return cell
+        }
+        
+        items
+            .distinctUntilChanged()
+            .bind(to: downloadView.tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        
+        downloadView.tableView.rx.itemDeleted
+            .observe(on: MainScheduler.asyncInstance)
+            .bind(with: self) { owner, indexPath in
+                deleteComponents.onNext(indexPath)
+                
             }
             .disposed(by: disposeBag)
     }

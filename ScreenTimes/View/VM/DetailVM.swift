@@ -86,15 +86,12 @@ final class DetailVM {
             .disposed(by: disposeBag)
      
         Observable.zip(inputSelectedMovie, movieCast, movieG, similarMovies)
-            .debug("Zip")
             .map { (movie, cast, genre, similars) -> [DetailDataType] in
-                print("컴바인레이티스트")
                 let movieDetail = MovieDetail(movie: movie, cast: cast.cast, crew: cast.crew, similar: similars)
                 let convertArray = [DetailItem.movieDetail(item: movieDetail)]
                 let convertSimilar = similars.map({ DetailItem.similar(item: $0) })
                 let convertSimilarArray = DetailDataType.similar(items: convertSimilar)
                 
-                print("컴바인레이티스트")
                 return [DetailDataType.movieDetail(items: convertArray), convertSimilarArray]
             }
             .bind(to: movieDetail)
