@@ -31,7 +31,8 @@ final class SearchViewController: BaseViewController {
     
     override func bind() {
         let setSearch = PublishSubject<String>()
-        let input = SearchVM.Input(trigger: BehaviorSubject(value: ()), setSearch: setSearch)
+        let prefetching = PublishSubject<Void>()
+        let input = SearchVM.Input(trigger: BehaviorSubject(value: ()), setSearch: setSearch, prefetching: prefetching)
         let output = searchVM.transform(input)
         
         searchView.searchController.searchBar.rx.text.orEmpty
@@ -67,6 +68,30 @@ final class SearchViewController: BaseViewController {
             .bind(with: self) { owner, value in
                 owner.searchView.rx.layoutType.onNext(value)
                 owner.searchView.collectionView.rx.collectionViewLayout.onNext(owner.searchView.defaultCollectionViewLayout(value))
+            }
+            .disposed(by: disposeBag)
+        
+        var currentMovieCount = 0
+        
+        output.movieArray
+            .bind(with: self) { owner, value in
+                currentMovieCount = value.count
+                print("현재 갯수", currentMovieCount)
+                let currentOffset = owner.searchView.collectionView.contentOffset
+                
+                owner.searchView.collectionView.reloadData()
+                
+                DispatchQueue.main.async {
+                    owner.searchView.collectionView.setContentOffset(currentOffset, animated: false)
+                }
+            }
+            .disposed(by: disposeBag)
+          
+        searchView.collectionView.rx.prefetchItems
+            .bind(with: self) { owner, vlaue in
+                if vlaue.contains(where: { $0.item == currentMovieCount - 5 }) {
+                    prefetching.onNext(())
+                }
             }
             .disposed(by: disposeBag)
         

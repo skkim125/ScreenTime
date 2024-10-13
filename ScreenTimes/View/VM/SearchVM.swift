@@ -11,11 +11,17 @@ import RxCocoa
 
 final class SearchVM {
     private let disposeBag = DisposeBag()
-    var trendArray: [MovieResult] = []
+    private var movieArray: [MovieResult] = []
+    private var trendArray: [MovieResult] = []
+    private var search: String = ""
+    private var currentPage = 1
+    private var isLoading = false
+    private var totalPages = 1
     
     struct Input {
         let trigger: BehaviorSubject<Void>
         let setSearch: PublishSubject<String>
+        let prefetching: PublishSubject<Void>
     }
     
     struct Output {
@@ -38,9 +44,9 @@ final class SearchVM {
                 NetworkManager.request(router: .trendingMovie, model: Movie.self)
                     .subscribe { trend in
                         guard let trend = trend else { return }
-//                        owner.trendArray = trend.results.map({ Detail(backdrop_path: $0.backdrop_path, id: $0.id, name: $0.title, overview: $0.overview, poster_path: $0.poster_path, media_type: $0.media_type ?? "", genre_ids: $0.genre_ids, vote_average: $0.vote_average) })
                         owner.trendArray = trend.results
-                        movieArray.onNext(owner.trendArray)
+                        owner.movieArray.append(contentsOf: owner.trendArray)
+                        movieArray.onNext(owner.movieArray)
                         labelText.onNext("추천 시리즈 & 영화")
                         setTrend.onNext(())
                     } onFailure: { error in
@@ -57,25 +63,30 @@ final class SearchVM {
                 if text.trimmingCharacters(in: .whitespaces).isEmpty {
                     setTrend.onNext(())
                 } else {
+                    owner.search = text
                     setSearch.onNext(text)
                 }
             }
             .disposed(by: disposeBag)
         
-        
         setSearch
             .bind(with: self) { owner, value in
-                NetworkManager.request(router: .searchMovie(query: value, page: 1), model: Movie.self)
+                NetworkManager.request(router: .searchMovie(query: value, page: owner.currentPage), model: Movie.self)
                     .subscribe { search  in
                         guard let search = search else { return }
                         if search.results.isEmpty && search.total_results == 0 {
-                            movieArray.onNext([])
+                            movieArray.onNext(owner.movieArray)
                             collectionviewStatus.onNext(true)
+                            owner.currentPage = 1
+                            owner.movieArray = []
                         } else {
-//                            let data = search.results.map({ Detail(backdrop_path: $0.backdrop_path, id: $0.id, name: $0.title, overview: $0.overview, poster_path: $0.poster_path, media_type: $0.media_type ?? "", genre_ids: $0.genre_ids, vote_average: $0.vote_average) })
-                            movieArray.onNext(search.results)
+                            if owner.currentPage != 1 {
+                                owner.movieArray.append(contentsOf: search.results)
+                            }
+                            movieArray.onNext(owner.movieArray)
                             collectionviewStatus.onNext(false)
                             collectionviewType.onNext(.threeCell)
+                            owner.totalPages = search.total_pages
                             labelText.onNext("영화 & 시리즈")
                         }
                     } onFailure: { error in
@@ -94,6 +105,17 @@ final class SearchVM {
             .bind(with: self) { owner, value in
                 movieArray.onNext(value)
                 collectionviewType.onNext(.table)
+            }
+            .disposed(by: disposeBag)
+        
+        input.prefetching
+            .bind(with: self) { owner, _ in
+                if owner.currentPage < owner.totalPages {
+                    print("전", owner.currentPage)
+                    owner.currentPage += 1
+                    print("후", owner.currentPage)
+                    setSearch.onNext(owner.search)
+                }
             }
             .disposed(by: disposeBag)
         
