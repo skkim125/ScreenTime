@@ -20,6 +20,7 @@ final class TrendVM {
         let trendMovieList: PublishSubject<[MovieResult]>
         let trendTVList: PublishSubject<[TVResult]>
         let genre: PublishSubject<String>
+        let networkError: PublishSubject<Void>
     }
     
     private let disposeBag = DisposeBag()
@@ -28,7 +29,7 @@ final class TrendVM {
         
         let trendMovieList = PublishSubject<[MovieResult]>()
         let trendTVList = PublishSubject<[TVResult]>()
-        
+        let networkError = PublishSubject<Void>()
         let randomContent = PublishSubject<String>()
         let genre = PublishSubject<String>()
         var genreID = 0
@@ -71,13 +72,13 @@ final class TrendVM {
             .subscribe(with: self, onNext: { owner, genreResult in
                 guard let genres = genreResult?.genres else { return }
                 
-                
                 if let matchedGenre = genres.first(where: { $0.id == genreID }) {
                     genre.onNext(matchedGenre.name)
-                    print("장르 id", genreID, matchedGenre.id, matchedGenre.name)
                 }
                 
             }, onError: { owner, error in
+                print("에러임")
+                networkError.onNext(())
                 print(error)
             })
             .disposed(by: disposeBag)
@@ -85,7 +86,8 @@ final class TrendVM {
         return Output(randomContent: randomContent, 
                       trendMovieList: trendMovieList,
                       trendTVList: trendTVList,
-                      genre: genre
+                      genre: genre, 
+                      networkError: networkError
         )
     }
 }

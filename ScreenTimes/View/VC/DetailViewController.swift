@@ -41,6 +41,7 @@ final class DetailViewController: BaseViewController {
     }
     
     private func bind(movie: MovieResult?) {
+        
         let inputMovie = PublishSubject<MovieResult?>()
         let input = DetailVM.Input(selectedMovie: inputMovie)
         let output = detailVM.transform(input)

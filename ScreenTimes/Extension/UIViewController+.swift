@@ -57,4 +57,15 @@ extension UIViewController {
             print("file no exist")
         }
     }
+    
+    func networkError() {
+        let alert = UIAlertController(title: "네트워크 에러", message: "와이파이 설정 필요", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "확인", style: .default) { _ in
+            if let url = URL(string: "App-Prefs:root=WIFI"), UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+        alert.addAction(okButton)
+        self.present(alert, animated: true)
+    }
 }
