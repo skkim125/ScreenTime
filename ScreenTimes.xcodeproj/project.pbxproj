@@ -30,6 +30,8 @@
 		8B8441F02CB90487001A460F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8441EF2CB90487001A460F /* DetailViewController.swift */; };
 		8B8441F22CB904F7001A460F /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8441F12CB904F7001A460F /* DetailView.swift */; };
 		8B8441F42CB9189C001A460F /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8441F32CB9189C001A460F /* DetailCollectionViewCell.swift */; };
+		8B8441F82CBA9E4D001A460F /* DownloadVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8441F72CBA9E4D001A460F /* DownloadVM.swift */; };
+		8B8441FA2CBB8543001A460F /* DownloadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8441F92CBB8543001A460F /* DownloadTableViewCell.swift */; };
 		8BF9F09F2CB78AA60088C37F /* TrendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF9F09D2CB78AA60088C37F /* TrendCollectionViewCell.swift */; };
 		8BF9F0A12CB78AEF0088C37F /* TrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF9F0A02CB78AEF0088C37F /* TrendView.swift */; };
 		8BF9F0A32CB78AFD0088C37F /* TrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF9F0A22CB78AFD0088C37F /* TrendViewController.swift */; };
@@ -86,6 +88,8 @@
 		8B8441EF2CB90487001A460F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8B8441F12CB904F7001A460F /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		8B8441F32CB9189C001A460F /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		8B8441F72CBA9E4D001A460F /* DownloadVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadVM.swift; sourceTree = "<group>"; };
+		8B8441F92CBB8543001A460F /* DownloadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTableViewCell.swift; sourceTree = "<group>"; };
 		8BF9F09D2CB78AA60088C37F /* TrendCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendCollectionViewCell.swift; sourceTree = "<group>"; };
 		8BF9F0A02CB78AEF0088C37F /* TrendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendView.swift; sourceTree = "<group>"; };
 		8BF9F0A22CB78AFD0088C37F /* TrendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 				8BF9F09D2CB78AA60088C37F /* TrendCollectionViewCell.swift */,
 				04A4F7EA2CB63F9F0094BB42 /* DefaultCollectionViewCell.swift */,
 				8B8441F32CB9189C001A460F /* DetailCollectionViewCell.swift */,
+				8B8441F92CBB8543001A460F /* DownloadTableViewCell.swift */,
 			);
 			name = Cell;
 			path = ScreenTimes/View/Cell;
@@ -279,7 +284,9 @@
 				0426926F2CBBC62800CBF4B4 /* SearchVM.swift */,
 				042692672CBA444E00CBF4B4 /* DetailVM.swift */,
 				8B8441B42CB7B634001A460F /* TrendVM.swift */,
-				EFD78CE52CBB7DEE00CE7A57 /* DownloadVM.swift */,
+
+				8B8441F72CBA9E4D001A460F /* DownloadVM.swift */,
+
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -419,6 +426,7 @@
 				EF5336632CB6C0DA0024B186 /* TV.swift in Sources */,
 				8B8441F22CB904F7001A460F /* DetailView.swift in Sources */,
 				8B8441F42CB9189C001A460F /* DetailCollectionViewCell.swift in Sources */,
+				8B8441FA2CBB8543001A460F /* DownloadTableViewCell.swift in Sources */,
 				8B8441F02CB90487001A460F /* DetailViewController.swift in Sources */,
 				EF9C0FFF2CB5744100303BD1 /* Movie.swift in Sources */,
 				EFD78CD62CB9159B00CE7A57 /* Cast.swift in Sources */,
@@ -448,6 +456,7 @@
 				04A4F7CD2CB52CE20094BB42 /* AppDelegate.swift in Sources */,
 				EF9C100F2CB61C5300303BD1 /* Header.swift in Sources */,
 				04A4F7CF2CB52CE20094BB42 /* SceneDelegate.swift in Sources */,
+				8B8441F82CBA9E4D001A460F /* DownloadVM.swift in Sources */,
 				EF9C0FF72CB5738500303BD1 /* BaseViewController.swift in Sources */,
 				04A4F7E92CB639160094BB42 /* BaseView.swift in Sources */,
 				EFD78CE82CBBABD500CE7A57 /* CustomAlertView.swift in Sources */,

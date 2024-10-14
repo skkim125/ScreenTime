@@ -2,36 +2,58 @@
 //  DownloadVM.swift
 //  ScreenTimes
 //
-//  Created by 양승혜 on 10/13/24.
+
 //
 
 import Foundation
 import RxSwift
 import RxCocoa
 
+
+
+
 final class DownloadVM {
+    
+    
+    
+    struct Input {
+        let trigger: Observable<Void>
+        let deleteSavedContent: PublishSubject<IndexPath>
+    }
+    
+    struct Output {
+        let savedList: BehaviorSubject<[Save]>
+    }
     
     private let realmRepo = RealmRepository()
     private let disposeBag = DisposeBag()
     
-    struct Input {
-        let downloadTrigger: Observable<Void>
-    }
-    
-    struct Output {
-        let savedMedia: BehaviorSubject<[Save]>
-    }
-    
     func transform(input: Input) -> Output {
-        let savedMedia = BehaviorSubject(value: [Save(mediaId: 0, title: "")])
         
-        input.downloadTrigger
+        let savedList = BehaviorSubject(value: [Save(title: "")])
+        
+        input.trigger
             .bind(with: self) { owner, _ in
-                let list = owner.realmRepo.fetchAllSaves()
-                savedMedia.onNext(list)
+                let list = owner.realmRepo.fetchSavedList()
+                savedList.onNext(list)
             }
             .disposed(by: disposeBag)
         
-        return Output(savedMedia: savedMedia)
+        
+        input.deleteSavedContent
+            .bind(with: self) { owner, indexPath in
+                var currentList = try! savedList.value()
+                let saveToDelete = currentList[indexPath.row]
+                
+                owner.realmRepo.removeImageFromDocument(filename: "\(saveToDelete.id)")
+                owner.realmRepo.deleteSave(saveToDelete)
+                
+                currentList.remove(at: indexPath.row)
+                savedList.onNext(currentList)
+            }
+            .disposed(by: disposeBag)
+        
+        return Output(savedList: savedList)
     }
+
 }

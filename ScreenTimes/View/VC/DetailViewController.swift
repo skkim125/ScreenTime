@@ -16,6 +16,7 @@ final class DetailViewController: BaseViewController {
     private var disposeBag = DisposeBag()
     private let detailVM = DetailVM()
     private let realmRepo = RealmRepository()
+
     
     var media: Detail?
     
@@ -26,12 +27,14 @@ final class DetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
+
         detailView.setPosterView(media)
         bind(media: media)
     }
     
     private func bind(media: Detail?) {
         let inputMovie = PublishSubject<Detail?>()
+
         let input = DetailVM.Input(selectedMovie: inputMovie)
         let output = detailVM.transform(input)
         
@@ -47,6 +50,7 @@ final class DetailViewController: BaseViewController {
                 cell.backgroundColor = .black
                 
                 cell.saveBtn.rx.tap
+
                     .flatMap { [weak self] _ -> Observable<Void> in
                         guard let self = self else { return .empty() }
                         let mediaId = media.movie.id
@@ -63,6 +67,7 @@ final class DetailViewController: BaseViewController {
                     .subscribe(onNext: {
                         print("Alert confirm Button Clicked")
                     })
+
                     .disposed(by: cell.disposeBag)
                 
                 return cell

@@ -36,6 +36,7 @@ final class TrendViewController: BaseViewController {
             .bind(with: self) { [weak self] owner, image in
                 guard let self else { return }
                 trendView.configureImage(imageURL: image)
+                print("ㅇㄹㅇㄹㅇㄹ", image)
             }
             .disposed(by: disposeBag)
         
@@ -43,6 +44,7 @@ final class TrendViewController: BaseViewController {
             .bind(to: trendView.moviecontentsCollectionView.rx.items(cellIdentifier: "TrendCollectionViewCell", cellType: TrendCollectionViewCell.self)) { (row, element, cell) in
                 
                 cell.configureCell(imageURL: element.poster_path ?? "")
+                
             }
             .disposed(by: disposeBag)
         
@@ -82,6 +84,13 @@ final class TrendViewController: BaseViewController {
                 vc.media = data
                 
                 owner.present(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        output.networkError
+            .bind(with: self) { owner, _ in
+                
+                owner.networkError()
             }
             .disposed(by: disposeBag)
         

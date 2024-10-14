@@ -61,8 +61,9 @@ final class DefaultCollectionViewCell: UICollectionViewCell {
             }
         }
     }
-    
+
     func configureCell(_ type: CVType, media: Detail) {
+
         configureHierarchy(type)
         configureLayout(type)
         

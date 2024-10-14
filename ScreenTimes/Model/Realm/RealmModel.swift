@@ -13,7 +13,9 @@ class Save: Object, ObjectKeyIdentifiable {
     @Persisted(indexed: true) var mediaId: Int
     @Persisted var title: String
     
+
     convenience init(mediaId: Int, title: String) {
+
         self.init()
         self.mediaId = mediaId
         self.title = title

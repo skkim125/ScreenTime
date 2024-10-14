@@ -99,6 +99,11 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         label.textColor = .white
         return label
     }()
+    var disposeBag = DisposeBag()
+    
+    override func prepareForReuse() {
+        disposeBag = DisposeBag()
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
