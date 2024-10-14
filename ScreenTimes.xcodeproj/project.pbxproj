@@ -60,7 +60,6 @@
 		EFD78CD92CB93AE000CE7A57 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EFD78CD82CB93AE000CE7A57 /* RealmSwift */; };
 		EFD78CDB2CB93C2700CE7A57 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD78CDA2CB93C2700CE7A57 /* RealmRepository.swift */; };
 		EFD78CE02CB9438200CE7A57 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD78CDF2CB9438200CE7A57 /* UIViewController+.swift */; };
-		EFD78CE62CBB7DEE00CE7A57 /* DownloadVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD78CE52CBB7DEE00CE7A57 /* DownloadVM.swift */; };
 		EFD78CE82CBBABD500CE7A57 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD78CE72CBBABD400CE7A57 /* CustomAlertView.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,7 +81,7 @@
 		04A4F7E82CB639160094BB42 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		04A4F7EA2CB63F9F0094BB42 /* DefaultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCollectionViewCell.swift; sourceTree = "<group>"; };
 		04A4F8412CB6EBE00094BB42 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
-		04A4F8432CB6EBEC0094BB42 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
+		04A4F8432CB6EBEC0094BB42 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.xcfilelist; };
 		8B8441B42CB7B634001A460F /* TrendVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendVM.swift; sourceTree = "<group>"; };
 		8B8441E62CB8BDD5001A460F /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		8B8441EF2CB90487001A460F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -112,7 +111,6 @@
 		EFD78CD52CB9159B00CE7A57 /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
 		EFD78CDA2CB93C2700CE7A57 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		EFD78CDF2CB9438200CE7A57 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
-		EFD78CE52CBB7DEE00CE7A57 /* DownloadVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadVM.swift; sourceTree = "<group>"; };
 		EFD78CE72CBBABD400CE7A57 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +157,7 @@
 				04A4F7E02CB52D770094BB42 /* .gitignore */,
 				04A4F7CB2CB52CE20094BB42 /* ScreenTimes */,
 				04A4F7CA2CB52CE20094BB42 /* Products */,
+				042692722CBC9E8D00CBF4B4 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -280,13 +279,10 @@
 		EF9C10002CB5745100303BD1 /* VM */ = {
 			isa = PBXGroup;
 			children = (
-				EF9C10072CB5747300303BD1 /* ViewModel.swift */,
 				0426926F2CBBC62800CBF4B4 /* SearchVM.swift */,
 				042692672CBA444E00CBF4B4 /* DetailVM.swift */,
 				8B8441B42CB7B634001A460F /* TrendVM.swift */,
-
 				8B8441F72CBA9E4D001A460F /* DownloadVM.swift */,
-
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -440,7 +436,6 @@
 				EF5336792CB6C3930024B186 /* Genre.swift in Sources */,
 				04A4F8422CB6EBE00094BB42 /* DownloadView.swift in Sources */,
 				042692682CBA444E00CBF4B4 /* DetailVM.swift in Sources */,
-				EFD78CE62CBB7DEE00CE7A57 /* DownloadVM.swift in Sources */,
 				EF9C0FD92CB53E5A00303BD1 /* UIView+.swift in Sources */,
 				04A4F8442CB6EBEC0094BB42 /* DownloadViewController.swift in Sources */,
 				8B8441B52CB7B634001A460F /* TrendVM.swift in Sources */,

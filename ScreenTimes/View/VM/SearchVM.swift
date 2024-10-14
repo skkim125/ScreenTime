@@ -61,9 +61,11 @@ final class SearchVM {
             .distinctUntilChanged()
             .bind(with: self) { owner, text in
                 if text.trimmingCharacters(in: .whitespaces).isEmpty {
+                    owner.search = ""
                     setTrend.onNext(())
                 } else {
                     owner.search = text
+                    print(text)
                     setSearch.onNext(text)
                 }
             }
@@ -80,9 +82,10 @@ final class SearchVM {
                             owner.currentPage = 1
                             owner.movieArray = []
                         } else {
-                            if owner.currentPage != 1 {
-                                owner.movieArray.append(contentsOf: search.results)
+                            if owner.currentPage == 1 {
+                                owner.movieArray = []
                             }
+                            owner.movieArray.append(contentsOf: search.results)
                             movieArray.onNext(owner.movieArray)
                             collectionviewStatus.onNext(false)
                             collectionviewType.onNext(.threeCell)

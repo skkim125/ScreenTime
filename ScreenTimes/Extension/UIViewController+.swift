@@ -59,7 +59,6 @@ extension UIViewController {
         }
     }
     
-
     func networkError() {
         let alert = UIAlertController(title: "네트워크 에러", message: "와이파이 설정 필요", preferredStyle: .alert)
         let okButton = UIAlertAction(title: "확인", style: .default) { _ in
@@ -69,7 +68,8 @@ extension UIViewController {
         }
         alert.addAction(okButton)
         self.present(alert, animated: true)
-
+    }
+    
     func showCustomAlert(message: String) -> Observable<Void> {
         let alertView = CustomAlertView(frame: self.view.bounds)
         self.view.addSubview(alertView)
@@ -80,6 +80,6 @@ extension UIViewController {
         }
         
         return alertView.configure(message: message)
-
+        
     }
 }

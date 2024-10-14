@@ -9,13 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-
-
-
 final class DownloadVM {
-    
-    
-    
     struct Input {
         let trigger: Observable<Void>
         let deleteSavedContent: PublishSubject<IndexPath>
@@ -30,7 +24,7 @@ final class DownloadVM {
     
     func transform(input: Input) -> Output {
         
-        let savedList = BehaviorSubject(value: [Save(title: "")])
+        let savedList = BehaviorSubject(value: [Save(mediaId: 0, title: "")])
         
         input.trigger
             .bind(with: self) { owner, _ in

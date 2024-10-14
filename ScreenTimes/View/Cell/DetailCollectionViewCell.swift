@@ -11,7 +11,7 @@ import RxSwift
 
 final class DetailCollectionViewCell: UICollectionViewCell {
     
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
  
     private let titleLabel = {
         let label = UILabel()
@@ -99,7 +99,6 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         label.textColor = .white
         return label
     }()
-    var disposeBag = DisposeBag()
     
     override func prepareForReuse() {
         disposeBag = DisposeBag()
