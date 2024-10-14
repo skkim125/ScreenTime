@@ -28,9 +28,11 @@ final class DownloadViewController: BaseViewController {
     private let downloadView = DownloadView()
     private let disposeBag = DisposeBag()
     private let downloadVM = DownloadVM()
+
     
     
     private var items = BehaviorSubject<[SavedContents.Model]>(value: [])
+
     
     override func loadView() {
         view = downloadView
@@ -48,6 +50,7 @@ final class DownloadViewController: BaseViewController {
     
     override func bind() {
         
+
         let deleteComponents = PublishSubject<IndexPath>()
         
         let input = DownloadVM.Input(trigger: Observable.just(()), deleteSavedContent: deleteComponents )
@@ -92,6 +95,7 @@ final class DownloadViewController: BaseViewController {
             .bind(with: self) { owner, indexPath in
                 deleteComponents.onNext(indexPath)
                 
+
             }
             .disposed(by: disposeBag)
     }

@@ -12,6 +12,7 @@ import RxCocoa
 final class SearchViewController: BaseViewController {
     private let searchView = SearchView(frame: .zero, type: .table)
     private let disposeBag = DisposeBag()
+    private let searchVM = SearchVM()
     
     override func loadView() {
         view = searchView
@@ -29,82 +30,80 @@ final class SearchViewController: BaseViewController {
     }
     
     override func bind() {
-        let dummy = PublishSubject<[MovieResult]>()
-        var trendArray: [MovieResult] = []
-        let setTrend = PublishSubject<Void>()
         let setSearch = PublishSubject<String>()
+        let prefetching = PublishSubject<Void>()
+        let input = SearchVM.Input(trigger: BehaviorSubject(value: ()), setSearch: setSearch, prefetching: prefetching)
+        let output = searchVM.transform(input)
         
-        NetworkManager.request(router: .trendingMovie, model: Movie.self)
-            .subscribe { trend in
-                guard let trend = trend else { return }
-                trendArray = trend.results
-                dummy.onNext(trend.results)
-                setTrend.onNext(())
-            } onFailure: { error in
-                print(error)
-            }
+        searchView.searchController.searchBar.rx.text.orEmpty
+            .bind(to: setSearch)
             .disposed(by: disposeBag)
         
-        dummy
+        output.movieArray
             .bind(to: searchView.collectionView.rx.items(cellIdentifier: DefaultCollectionViewCell.identifier, cellType: DefaultCollectionViewCell.self)) { [weak self]
                 (item, element, cell) in
                 guard let self = self else { return }
-                cell.configureCell(self.searchView.layoutType, movie: element)
+                
+                let data = Detail(backdrop_path: element.backdrop_path, id: element.id, name: element.title, overview: element.overview, poster_path: element.poster_path, media_type: element.media_type ?? "", genre_ids: element.genre_ids, vote_average: element.vote_average)
+                
+                cell.configureCell(self.searchView.layoutType, media: data)
             }
             .disposed(by: disposeBag)
         
-        searchView.searchController.searchBar.rx.text.orEmpty
-            .debounce(.seconds(1), scheduler: MainScheduler.instance)
-            .distinctUntilChanged()
-            .bind(with: self) { owner, text in
-                if text.trimmingCharacters(in: .whitespaces).isEmpty {
-                    owner.searchView.infoLabel.rx.text.onNext("추천 시리즈 & 영화")
-                    owner.searchView.infoLabel.rx.isHidden.onNext(false)
-                    owner.searchView.emptyLabel.rx.isHidden.onNext(true)
-                    owner.searchView.collectionView.rx.isHidden.onNext(false)
-                    owner.searchView.collectionView.rx.collectionViewLayout.onNext(owner.searchView.defaultCollectionViewLayout(.table))
-                    setTrend.onNext(())
-                } else {
-                    setSearch.onNext(text)
+        output.collectionviewStatus
+            .bind(with: self) { owner, value in
+                owner.searchView.infoLabel.rx.isHidden.onNext(value)
+                owner.searchView.collectionView.rx.isHidden.onNext(value)
+                owner.searchView.emptyLabel.rx.isHidden.onNext(!value)
+            }
+            .disposed(by: disposeBag)
+        
+        output.labelText
+            .bind(with: self) { owner, value in
+                owner.searchView.infoLabel.rx.text.onNext(value)
+            }
+            .disposed(by: disposeBag)
+        
+        output.collectionviewType
+            .bind(with: self) { owner, value in
+                owner.searchView.rx.layoutType.onNext(value)
+                owner.searchView.collectionView.rx.collectionViewLayout.onNext(owner.searchView.defaultCollectionViewLayout(value))
+            }
+            .disposed(by: disposeBag)
+        
+        var currentMovieCount = 0
+        
+        output.movieArray
+            .bind(with: self) { owner, value in
+                currentMovieCount = value.count
+                print("현재 갯수", currentMovieCount)
+                let currentOffset = owner.searchView.collectionView.contentOffset
+                
+                owner.searchView.collectionView.reloadData()
+                
+                DispatchQueue.main.async {
+                    owner.searchView.collectionView.setContentOffset(currentOffset, animated: false)
+                }
+            }
+            .disposed(by: disposeBag)
+          
+        searchView.collectionView.rx.prefetchItems
+            .bind(with: self) { owner, vlaue in
+                if vlaue.contains(where: { $0.item == currentMovieCount - 5 }) {
+                    prefetching.onNext(())
                 }
             }
             .disposed(by: disposeBag)
         
-        setSearch
-            .bind(with: self) { owner, value in
-                NetworkManager.request(router: .searchMovie(query: value, page: 1), model: Movie.self)
-                    .subscribe { search  in
-                        guard let search = search else { return }
-                        if search.results.isEmpty && search.total_results == 0 {
-                            dummy.onNext([])
-                            owner.searchView.infoLabel.rx.text.onNext("")
-                            owner.searchView.infoLabel.rx.isHidden.onNext(true)
-                            owner.searchView.emptyLabel.rx.isHidden.onNext(false)
-                            owner.searchView.collectionView.rx.isHidden.onNext(true)
-                        } else {
-                            dummy.onNext(search.results)
-                            owner.searchView.infoLabel.rx.text.onNext("영화 & 시리즈")
-                            owner.searchView.infoLabel.rx.isHidden.onNext(false)
-                            owner.searchView.emptyLabel.rx.isHidden.onNext(true)
-                            owner.searchView.collectionView.rx.isHidden.onNext(false)
-                            owner.searchView.rx.layoutType.onNext(.threeCell)
-                            owner.searchView.collectionView.rx.collectionViewLayout.onNext(owner.searchView.defaultCollectionViewLayout(.threeCell))
-                        }
-                    } onFailure: { error in
-                        print(error)
-                    }
-                    .disposed(by: owner.disposeBag)
+        searchView.collectionView.rx.modelSelected(MovieResult.self)
+            .bind(with: self) { owner, result in
                 
-            }
-            .disposed(by: disposeBag)
-        
-        
-        setTrend
-            .map({ trendArray })
-            .bind(with: self) { owner, value in
-                dummy.onNext(value)
-                owner.searchView.rx.layoutType.onNext(.table)
-                owner.searchView.collectionView.rx.collectionViewLayout.onNext(owner.searchView.defaultCollectionViewLayout(.table))
+                let vc = DetailViewController()
+                let data = Detail(backdrop_path: result.backdrop_path, id: result.id, name: result.title, overview: result.overview, poster_path: result.poster_path, media_type: result.media_type ?? "", genre_ids: result.genre_ids, vote_average: result.vote_average)
+                
+                vc.media = data
+                
+                owner.present(vc, animated: true)
             }
             .disposed(by: disposeBag)
     }

@@ -61,9 +61,9 @@ final class DefaultCollectionViewCell: UICollectionViewCell {
             }
         }
     }
-    
-    
-    func configureCell(_ type: CVType, movie: MovieResult) {
+
+    func configureCell(_ type: CVType, media: Detail) {
+
         configureHierarchy(type)
         configureLayout(type)
         
@@ -73,7 +73,7 @@ final class DefaultCollectionViewCell: UICollectionViewCell {
         titleLabel.isHidden = (type == .table) ? false : true
         playButton.isHidden = (type == .table) ? false : true
         
-        if let link = movie.poster_path, let url = URL(string: "https://image.tmdb.org/t/p/original" + link) {
+        if let link = media.poster_path, let url = URL(string: "https://image.tmdb.org/t/p/original" + link) {
             posterImageView.kf.setImage(with: url)
             posterImageView.contentMode = .scaleToFill
         } else {
@@ -83,7 +83,33 @@ final class DefaultCollectionViewCell: UICollectionViewCell {
         posterImageView.layer.cornerRadius = 8
         posterImageView.clipsToBounds = true
         
-        titleLabel.text = movie.title
+        titleLabel.text = media.name
+        titleLabel.font = .systemFont(ofSize: 18)
+        titleLabel.textColor = .white
+        titleLabel.textAlignment = .left
+        titleLabel.numberOfLines = 1
+        
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 40, weight: .regular, scale: .large)
+        playButton.setImage(UIImage(systemName: "play.circle", withConfiguration: imageConfig), for: .normal)
+        playButton.imageView?.contentMode = .scaleAspectFit
+        playButton.tintColor = .white
+    }
+    
+    func configureDownload(_ type: CVType, title: String, image: String) {
+        configureHierarchy(type)
+        configureLayout(type)
+        
+        contentView.backgroundColor = .black
+        
+        setLayout(type)
+        titleLabel.isHidden = (type == .table) ? false : true
+        playButton.isHidden = (type == .table) ? false : true
+        
+        posterImageView.image = RealmRepository().loadImageToDocument(filename: image)
+        posterImageView.layer.cornerRadius = 8
+        posterImageView.clipsToBounds = true
+        
+        titleLabel.text = title
         titleLabel.font = .systemFont(ofSize: 18)
         titleLabel.textColor = .white
         titleLabel.textAlignment = .left

@@ -2,12 +2,13 @@
 //  DownloadVM.swift
 //  ScreenTimes
 //
-//  Created by 최대성 on 10/12/24.
+
 //
 
 import Foundation
 import RxSwift
 import RxCocoa
+
 
 
 
@@ -54,7 +55,5 @@ final class DownloadVM {
         
         return Output(savedList: savedList)
     }
-    
-    
-    
+
 }

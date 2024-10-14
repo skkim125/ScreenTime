@@ -10,23 +10,15 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-
-struct MovieDetail {
-    let movie: MovieResult
-    let cast: [CastResult]
-    let crew: [CrewResult]
-    let similar: [MovieResult]
-}
-
 final class DetailViewController: BaseViewController {
     
     private let detailView = DetailView()
     private var disposeBag = DisposeBag()
     private let detailVM = DetailVM()
     private let realmRepo = RealmRepository()
+
     
-    
-    var movie: MovieResult?
+    var media: Detail?
     
     override func loadView() {
         view = detailView
@@ -35,44 +27,55 @@ final class DetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
-        detailView.setPosterView(movie)
-        bind(movie: movie)
-        realmRepo.fetchURL()
+
+        detailView.setPosterView(media)
+        bind(media: media)
     }
     
-    private func bind(movie: MovieResult?) {
-        
-        let inputMovie = PublishSubject<MovieResult?>()
+    private func bind(media: Detail?) {
+        let inputMovie = PublishSubject<Detail?>()
+
         let input = DetailVM.Input(selectedMovie: inputMovie)
         let output = detailVM.transform(input)
         
-        inputMovie.onNext(movie)
+        inputMovie.onNext(media)
         
         let dataSource = RxCollectionViewSectionedReloadDataSource<DetailDataType> { _, collectionView, indexPath, item in
             
             switch item {
-            case .movieDetail(item: let movie):
+            case .movieDetail(item: let media):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCollectionViewCell.identifier, for: indexPath) as? DetailCollectionViewCell else { return UICollectionViewCell() }
                 
-                cell.configureCell(movie)
+                cell.configureCell(media)
                 cell.backgroundColor = .black
                 
                 cell.saveBtn.rx.tap
-                    .bind(with: self) { owner, _ in
+
+                    .flatMap { [weak self] _ -> Observable<Void> in
+                        guard let self = self else { return .empty() }
+                        let mediaId = media.movie.id
                         
-                        let saveTitle = Save(title: movie.movie.title)
-                        owner.saveImageToDocument(image: owner.detailView.posterView.image ?? UIImage(), filename: "\(saveTitle.id)")
-                        owner.realmRepo.addSave(saveTitle)
-                        
+                        if self.realmRepo.isExistSave(mediaId: mediaId) {
+                            return self.showCustomAlert(message: "이미 저장된 미디어예요 :)")
+                        } else {
+                            let saveTitle = Save(mediaId: mediaId, title: media.movie.name)
+                            self.saveImageToDocument(image: self.detailView.posterView.image ?? UIImage(), filename: "\(saveTitle.id)")
+                            self.realmRepo.addSave(saveTitle)
+                            return self.showCustomAlert(message: "미디어를 저장하였습니다 :)")
+                        }
                     }
+                    .subscribe(onNext: {
+                        print("Alert confirm Button Clicked")
+                    })
+
                     .disposed(by: cell.disposeBag)
                 
                 return cell
                 
-            case .similar(item: let movie):
+            case .similar(item: let media):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DefaultCollectionViewCell.identifier, for: indexPath) as? DefaultCollectionViewCell else { return UICollectionViewCell() }
                 
-                cell.configureCell(.threeCell, movie: movie)
+                cell.configureCell(.threeCell, media: media)
                 
                 return cell
             }

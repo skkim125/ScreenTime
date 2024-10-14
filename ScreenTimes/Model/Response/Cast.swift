@@ -15,8 +15,10 @@ struct Cast: Decodable {
 
 struct CastResult: Decodable {
     let name: String
+    let known_for_department: String?
 }
 
 struct CrewResult: Decodable {
     let name: String
+    let known_for_department: String?
 }
