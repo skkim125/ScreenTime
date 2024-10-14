@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 extension UIViewController {
     func saveImageToDocument(image: UIImage, filename: String) {
@@ -56,5 +57,17 @@ extension UIViewController {
         } else {
             print("file no exist")
         }
+    }
+    
+    func showCustomAlert(message: String) -> Observable<Void> {
+        let alertView = CustomAlertView(frame: self.view.bounds)
+        self.view.addSubview(alertView)
+        
+        alertView.alpha = 0
+        UIView.animate(withDuration: 0.3) {
+            alertView.alpha = 1
+        }
+        
+        return alertView.configure(message: message)
     }
 }

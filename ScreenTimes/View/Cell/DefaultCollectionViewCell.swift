@@ -94,6 +94,32 @@ final class DefaultCollectionViewCell: UICollectionViewCell {
         playButton.tintColor = .white
     }
     
+    func configureDownload(_ type: CVType, title: String, image: String) {
+        configureHierarchy(type)
+        configureLayout(type)
+        
+        contentView.backgroundColor = .black
+        
+        setLayout(type)
+        titleLabel.isHidden = (type == .table) ? false : true
+        playButton.isHidden = (type == .table) ? false : true
+        
+        posterImageView.image = RealmRepository().loadImageToDocument(filename: image)
+        posterImageView.layer.cornerRadius = 8
+        posterImageView.clipsToBounds = true
+        
+        titleLabel.text = title
+        titleLabel.font = .systemFont(ofSize: 18)
+        titleLabel.textColor = .white
+        titleLabel.textAlignment = .left
+        titleLabel.numberOfLines = 1
+        
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 40, weight: .regular, scale: .large)
+        playButton.setImage(UIImage(systemName: "play.circle", withConfiguration: imageConfig), for: .normal)
+        playButton.imageView?.contentMode = .scaleAspectFit
+        playButton.tintColor = .white
+    }
+    
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

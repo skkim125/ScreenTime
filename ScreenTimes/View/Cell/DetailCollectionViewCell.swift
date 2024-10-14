@@ -7,8 +7,11 @@
 
 import UIKit
 import SnapKit
+import RxSwift
 
 final class DetailCollectionViewCell: UICollectionViewCell {
+    
+    let disposeBag = DisposeBag()
  
     private let titleLabel = {
         let label = UILabel()
@@ -43,7 +46,7 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         btn.layer.cornerRadius = 5
         return btn
     }()
-    private let saveBtn = {
+    let saveBtn = {
         let btn = UIButton()
         var config = UIButton.Configuration.plain()
         var titleContainer = AttributeContainer()

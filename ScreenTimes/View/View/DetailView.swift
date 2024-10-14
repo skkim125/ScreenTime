@@ -11,7 +11,7 @@ import Kingfisher
 
 final class DetailView: BaseView {
     
-    private let posterView = {
+    let posterView = {
         let view = UIImageView()
         view.image = UIImage(systemName: "arrow.clockwise")
         

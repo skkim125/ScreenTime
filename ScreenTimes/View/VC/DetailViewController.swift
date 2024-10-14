@@ -15,6 +15,7 @@ final class DetailViewController: BaseViewController {
     private let detailView = DetailView()
     private var disposeBag = DisposeBag()
     private let detailVM = DetailVM()
+    private let realmRepo = RealmRepository()
     
     var media: Detail?
     
@@ -44,6 +45,25 @@ final class DetailViewController: BaseViewController {
                 
                 cell.configureCell(media)
                 cell.backgroundColor = .black
+                
+                cell.saveBtn.rx.tap
+                    .flatMap { [weak self] _ -> Observable<Void> in
+                        guard let self = self else { return .empty() }
+                        let mediaId = media.movie.id
+                        
+                        if self.realmRepo.isExistSave(mediaId: mediaId) {
+                            return self.showCustomAlert(message: "이미 저장된 미디어예요 :)")
+                        } else {
+                            let saveTitle = Save(mediaId: mediaId, title: media.movie.name)
+                            self.saveImageToDocument(image: self.detailView.posterView.image ?? UIImage(), filename: "\(saveTitle.id)")
+                            self.realmRepo.addSave(saveTitle)
+                            return self.showCustomAlert(message: "미디어를 저장하였습니다 :)")
+                        }
+                    }
+                    .subscribe(onNext: {
+                        print("Alert confirm Button Clicked")
+                    })
+                    .disposed(by: cell.disposeBag)
                 
                 return cell
                 
