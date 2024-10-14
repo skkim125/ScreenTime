@@ -7,13 +7,13 @@
 
 
 import UIKit
+import RxSwift
 
 final class TabbarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setTabBar()
-        
         
     }
     
@@ -44,5 +44,7 @@ final class TabbarViewController: UITabBarController {
         tabBar.standardAppearance = tabbarSet
         
         self.selectedIndex = 0
+        
     }
+   
 }

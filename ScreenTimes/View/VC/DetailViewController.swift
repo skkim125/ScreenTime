@@ -61,6 +61,8 @@ final class DetailViewController: BaseViewController {
                             let saveTitle = Save(mediaId: mediaId, title: media.movie.name)
                             self.saveImageToDocument(image: self.detailView.posterView.image ?? UIImage(), filename: "\(saveTitle.id)")
                             self.realmRepo.addSave(saveTitle)
+                            
+                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newmedia") , object: nil)
                             return self.showCustomAlert(message: "미디어를 저장하였습니다 :)")
                         }
                     }

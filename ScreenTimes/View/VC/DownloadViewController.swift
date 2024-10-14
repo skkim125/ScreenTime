@@ -27,7 +27,7 @@ final class DownloadViewController: BaseViewController {
     
     private let downloadView = DownloadView()
     private let disposeBag = DisposeBag()
-    private let downloadVM = DownloadVM()
+    let downloadVM = DownloadVM()
 
     
     
@@ -49,6 +49,7 @@ final class DownloadViewController: BaseViewController {
     }
     
     override func bind() {
+        print("짜잔")
         
 
         let deleteComponents = PublishSubject<IndexPath>()

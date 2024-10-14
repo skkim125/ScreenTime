@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 
 final class DownloadVM {
+    
     struct Input {
         let trigger: Observable<Void>
         let deleteSavedContent: PublishSubject<IndexPath>
@@ -22,11 +23,22 @@ final class DownloadVM {
     private let realmRepo = RealmRepository()
     private let disposeBag = DisposeBag()
     
+    private let triggerSubject = PublishSubject<Void>()
+    
+    
+    
+    @objc private func handleNewMediaNotification() {
+        triggerSubject.onNext(())
+    }
+    
     func transform(input: Input) -> Output {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNewMediaNotification), name: NSNotification.Name(rawValue: "newmedia"), object: nil)
         
         let savedList = BehaviorSubject(value: [Save(mediaId: 0, title: "")])
         
-        input.trigger
+        // zip -- X, combinelatest -- X, merge -- 0
+        Observable.merge(input.trigger, triggerSubject)
             .bind(with: self) { owner, _ in
                 let list = owner.realmRepo.fetchSavedList()
                 savedList.onNext(list)
@@ -49,5 +61,4 @@ final class DownloadVM {
         
         return Output(savedList: savedList)
     }
-
 }
