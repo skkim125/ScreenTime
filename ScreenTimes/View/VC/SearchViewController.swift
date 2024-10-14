@@ -73,24 +73,31 @@ final class SearchViewController: BaseViewController {
         
         var currentMovieCount = 0
         
-        output.movieArray
+        output.currentPage
+            .withLatestFrom(output.movieArray) { ($0, $1) }
             .bind(with: self) { owner, value in
-                currentMovieCount = value.count
-                print("현재 갯수", currentMovieCount)
-                let currentOffset = owner.searchView.collectionView.contentOffset
+                let (currentPage, movies) = value
                 
-                owner.searchView.collectionView.reloadData()
-                
-                DispatchQueue.main.async {
+                currentMovieCount = movies.count
+
+                if currentPage == 1 {
+                    owner.searchView.collectionView.setContentOffset(.zero, animated: false)
+                } else {
+                    let currentOffset = owner.searchView.collectionView.contentOffset
+                    
                     owner.searchView.collectionView.setContentOffset(currentOffset, animated: false)
                 }
+                
+                owner.searchView.collectionView.reloadData()
             }
             .disposed(by: disposeBag)
           
-        searchView.collectionView.rx.prefetchItems
-            .bind(with: self) { owner, vlaue in
-                if vlaue.contains(where: { $0.item == currentMovieCount - 5 }) {
-                    prefetching.onNext(())
+        Observable.combineLatest(searchView.collectionView.rx.prefetchItems, output.collectionviewType)
+            .bind(with: self) { owner, value in
+                if value.1 == .threeCell {
+                    if value.0.contains(where: { $0.item == currentMovieCount - 8 }) {
+                        prefetching.onNext(())
+                    }
                 }
             }
             .disposed(by: disposeBag)

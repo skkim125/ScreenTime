@@ -29,6 +29,7 @@ final class SearchVM {
         let collectionviewStatus: PublishSubject<Bool>
         let collectionviewType: PublishSubject<CVType>
         let labelText: PublishSubject<String>
+        let currentPage: BehaviorSubject<Int>
     }
     
     func transform(_ input: Input) -> Output {
@@ -38,6 +39,7 @@ final class SearchVM {
         let collectionviewType = PublishSubject<CVType>()
         let setSearch = PublishSubject<String>()
         let labelText = PublishSubject<String>()
+        let currentPage = BehaviorSubject<Int>(value: 1)
         
         input.trigger
             .bind(with: self) { owner, _ in
@@ -62,12 +64,17 @@ final class SearchVM {
             .bind(with: self) { owner, text in
                 if text.trimmingCharacters(in: .whitespaces).isEmpty {
                     owner.search = ""
+                    owner.currentPage = 1
                     setTrend.onNext(())
+                    collectionviewStatus.onNext(false)
                 } else {
+                    owner.currentPage = 1
                     owner.search = text
-                    print(text)
+                    print("검색어", text)
                     setSearch.onNext(text)
                 }
+                
+                currentPage.onNext(owner.currentPage)
             }
             .disposed(by: disposeBag)
         
@@ -80,7 +87,9 @@ final class SearchVM {
                             movieArray.onNext(owner.movieArray)
                             collectionviewStatus.onNext(true)
                             owner.currentPage = 1
-                            owner.movieArray = []
+                            currentPage.onNext(owner.currentPage)
+                            print("현재 페이지", owner.currentPage)
+                            setTrend.onNext(())
                         } else {
                             if owner.currentPage == 1 {
                                 owner.movieArray = []
@@ -106,24 +115,28 @@ final class SearchVM {
                 return self.trendArray
             })
             .bind(with: self) { owner, value in
-                movieArray.onNext(value)
+                if owner.search.isEmpty {
+                    collectionviewStatus.onNext(false)
+                }
+                owner.movieArray = value
+                movieArray.onNext(owner.movieArray)
                 collectionviewType.onNext(.table)
+                labelText.onNext("추천 시리즈 & 영화")
             }
             .disposed(by: disposeBag)
         
         input.prefetching
             .bind(with: self) { owner, _ in
                 if owner.currentPage < owner.totalPages {
-                    print("전", owner.currentPage)
                     owner.currentPage += 1
-                    print("후", owner.currentPage)
+                    currentPage.onNext(owner.currentPage)
                     setSearch.onNext(owner.search)
                 }
             }
             .disposed(by: disposeBag)
         
         
-        return Output(movieArray: movieArray, collectionviewStatus: collectionviewStatus, collectionviewType: collectionviewType, labelText: labelText)
+        return Output(movieArray: movieArray, collectionviewStatus: collectionviewStatus, collectionviewType: collectionviewType, labelText: labelText, currentPage: currentPage)
     }
     
 }
