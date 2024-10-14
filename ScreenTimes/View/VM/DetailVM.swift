@@ -42,7 +42,15 @@ final class DetailVM {
         
         inputSelectedMovie
             .bind(with: self) { owner, movie in
-                NetworkManager.request(router: movie.media_type == "movie" ? .castMovie(id: movie.id) : .castTV(id: movie.id), model: Cast.self)
+                var mediaType = ""
+                
+                if movie.media_type.isEmpty {
+                    mediaType = "movie"
+                } else {
+                    mediaType = movie.media_type
+                }
+                
+                NetworkManager.request(router: mediaType == "movie" ? .castMovie(id: movie.id) : .castTV(id: movie.id), model: Cast.self)
                     .subscribe { value in
                         guard let value = value else { return }
                         
@@ -52,7 +60,7 @@ final class DetailVM {
                         if value.cast.isEmpty {
                             castArray = []
                         } else if value.cast.count < 3 {
-                            for i in 0...value.cast.count-1 {
+                            for i in value.cast.startIndex...value.cast.endIndex-1 {
                                 castArray.append(value.cast[i])
                             }
                         } else {
@@ -61,10 +69,10 @@ final class DetailVM {
                             }
                         }
                         
-                        if value.cast.isEmpty {
+                        if value.crew.isEmpty {
                             crewArray = []
                         }  else if value.crew.count < 3 {
-                            for i in 0...value.crew.count-1 {
+                            for i in value.crew.startIndex...value.crew.endIndex-1 {
                                 crewArray.append(value.crew[i])
                             }
                         } else {
@@ -80,7 +88,7 @@ final class DetailVM {
                     }
                     .disposed(by: owner.disposeBag)
                 
-                switch movie.media_type {
+                switch mediaType {
                 case "movie":
                     NetworkManager.request(router: .similarMovie(id: movie.id), model: Movie.self)
                         .subscribe { movies in
