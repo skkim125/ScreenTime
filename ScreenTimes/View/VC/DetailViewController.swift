@@ -16,7 +16,6 @@ final class DetailViewController: BaseViewController {
     private var disposeBag = DisposeBag()
     private let detailVM = DetailVM()
     private let realmRepo = RealmRepository()
-
     
     var media: Detail?
     

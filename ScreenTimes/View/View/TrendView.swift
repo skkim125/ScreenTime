@@ -21,6 +21,7 @@ final class TrendView: BaseView {
         view.clipsToBounds = true
         return view
     }()
+    
     private let playBtn = {
         let btn = UIButton()
         var config = UIButton.Configuration.plain()
@@ -40,6 +41,7 @@ final class TrendView: BaseView {
         btn.layer.cornerRadius = 5
         return btn
     }()
+    
     private let plusBtn = {
         let btn = UIButton()
         var config = UIButton.Configuration.plain()
@@ -60,6 +62,7 @@ final class TrendView: BaseView {
         
         return btn
     }()
+    
     let genreLabel = {
         let label = UILabel()
         label.text = "예비 장르 레이블"

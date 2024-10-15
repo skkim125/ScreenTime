@@ -20,6 +20,7 @@ final class SearchView: BaseView {
         
         return label
     }()
+    
     let emptyLabel = {
         let label = UILabel()
         label.text = "검색결과가 없습니다."

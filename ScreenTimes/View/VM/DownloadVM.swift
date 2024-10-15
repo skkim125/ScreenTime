@@ -25,13 +25,11 @@ final class DownloadVM {
     
     private let triggerSubject = PublishSubject<Void>()
     
-    
-    
     @objc private func handleNewMediaNotification() {
         triggerSubject.onNext(())
     }
     
-    func transform(input: Input) -> Output {
+    func transform(_ input: Input) -> Output {
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleNewMediaNotification), name: NSNotification.Name(rawValue: "newmedia"), object: nil)
         

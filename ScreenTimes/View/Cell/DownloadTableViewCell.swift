@@ -10,7 +10,6 @@ import SnapKit
 
 final class DownloadTableViewCell: UITableViewCell {
     
-    
     private let posterImageView = UIImageView()
     private let titleLabel = UILabel()
     private let playButton = UIButton()
@@ -26,13 +25,12 @@ final class DownloadTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
     func configureHierarchy() {
         contentView.addSubview(posterImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(playButton)
     }
+    
     func configureLayout() {
         posterImageView.snp.remakeConstraints { make in
             make.leading.equalTo(contentView.snp.leading).offset(10)
@@ -54,6 +52,7 @@ final class DownloadTableViewCell: UITableViewCell {
             make.centerY.equalTo(titleLabel.snp.centerY)
         }
     }
+    
     func configureCell(title: String?, id: String?) {
         if let id = id {
             print(id)

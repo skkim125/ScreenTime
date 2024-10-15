@@ -15,7 +15,6 @@
 		042692702CBBC62800CBF4B4 /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0426926F2CBBC62800CBF4B4 /* SearchVM.swift */; };
 		04A4F7CD2CB52CE20094BB42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F7CC2CB52CE20094BB42 /* AppDelegate.swift */; };
 		04A4F7CF2CB52CE20094BB42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F7CE2CB52CE20094BB42 /* SceneDelegate.swift */; };
-		04A4F7D12CB52CE20094BB42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4F7D02CB52CE20094BB42 /* ViewController.swift */; };
 		04A4F7D62CB52CE30094BB42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A4F7D52CB52CE30094BB42 /* Assets.xcassets */; };
 		04A4F7D92CB52CE30094BB42 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 04A4F7D82CB52CE30094BB42 /* Base */; };
 		04A4F7E12CB52D770094BB42 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 04A4F7E02CB52D770094BB42 /* .gitignore */; };
@@ -50,7 +49,6 @@
 		EF9C0FF72CB5738500303BD1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FF62CB5738500303BD1 /* BaseViewController.swift */; };
 		EF9C0FFD2CB5743900303BD1 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FFC2CB5743900303BD1 /* RealmModel.swift */; };
 		EF9C0FFF2CB5744100303BD1 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C0FFE2CB5744100303BD1 /* Movie.swift */; };
-		EF9C10042CB5746700303BD1 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C10032CB5746700303BD1 /* View.swift */; };
 		EF9C100B2CB574BD00303BD1 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C100A2CB574BD00303BD1 /* TargetType.swift */; };
 		EF9C100D2CB60ED800303BD1 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C100C2CB60ED800303BD1 /* Router.swift */; };
 		EF9C100F2CB61C5300303BD1 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C100E2CB61C5300303BD1 /* Header.swift */; };
@@ -61,6 +59,7 @@
 		EFD78CDB2CB93C2700CE7A57 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD78CDA2CB93C2700CE7A57 /* RealmRepository.swift */; };
 		EFD78CE02CB9438200CE7A57 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD78CDF2CB9438200CE7A57 /* UIViewController+.swift */; };
 		EFD78CE82CBBABD500CE7A57 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD78CE72CBBABD400CE7A57 /* CustomAlertView.swift */; };
+		EFD78CFA2CBE5F4A00CE7A57 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD78CF92CBE5F4A00CE7A57 /* BaseViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,7 +70,6 @@
 		04A4F7C92CB52CE20094BB42 /* ScreenTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A4F7CC2CB52CE20094BB42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A4F7CE2CB52CE20094BB42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		04A4F7D02CB52CE20094BB42 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		04A4F7D52CB52CE30094BB42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04A4F7D82CB52CE30094BB42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04A4F7DA2CB52CE30094BB42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 		EF9C0FF62CB5738500303BD1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EF9C0FFC2CB5743900303BD1 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		EF9C0FFE2CB5744100303BD1 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		EF9C10032CB5746700303BD1 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		EF9C100A2CB574BD00303BD1 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		EF9C100C2CB60ED800303BD1 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		EF9C100E2CB61C5300303BD1 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -112,6 +109,7 @@
 		EFD78CDA2CB93C2700CE7A57 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		EFD78CDF2CB9438200CE7A57 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		EFD78CE72CBBABD400CE7A57 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		EFD78CF92CBE5F4A00CE7A57 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +155,6 @@
 				04A4F7E02CB52D770094BB42 /* .gitignore */,
 				04A4F7CB2CB52CE20094BB42 /* ScreenTimes */,
 				04A4F7CA2CB52CE20094BB42 /* Products */,
-				042692722CBC9E8D00CBF4B4 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -179,7 +176,6 @@
 				EF9C0FF82CB573FF00303BD1 /* Model */,
 				EF9C0FFB2CB5742300303BD1 /* View */,
 				EF9C10092CB574A000303BD1 /* Network */,
-				04A4F7D02CB52CE20094BB42 /* ViewController.swift */,
 				04A4F7D52CB52CE30094BB42 /* Assets.xcassets */,
 				04A4F7D72CB52CE30094BB42 /* LaunchScreen.storyboard */,
 				04A4F7DA2CB52CE30094BB42 /* Info.plist */,
@@ -213,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				EF9C0FDB2CB53E8600303BD1 /* ReuseIdentifierProtocol.swift */,
+				EFD78CF92CBE5F4A00CE7A57 /* BaseViewModel.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -303,7 +300,6 @@
 			isa = PBXGroup;
 			children = (
 				8BF9F09E2CB78AA60088C37F /* Cell */,
-				EF9C10032CB5746700303BD1 /* View.swift */,
 				04A4F7E22CB592030094BB42 /* SearchView.swift */,
 				04A4F8412CB6EBE00094BB42 /* DownloadView.swift */,
 				8BF9F0A02CB78AEF0088C37F /* TrendView.swift */,
@@ -417,6 +413,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFD78CFA2CBE5F4A00CE7A57 /* BaseViewModel.swift in Sources */,
 				EF5336632CB6C0DA0024B186 /* TV.swift in Sources */,
 				EF5336612CB640670024B186 /* TestNetwork.swift in Sources */,
 				EF5336632CB6C0DA0024B186 /* TV.swift in Sources */,
@@ -439,7 +436,6 @@
 				EF9C0FD92CB53E5A00303BD1 /* UIView+.swift in Sources */,
 				04A4F8442CB6EBEC0094BB42 /* DownloadViewController.swift in Sources */,
 				8B8441B52CB7B634001A460F /* TrendVM.swift in Sources */,
-				04A4F7D12CB52CE20094BB42 /* ViewController.swift in Sources */,
 				8BF9F0A32CB78AFD0088C37F /* TrendViewController.swift in Sources */,
 				EF9C0FFD2CB5743900303BD1 /* RealmModel.swift in Sources */,
 				04A4F7E52CB5920C0094BB42 /* SearchViewController.swift in Sources */,
@@ -447,7 +443,6 @@
 				EFD78CAB2CB8019D00CE7A57 /* APIURL.swift in Sources */,
 				04A4F7E32CB592030094BB42 /* SearchView.swift in Sources */,
 				8B8441E72CB8BDD5001A460F /* TabbarViewController.swift in Sources */,
-				EF9C10042CB5746700303BD1 /* View.swift in Sources */,
 				04A4F7CD2CB52CE20094BB42 /* AppDelegate.swift in Sources */,
 				EF9C100F2CB61C5300303BD1 /* Header.swift in Sources */,
 				04A4F7CF2CB52CE20094BB42 /* SceneDelegate.swift in Sources */,

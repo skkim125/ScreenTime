@@ -20,6 +20,7 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         label.textColor = .white
         return label
     }()
+    
     private let rateLabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12)
@@ -27,6 +28,7 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         label.textColor = .white
         return label
     }()
+    
     private let playBtn = {
         let btn = UIButton()
         var config = UIButton.Configuration.plain()
@@ -46,6 +48,7 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         btn.layer.cornerRadius = 5
         return btn
     }()
+    
     let saveBtn = {
         let btn = UIButton()
         var config = UIButton.Configuration.plain()
@@ -66,6 +69,7 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         
         return btn
     }()
+    
     private let descriptionLabel = {
         let label = UILabel()
         label.text = "001010101010101011010101010100110"
@@ -74,6 +78,7 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 0
         return label
     }()
+    
     private let castLabel = {
         let label = UILabel()
         label.text = "Dfdf\ndfdfdfdsf"
@@ -83,6 +88,7 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         label.textAlignment = .left
         return label
     }()
+    
     private let crewLabel = {
         let label = UILabel()
         label.text = "Dfdf\ndfdfdfdsf"
@@ -92,6 +98,7 @@ final class DetailCollectionViewCell: UICollectionViewCell {
         label.textAlignment = .left
         return label
     }()
+    
     private let similarContentLabel = {
         let label = UILabel()
         label.text = "비슷한 컨텐츠"

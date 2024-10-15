@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class SearchVM {
+final class SearchVM: BaseViewModel {
     private let disposeBag = DisposeBag()
     private var movieArray: [MovieResult] = []
     private var trendArray: [MovieResult] = []

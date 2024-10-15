@@ -30,7 +30,7 @@ final class TrendViewController: BaseViewController {
         
         let input = TrendVM.Input(trendTrigger: Observable.just(()))
         
-        let output = trendVM.transform(input: input)
+        let output = trendVM.transform(input)
         
         output.randomContent
             .bind(with: self) { [weak self] owner, image in
@@ -55,13 +55,11 @@ final class TrendViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
-        
         output.genre
             .bind(with: self) { owner, result in
                 owner.trendView.genreLabel.text = result
             }
             .disposed(by: disposeBag)
-        
         
         trendView.moviecontentsCollectionView.rx.modelSelected(MovieResult.self)
             .bind(with: self) { owner, result in
@@ -93,12 +91,9 @@ final class TrendViewController: BaseViewController {
                 owner.networkError()
             }
             .disposed(by: disposeBag)
-        
     }
     
     override func configureNavigationBar() {
-        
-        
         let searchButton1 = UIBarButtonItem(image: UIImage(systemName: "sparkles.tv"), style: .plain, target: self, action: nil)
         let searchButton2 = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: nil)
         
@@ -116,6 +111,4 @@ final class TrendViewController: BaseViewController {
         
         navigationController?.navigationBar.standardAppearance = navApp
     }
-    
-    
 }

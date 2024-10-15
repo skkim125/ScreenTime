@@ -12,7 +12,6 @@ import UIKit
 final class RealmRepository {
     private let realm = try! Realm()
     
-    
     func fetchURL() {
         print(realm.configuration.fileURL ?? "")
         
@@ -49,9 +48,9 @@ final class RealmRepository {
         if let _ = realm.object(ofType: Save.self, forPrimaryKey: id) {
             return true
         }
-        
         return false
     }
+    
     func isExistSave(mediaId: Int) -> Bool {
         return realm.objects(Save.self).filter("mediaId == %@", mediaId).first != nil
     }
