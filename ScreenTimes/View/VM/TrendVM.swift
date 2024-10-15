@@ -9,8 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-
-final class TrendVM {
+final class TrendVM: BaseViewModel {
     
     struct Input {
         let trendTrigger: Observable<Void>
@@ -25,7 +24,7 @@ final class TrendVM {
     
     private let disposeBag = DisposeBag()
     
-    func transform(input: Input) -> Output {
+    func transform(_ input: Input) -> Output {
         
         let trendMovieList = PublishSubject<[MovieResult]>()
         let trendTVList = PublishSubject<[TVResult]>()

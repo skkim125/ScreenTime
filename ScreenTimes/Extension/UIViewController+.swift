@@ -80,6 +80,5 @@ extension UIViewController {
         }
         
         return alertView.configure(message: message)
-        
     }
 }

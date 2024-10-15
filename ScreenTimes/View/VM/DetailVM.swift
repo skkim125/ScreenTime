@@ -16,7 +16,7 @@ struct MediaDetail {
     let similar: [Detail]
 }
 
-final class DetailVM {
+final class DetailVM: BaseViewModel {
     private let disposeBag = DisposeBag()
     
     struct Input {

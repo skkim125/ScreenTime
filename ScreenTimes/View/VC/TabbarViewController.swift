@@ -14,7 +14,6 @@ final class TabbarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTabBar()
-        
     }
     
     private func setTabBar() {
@@ -23,8 +22,6 @@ final class TabbarViewController: UITabBarController {
         let searchVC = UINavigationController(rootViewController: SearchViewController())
         
         let downloadVC = UINavigationController(rootViewController: DownloadViewController())
-        
-        
         
         trendVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
 
@@ -44,7 +41,5 @@ final class TabbarViewController: UITabBarController {
         tabBar.standardAppearance = tabbarSet
         
         self.selectedIndex = 0
-        
     }
-   
 }
