@@ -120,3 +120,52 @@ gitGraph
 - 상태 변경을 다른 객체에 알리기 위해 NotificationCenter 활용
 - BaseViewModel 프로토콜을 통한 ViewModel 구조 표준화로 일관된 개발 패턴 유지
 - 네트워크 비동기 요청 결과를 단일 성공 또는 실패 이벤트로 처리하여, API 응답을 효율적으로 관리
+
+
+<br>
+
+
+## 트러블 슈팅 
+
+### 문제 상황
+
+- 초기 View가 init될 때 데이터를 받아오지 않는 문제가 발생.
+- combineLatest를 사용했으나, 이 연산자는 모든 Observable에서 값이 발행될 때까지 대기하므로 초기 데이터가 누락
+
+`
+  NotificationCenter.default.addObserver(self, selector: #selector(handleNewMediaNotification), name: NSNotification.Name(rawValue: "newmedia"), object: nil)
+        
+        let savedList = BehaviorSubject(value: [Save(mediaId: 0, title: "")])
+        
+        
+        Observable.merge(input.trigger, triggerSubject)
+            .bind(with: self) { owner, _ in
+                let list = owner.realmRepo.fetchSavedList()
+                savedList.onNext(list)
+            }
+            .disposed(by: disposeBag)
+        
+        
+        input.deleteSavedContent
+            .bind(with: self) { owner, indexPath in
+                owner.deleteSavedContent(at: indexPath, from: savedList)
+            }
+            .disposed(by: disposeBag)
+            `
+
+
+## 원인분석
+
+- combineLatest는 두 개 이상의 Observable의 마지막 값을 조합하여 새로운 값을 방출
+- 각 Observable이 적어도 한 번 값을 발행해야 결합된 결과를 얻고 View가 초기화될 때  NotificationCenter로 전달해 주는 값이 없기 때문에 데이터가 방출되지 않음.
+
+## 해결
+
+- Observable.merge를 사용하여 input.trigger와 triggerSubject의 이벤트가 발생할 때마다 새로운 값을 방출하도록 수정
+- merge는 여러 Observable의 이벤트를 하나로 합쳐 발행하므로, 각 Observable에서 하나의 이벤트가 발생할 때마다 값을 받을 수 있어 초기화 시 데이터가 누락되지 않음
+
+
+
+
+
+
