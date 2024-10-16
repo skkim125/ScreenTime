@@ -29,3 +29,44 @@
 🎸 Chore: 위 경우에 포함되지 않는 기타 변경 사항 
 
 🙈 gitignore: ignore파일 추가 및 수정
+
+```mermaid
+---
+title: Example Git diagram
+---
+%%{init: { 'logLevel': 'debug', 'theme': 'default' , 'themeVariables': {
+              'commitLabelFontSize': '20px'
+       } } }%%
+gitGraph
+   commit id: "main"
+   commit id: "dev"
+   branch dev
+   checkout dev
+   commit id: "feature1"
+   branch feature1
+   checkout feature1
+   commit id: "Network"
+   checkout dev
+   commit id: "feature2"
+   branch feature2
+   checkout feature2
+   commit id: "UI"
+   checkout dev
+   commit id: "feature3"
+   branch feature3
+   checkout feature3
+   checkout feature2
+   checkout feature1
+   checkout feature3
+   commit id: "Realm"
+   checkout dev
+   merge feature1
+   merge feature2
+   checkout feature3
+   commit id: "FileManager"
+   checkout dev
+   merge feature3
+   checkout main
+   merge dev
+   commit id: "v1.0.0"
+```
