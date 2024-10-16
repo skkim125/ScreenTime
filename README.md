@@ -31,9 +31,6 @@
 🙈 gitignore: ignore파일 추가 및 수정
 
 ```mermaid
----
-title: Example Git diagram
----
 %%{init: { 'logLevel': 'debug', 'theme': 'default' , 'themeVariables': {
               'commitLabelFontSize': '20px'
        } } }%%
