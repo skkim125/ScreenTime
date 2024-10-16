@@ -108,3 +108,15 @@ gitGraph
    merge dev
    commit id: "v1.0.0"
 ```
+<br>
+
+## 주요 기술
+
+- MVVM 패턴을 활용하여 비즈니스 로직과 UI로직 분리하여 관리, Input/Output을 통해 데이터의 흐름을 명확하게 구현
+- Alamofire URLRequestConvertible을 채택한 enum으로 각 endpoint를 case로 구분하고, path, parameters, headers 등의 프로퍼티를 활용해 요청을 간편하고 일관성 있게 구성
+- NetworkManager에서 제네릭 타입을 활용해 TMDB API의 다양한 엔드포인트 응답을 단일 메서드로 파싱하여, 모델별 중복 코드를 제거하고 재사용성과 유지보수성을 향상
+- UICollectionView에 여러 섹션에 대응할 수 있도록 RxDataSource의 SectionModelType 활용
+- Realm을 활용하여 데이터 저장, 이미지 저장을 위해 FileManager 활용
+- 상태 변경을 다른 객체에 알리기 위해 NotificationCenter 활용
+- BaseViewModel 프로토콜을 통한 ViewModel 구조 표준화로 일관된 개발 패턴 유지
+- 네트워크 비동기 요청 결과를 단일 성공 또는 실패 이벤트로 처리하여, API 응답을 효율적으로 관리
