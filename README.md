@@ -132,7 +132,7 @@ gitGraph
 - 초기 View가 init될 때 데이터를 받아오지 않는 문제가 발생.
 - combineLatest를 사용했으나, 이 연산자는 모든 Observable에서 값이 발행될 때까지 대기하므로 초기 데이터가 누락
 
-`
+```
  
      NotificationCenter.default.addObserver(self, selector: #selector(handleNewMediaNotification), name: NSNotification.Name(rawValue: "newmedia"), object: nil)
         
@@ -152,7 +152,7 @@ gitGraph
                 owner.deleteSavedContent(at: indexPath, from: savedList)
             }
             .disposed(by: disposeBag)
-   `
+   ```
 
 
 ### 원인분석
