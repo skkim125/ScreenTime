@@ -133,9 +133,10 @@ gitGraph
 - combineLatest를 사용했으나, 이 연산자는 모든 Observable에서 값이 발행될 때까지 대기하므로 초기 데이터가 누락
 
 `
-  NotificationCenter.default.addObserver(self, selector: #selector(handleNewMediaNotification), name: NSNotification.Name(rawValue: "newmedia"), object: nil)
+ 
+     NotificationCenter.default.addObserver(self, selector: #selector(handleNewMediaNotification), name: NSNotification.Name(rawValue: "newmedia"), object: nil)
         
-        let savedList = BehaviorSubject(value: [Save(mediaId: 0, title: "")])
+      let savedList = BehaviorSubject(value: [Save(mediaId: 0, title: "")])
         
         
         Observable.merge(input.trigger, triggerSubject)
@@ -151,7 +152,7 @@ gitGraph
                 owner.deleteSavedContent(at: indexPath, from: savedList)
             }
             .disposed(by: disposeBag)
-            `
+   `
 
 
 ### 원인분석
