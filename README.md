@@ -6,10 +6,14 @@
 | :---: | :---: | :---: |
 | 김상규 | 양승혜 | 최대성 |
 
+<br>
+
 ## 프로젝트 소개
 
 - 당신의 스크린 타임을 지배했던 영화를 한 눈에
 - 주간 미디어 컨텐츠 순위를 살펴보고, 궁금했던 영화를 검색, 즐겨찾기 기능을 통해 
+
+<br>
 
 ## 🙋‍♀️ 프로젝트  주요기능  
 - 인기 영화, TV 시리즈를 함께 볼 수 있는 메인화면
@@ -18,14 +22,15 @@
 - Youtube와 연동되어 제공되는 **영화 예고편**
 - 컨텐츠 세부 정보를 제공하고 비슷한 컨텐츠를 추천해주는  상세화면
 
-
+<br>
 
 ## 🛠 개발 환경  
 
 - 개발 인원: iOS개발 3명
 - 개발 기간: 24.10.08 - 24.10.13(6일)
 - iOS 최소 버전: 15.0+
-   
+
+   <br>
 
 ##  기술 스택
 - UI: UIKit, Snapkit, YoutubePlayerKit, Kingfisher, IQKeyboardManager
@@ -35,7 +40,7 @@
 - 아키텍쳐 및 디자인 패턴: MVVM(Input - Output), Repository﹒Router﹒Singleton 패턴
 - 형상 관리 도구: Git
 
-
+<br>
 
 ## Git Commit Message Convention
 🐞 Fix: 올바르지 않은 동작(버그)을 고친 경우 
@@ -63,6 +68,8 @@
 🎸 Chore: 위 경우에 포함되지 않는 기타 변경 사항 
 
 🙈 gitignore: ignore파일 추가 및 수정
+
+<br>
 
 ```mermaid
 %%{init: { 'logLevel': 'debug', 'theme': 'default' , 'themeVariables': {
