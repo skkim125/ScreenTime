@@ -2,7 +2,7 @@
 > 당신의 스크린타임을 지배했던 영화를 내 손 안에! 📲
 
 ## 🧑🏻‍💻 팀원 소개
-|<a href="https://github.com/skkim125"><img src="https://avatars.githubusercontent.com/u/134041539?v=4" width="150px"/></a>|<a href="https://github.com/vichye-1"><img src="https://avatars.githubusercontent.com/u/66904886?v=4" width="150px"/></a>|<a href="https://github.com/dsungc1111"><img src="https://avatars.githubusercontent.com/u/114575573?v=4" width="150px"/></a>
+|<a href="https://github.com/skkim125"><img src="https://avatars.githubusercontent.com/u/134041539?v=4" width="210px"/></a>|<a href="https://github.com/vichye-1"><img src="https://avatars.githubusercontent.com/u/66904886?v=4" width="210px"/></a>|<a href="https://github.com/dsungc1111"><img src="https://avatars.githubusercontent.com/u/114575573?v=4" width="210px"/></a>
 | :---: | :---: | :---: |
 | 김상규 | 양승혜 | 최대성 |
 | 서치탭 <br>디테일뷰 | 네트워크 통신 로직 <br>Realm | 홈 탭 <br>다운로드 탭 |
