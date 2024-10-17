@@ -1,5 +1,6 @@
 # 🎥 스크린타임 
 > 당신의 스크린타임을 지배했던 영화를 내 손 안에! 📲
+<br>
 
 ## 🧑🏻‍💻 팀원 소개
 |<a href="https://github.com/skkim125"><img src="https://avatars.githubusercontent.com/u/134041539?v=4" width="210px"/></a>|<a href="https://github.com/vichye-1"><img src="https://avatars.githubusercontent.com/u/66904886?v=4" width="210px"/></a>|<a href="https://github.com/dsungc1111"><img src="https://avatars.githubusercontent.com/u/114575573?v=4" width="210px"/></a>
