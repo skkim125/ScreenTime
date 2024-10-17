@@ -9,7 +9,7 @@
 
 <br>
 
-## 프로젝트 소개
+## 🎬 프로젝트 소개
 
 - 당신의 스크린 타임을 지배했던 영화를 한 눈에
 - 주간 미디어 컨텐츠 순위를 살펴보고, 궁금했던 영화를 검색, 즐겨찾기 기능을 통해 
@@ -34,7 +34,7 @@
 
    <br>
 
-##  기술 스택
+##  🦾 기술 스택
 - UI : UIKit, Snapkit, YoutubePlayerKit, Kingfisher, IQKeyboardManager
 - Reactive : RxSwift, RxCocoa, RxDataSource
 - Database : FileManager, Realm
@@ -44,7 +44,7 @@
 
 <br>
 
-## Git Commit Message Convention
+## 🙌🏻 Git Commit Message Convention
 ```
 🐞 Fix: 올바르지 않은 동작(버그)을 고친 경우 
 🍿 Feat: 새로운 기능을 추가한 경우 
@@ -58,7 +58,7 @@
 ### 브랜치 전략
 <br>
 
-## 주요 기술
+## 🔎 주요 기술
 
 ### 네트워크
 - Alamofire URLRequestConvertible을 채택한 enum으로 각 endpoint를 case로 구분하고, path, parameters, headers 등의 프로퍼티를 활용해 요청을 간편하고 일관성 있게 구성
@@ -78,7 +78,7 @@
 <br>
 
 
-## 트러블 슈팅 
+## ☄️ 트러블 슈팅 
 
 ### 문제 상황 : DetailView init시 데이터가 불러오지 않는 문제 발생
 
@@ -94,7 +94,7 @@
 <img width="660" alt="트러블슈팅" src="https://github.com/user-attachments/assets/65e237fe-8abb-424e-9b9c-e687af18eca8">
 
 
-## 회고
+## 💬 회고
 
 ### 🌟 Liked(좋았던 점)
 
