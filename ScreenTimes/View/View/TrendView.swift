@@ -8,18 +8,20 @@
 import UIKit
 import SnapKit
 
-final class TrendView: UIView {
+final class TrendView: BaseView {
     
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let deviceWidth = UIScreen.main.bounds.width
     
     private let recView = {
-        let view = UIView()
+        let view = UIImageView()
         view.backgroundColor = .systemBrown
         view.layer.cornerRadius = 10
+        view.clipsToBounds = true
         return view
     }()
+    
     private let playBtn = {
         let btn = UIButton()
         var config = UIButton.Configuration.plain()
@@ -39,6 +41,7 @@ final class TrendView: UIView {
         btn.layer.cornerRadius = 5
         return btn
     }()
+    
     private let plusBtn = {
         let btn = UIButton()
         var config = UIButton.Configuration.plain()
@@ -59,10 +62,12 @@ final class TrendView: UIView {
         
         return btn
     }()
-    private let genreLabel = {
+    
+    let genreLabel = {
         let label = UILabel()
         label.text = "예비 장르 레이블"
         label.textColor = .white
+        label.font = .boldSystemFont(ofSize: 20)
         label.textAlignment = .center
         return label
     }()
@@ -75,7 +80,7 @@ final class TrendView: UIView {
         return label
     }()
    
-    let maincontentsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: maincontentsViewLayout())
+    let moviecontentsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: maincontentsViewLayout())
     
     let tvcontentsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: maincontentsViewLayout())
     
@@ -98,10 +103,8 @@ final class TrendView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
-        configureHierarchy()
-        configureLayout()
-        maincontentsCollectionView.register(TrendCollectionViewCell.self, forCellWithReuseIdentifier: "TrendCollectionViewCell")
+       
+        moviecontentsCollectionView.register(TrendCollectionViewCell.self, forCellWithReuseIdentifier: "TrendCollectionViewCell")
         tvcontentsCollectionView.register(TrendCollectionViewCell.self, forCellWithReuseIdentifier: "TrendCollectionViewCell")
     }
     
@@ -109,7 +112,7 @@ final class TrendView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configureHierarchy() {
+    override func configureHierarchy() {
         addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(recView)
@@ -117,16 +120,16 @@ final class TrendView: UIView {
         contentView.addSubview(plusBtn)
         contentView.addSubview(genreLabel)
         contentView.addSubview(categoryLabel1)
-        contentView.addSubview(maincontentsCollectionView)
+        contentView.addSubview(moviecontentsCollectionView)
         contentView.addSubview(categoryLabel2)
         contentView.addSubview(tvcontentsCollectionView)
-        maincontentsCollectionView.showsHorizontalScrollIndicator = false
+        moviecontentsCollectionView.showsHorizontalScrollIndicator = false
         tvcontentsCollectionView.showsHorizontalScrollIndicator = false
-        maincontentsCollectionView.backgroundColor = .clear
+        moviecontentsCollectionView.backgroundColor = .clear
         tvcontentsCollectionView.backgroundColor = .clear
     }
     
-    private func configureLayout() {
+    override func configureLayout() {
         
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(safeAreaLayoutGuide)
@@ -161,13 +164,13 @@ final class TrendView: UIView {
             make.top.equalTo(recView.snp.bottom).offset(30)
             make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
         }
-        maincontentsCollectionView.snp.makeConstraints { make in
+        moviecontentsCollectionView.snp.makeConstraints { make in
             make.top.equalTo(categoryLabel1.snp.bottom).offset(10)
             make.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(10)
             make.height.equalTo(150)
         }
         categoryLabel2.snp.makeConstraints { make in
-            make.top.equalTo(maincontentsCollectionView.snp.bottom).offset(20)
+            make.top.equalTo(moviecontentsCollectionView.snp.bottom).offset(20)
             make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
         }
         tvcontentsCollectionView.snp.makeConstraints { make in
@@ -176,6 +179,13 @@ final class TrendView: UIView {
             make.height.equalTo(150)
             make.bottom.equalTo(contentView.snp.bottom).inset(20)
         }
+        scrollView.showsVerticalScrollIndicator = false
     }
     
+    func configureImage(imageURL: String) {
+        
+        if let url = URL(string: "https://image.tmdb.org/t/p/w500/" + imageURL) {
+            recView.kf.setImage(with: url)
+        }
+    }
 }

@@ -9,20 +9,23 @@ import UIKit
 import SnapKit
 
 final class DownloadView: BaseView {
-    let searchController = UISearchController(searchResultsController: nil)
-    var layoutType: CVType = .table
-    lazy var collectionView = {
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: defaultCollectionViewLayout(layoutType))
-        cv.register(DefaultCollectionViewCell.self, forCellWithReuseIdentifier: DefaultCollectionViewCell.identifier)
-        cv.showsVerticalScrollIndicator = false
-        cv.backgroundColor = .black
-        
-        return cv
-    }()
+    
+    let tableView: UITableView = {
+       let view = UITableView()
+       view.allowsSelection = true
+       view.backgroundColor = .clear
+       view.separatorStyle = .none
+       view.bounces = true
+       view.showsVerticalScrollIndicator = true
+       view.contentInset = .zero
+       view.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+       view.translatesAutoresizingMaskIntoConstraints = false
+       return view
+     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        tableView.register(DownloadTableViewCell.self, forCellReuseIdentifier: DownloadTableViewCell.identifier)
     }
     
     @available(*, unavailable)
@@ -31,11 +34,11 @@ final class DownloadView: BaseView {
     }
     
     override func configureHierarchy() {
-        addSubview(collectionView)
+        addSubview(tableView)
     }
     
     override func configureLayout() {
-        collectionView.snp.makeConstraints { make in
+        tableView.snp.makeConstraints { make in
             make.edges.equalTo(safeAreaLayoutGuide)
         }
     }
