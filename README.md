@@ -49,7 +49,8 @@
 🙈 gitignore: ignore파일 추가 및 수정
 ```
 ### 브랜치 전략
-<img width="873" alt="스크린샷 2024-10-17 오후 7 17 08" src="https://github.com/user-attachments/assets/df783237-f109-4cf2-a76b-d91bb375caa2">
+<img width="811" alt="스크린샷 2024-10-17 오후 7 20 08" src="https://github.com/user-attachments/assets/743cd0c3-84d3-4d95-8ef7-0cc951467acb">
+
 <br>
 
 ## 🔎 주요 기술
