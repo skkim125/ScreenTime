@@ -10,7 +10,7 @@
 
 <br>
 
-![1 (3)](https://github.com/user-attachments/assets/61fa8043-74ac-4c0d-8adc-4729092b69c5)
+<img src="https://github.com/user-attachments/assets/61fa8043-74ac-4c0d-8adc-4729092b69c5" width="220" height="470"/>
 
 <br>
 
